@@ -1,1 +1,20 @@
-@import "tailwindcss";
+@import "tailwindcss";  
+
+@theme {
+  --color-ggorange: #F47E20;
+  --color-ggbg: #0a0e15;
+  --color-ggwhite: #d9d9d9;
+  --font-display: Inter, sans-serif; 
+} 
+
+.test-red {
+  @apply border-1 border-red-500
+}
+
+.test-green {
+  @apply border-1 border-green-500
+}
+
+.test-blue {
+  @apply border-1 border-blue-500
+}
