@@ -6,7 +6,7 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <div className='bg-ggbg h-screen'>
         <Navbar selected={selected} setSelected = {setSelected}/>
 
       </div>
