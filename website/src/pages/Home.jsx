@@ -13,9 +13,18 @@ const Home = () => {
         <p className='text-ggorange py-8 text-lg'>
           Level Up Together: Your Ultimate Campus Gaming Community
         </p>
-        <button className='bg-ggorange text-ggwhite rounded-3xl h-10 flex justify-between gap-5 px-5 items-center' type='button'>
-          Discord <div className='flex items-center justify-center rounded-full bg-ggbg h-8 w-8'><FaArrowRightLong className='text-lg items-center justify-center flex'/></div>
-        </button>
+        <a
+          href="https://discord.com/invite/s99axhqQac"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-ggorange text-ggwhite rounded-3xl h-10 flex justify-between gap-5 px-5 items-center w-fit"
+        >
+          Discord
+          <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8">
+            <FaArrowRightLong className="text-lg" />
+          </div>
+        </a>
+
       </div>
     </div>
   )
