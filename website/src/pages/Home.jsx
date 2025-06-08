@@ -1,9 +1,9 @@
-import { FaArrowRightLong } from 'react-icons/fa6';
+import HomeButtons from '../components/HomeButtons'
 
 const Home = () => {
   return (
-    <div className = 'test-blue justify-start flex w-2/3 h-screen'>
-      <div className='test-red w-2/3 pt-10 sm:pt-15 md:pt-20 lg:pt-30 font-display sm:pl-2 md:pl-5 lg:pl-10'>
+    <div className = 'flex w-2/3 h-screen'>
+      <div className='w-2/3 pt-10 sm:pt-15 md:pt-30 lg:pt-40 font-display sm:pl-2 md:pl-5 lg:pl-10'>
         <p className='text-ggwelcome text-2xl pb-3'>
           Welcome to Gator Gaming!
         </p>
@@ -13,18 +13,7 @@ const Home = () => {
         <p className='text-ggorange py-8 text-lg'>
           Level Up Together: Your Ultimate Campus Gaming Community
         </p>
-        <a
-          href="https://discord.com/invite/s99axhqQac"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-ggorange text-ggwhite rounded-3xl h-10 flex justify-between gap-5 px-5 items-center w-fit"
-        >
-          Discord
-          <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8">
-            <FaArrowRightLong className="text-lg" />
-          </div>
-        </a>
-
+        <HomeButtons/>
       </div>
     </div>
   )

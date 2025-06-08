@@ -21,5 +21,13 @@
 }
 
 .fade-orange {
-  @apply transition-colors ease-in-out duration-500 hover:text-ggorange
+  @apply transition-colors ease-in-out duration-300 hover:text-ggorange
+}
+
+.fade-bg-orange {
+  @apply transition-colors ease-in-out duration-500 hover:bg-ggorange hover:border-ggorange
+}
+
+.darken {
+  @apply transition-colors ease-in-out duration-500 hover:bg-[#a35618] hover:border-[#a35618]
 }
