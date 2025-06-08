@@ -1,12 +1,6 @@
-# React + Vite
+TODO: 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Background blurs are absolutely positioned, fix them so that when resizing the page they don't disappear out of focus.
 
-Currently, two official plugins are available:
+- New div (which houses the image and 'Our Skills' section) has a pixel-defined width. Fix that
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
