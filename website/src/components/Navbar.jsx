@@ -19,7 +19,7 @@ const Navbar = ({selected, setSelected}) => {
       </div>
       <div className="text-3xl flex flex-row justify-end gap-4">
           <a 
-            href="https://www.instagram.com/gatorgaminguf/"
+            href="https://discord.com/invite/s99axhqQac"
             target='_blank'
             rel='noopener noreferrer'
           >

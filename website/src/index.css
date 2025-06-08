@@ -1,4 +1,8 @@
-@import "tailwindcss";  
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
 
 @theme {
   --color-ggorange: #F47E20;
@@ -30,4 +34,8 @@
 
 .darken {
   @apply transition-colors ease-in-out duration-500 hover:bg-[#a35618] hover:border-[#a35618]
+}
+
+.h-screen-minus-navbar {
+  height: calc(100vh - 5rem)
 }

@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
-import Home from './pages/Home'
+import Hero from './pages/Hero'
+import HomeContent from './pages/HomeContent'
 
 const App = () => {
   const [selected, setSelected] = useState('Home')
 
   return (
     <>
-      <div className='bg-ggbg h-screen'>
+      <div className=' bg-ggbg h-fit'>
         <Navbar selected={selected} setSelected = {setSelected}/>
-        <div className='pt-20 justify-center flex'>
-          <Home/>
-        </div>
+        <Hero/>
+        <HomeContent/>
       </div>
     </>
   )

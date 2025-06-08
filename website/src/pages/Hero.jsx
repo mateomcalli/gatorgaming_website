@@ -1,11 +1,12 @@
 import HomeButtons from '../components/HomeButtons'
 import BlurOne from '../bgblurs/BlurOne'
+import BlurTwo from '../bgblurs/BlurTwo'
 
-const Home = () => {
+const Hero = () => {
   return (
-    <>
-      <div className = 'test-blue flex justify-between w-2/3 h-screen'>
-        <div className='w-2/3 pt-10 sm:pt-15 md:pt-30 lg:pt-40 font-display sm:pl-2 md:pl-5 lg:pl-10'>
+    <div className='pt-20 justify-center flex'>
+      <div className = 'flex justify-between w-2/3 h-screen-minus-navbar'>
+        <div className='w-2/3 pt-10 sm:pt-15 md:pt-30 lg:pt-40 font-display sm:pl-2 md:pl-5 lg:pl-10 z-2'>
           <p className='text-ggwelcome text-2xl pb-3'>
             Welcome to Gator Gaming!
           </p>
@@ -17,11 +18,12 @@ const Home = () => {
           </p>
           <HomeButtons/>
         </div>
-        <div className = 'flex w-[3px] h-2/3 mt-22 sm:mr-2 md:mr-5 lg:mr-10 bg-ggwhite'></div>
+        <div className = 'z-2 flex w-[3px] h-2/3 mt-22 sm:mr-2 md:mr-5 lg:mr-10 bg-ggwhite'></div>
       </div>
+      <BlurTwo/>
       <BlurOne/>
-    </>
+    </div>
   )
 }
 
-export default Home
+export default Hero
