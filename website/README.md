@@ -4,3 +4,5 @@ TODO:
 
 - New div (which houses the image and 'Our Skills' section) has a pixel-defined width. Fix that
 
+- Finish hero lines, inconsistencies with length on different devices
+
