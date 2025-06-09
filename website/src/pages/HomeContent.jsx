@@ -1,8 +1,8 @@
 const HomeContent = () => {
   return (
     <div className='justify-center flex'>
-      <div className='test-red flex justify-between w-2/3 h-screen'>
-        <div className='test-blue flex flex-col gap-8 w-[531px]'>
+      <div className='flex justify-between w-2/3 h-screen'>
+        <div className='flex flex-col gap-8 w-[531px]'>
           <img 
             className="w-[531px] h-96 rounded-3xl"
             src="https://i.imgur.com/jQxoy3E.png"

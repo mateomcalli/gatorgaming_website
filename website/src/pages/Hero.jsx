@@ -5,8 +5,8 @@ import BlurTwo from '../bgblurs/BlurTwo'
 const Hero = () => {
   return (
     <div className='pt-20 justify-center flex'>
-      <div className = 'flex justify-between w-2/3 h-screen-minus-navbar'>
-        <div className='w-2/3 pt-10 sm:pt-15 md:pt-30 lg:pt-40 font-display sm:pl-2 md:pl-5 lg:pl-10 z-2'>
+      <div className = 'items-center flex justify-between w-2/3 h-screen-minus-navbar'>
+        <div className='items-center pb-10 w-2/3 font-display sm:pl-2 md:pl-5 lg:pl-10 z-2'>
           <p className='text-ggwelcome text-2xl pb-3'>
             Welcome to Gator Gaming!
           </p>
@@ -18,7 +18,7 @@ const Hero = () => {
           </p>
           <HomeButtons/>
         </div>
-        <div className = 'z-2 flex w-[3px] h-2/3 mt-22 sm:mr-2 md:mr-5 lg:mr-10 bg-ggwhite'></div>
+        <div className = 'z-2 mb-25 flex w-[3px] h-2/3 mt-22 sm:mr-2 md:mr-5 lg:mr-10 bg-ggwhite'></div>
       </div>
       <BlurTwo/>
       <BlurOne/>
