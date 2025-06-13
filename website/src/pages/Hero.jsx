@@ -1,6 +1,4 @@
 import HomeButtons from '../components/HomeButtons'
-import BlurOne from '../bgblurs/BlurOne'
-import BlurTwo from '../bgblurs/BlurTwo'
 
 const Hero = () => {
   return (
@@ -19,12 +17,10 @@ const Hero = () => {
           <HomeButtons/>
         </div>
         <div className='z-2 w-6 flex flex-row items-center justify-between h-screen-minus-navbar sm:mr-2 md:mr-5 lg:mr-10'>
-          <div className='z-2 w-[3px] h-1/8 mb-75 bg-ggwhite'/>
-          <div className ='z-2 w-[3px] h-2/3 bg-ggwhite'/>
+          <div className='w-[3px] h-1/8 mb-75 bg-ggwhite'/>
+          <div className ='w-[3px] h-2/3 bg-ggwhite'/>
         </div>
       </div>
-      <BlurTwo/>
-      <BlurOne/>
     </div>
   )
 }
