@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <>
-      <div className='bg-ggbg h-fit'>
+      <div className='bg-ggbg h-fit scroll-smooth'>
         <BlurOne/>
         <Navbar selected={selected} setSelected = {setSelected}/>
         <Hero/>
