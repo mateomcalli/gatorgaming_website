@@ -7,7 +7,7 @@ const SkillsList = () => {
   return (
     <>
       {skills.map(skill => (
-        <div className='w-[95%] flex flex-col'>
+        <div className='w-[95%] flex flex-col' key={skill.name}>
           <div className='flex justify-between'>
             <p className='py-3.5 text-md text-ggwhite font-display'>
               {skill.name}
