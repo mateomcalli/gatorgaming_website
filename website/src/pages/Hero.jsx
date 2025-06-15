@@ -2,7 +2,7 @@ import HomeButtons from '../components/HomeButtons'
 
 const Hero = () => {
   return (
-    <div className='pt-20 justify-center flex'>
+    <div className='pt-20 justify-center flex z-1'>
       <div className ='items-center flex justify-between w-2/3 h-screen-minus-navbar'>
         <div className='items-center pb-10 w-2/3 font-display sm:pl-2 md:pl-5 lg:pl-10 z-2'>
           <p className='text-ggwelcome text-2xl pb-3'>
