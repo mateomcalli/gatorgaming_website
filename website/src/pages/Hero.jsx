@@ -1,24 +1,21 @@
 import HomeButtons from '../components/HomeButtons'
 
 const Hero = () => {
+  
   return (
-    <div className='pt-20 justify-center flex z-1'>
-      <div className ='items-center flex justify-between w-2/3 h-screen-minus-navbar'>
-        <div className='items-center pb-10 w-2/3 font-display sm:pl-2 md:pl-5 lg:pl-10 z-2'>
-          <p className='text-ggwelcome text-2xl pb-3'>
+    <div className='pt-20 md:justify-center flex z-1'>
+      <div className ='w-screen flex justify-between md:items-center lg:w-3/4 lg:h-[calc(100vh-5rem)] z-2'>
+        <div className='px-3 text-balance flex flex-col items-center text-center pt-10 pb-20 sm:pl-2 md:pl-5 lg:text-left lg:items-start lg:w-2/3 lg:pl-10 z-2 font-display'>
+          <p className='text-xl pb-3 sm:text-2xl text-ggwelcome'>
             Welcome to Gator Gaming!
           </p>
-          <h1 className='text-ggwhite font-bold text-5xl leading-tight'>
+          <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold text-ggwhite'>
             We're UF's student-led gaming club, committed to hosting community events that are completely free for all players.
           </h1>
-          <p className='text-ggorange py-8 text-lg'>
+          <p className='text-ggorange py-8 text-md md:text-lg'>
             Level Up Together: Your Ultimate Campus Gaming Community
           </p>
           <HomeButtons/>
-        </div>
-        <div className='z-2 w-6 flex flex-row items-center justify-between h-screen-minus-navbar sm:mr-2 md:mr-5 lg:mr-10'>
-          <div className='w-[3px] h-1/8 mb-75 bg-ggwhite'/>
-          <div className ='w-[3px] h-2/3 bg-ggwhite'/>
         </div>
       </div>
     </div>
