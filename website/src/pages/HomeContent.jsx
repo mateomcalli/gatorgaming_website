@@ -4,14 +4,14 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 const HomeContent = () => {
   return (
     <div className='justify-center flex z-2'>
-      <div className='flex gap-15 w-315 h-screen z-1'>
-        <div className='flex flex-col gap-8 min-w-100 w-158'>
+      <div className='test-blue flex gap-15 w-215 xl:w-315 h-screen z-1'>
+        <div className='test-green flex flex-col gap-8 min-w-100 w-158'>
           <img 
-            className="aspect-auto rounded-3xl z-2"
-            src="https://i.imgur.com/jQxoy3E.png"
+            className="aspect-auto z-2 w-100 xl:w-full"
+            src="home/home-players.png"
           />
           <div className='pl-5 z-2'>
-            <p className='pb-2 text-3xl text-ggwhite font-display z-2'>
+            <p className='pb-2 text-2xl xl:text-3xl text-ggwhite font-display z-2'>
               Our Skills
             </p>
             <p className='w-[95%] pb-2 text-md text-ggorange font-display'>
@@ -20,7 +20,7 @@ const HomeContent = () => {
             <SkillsList/>
           </div>
         </div>
-        <div className='flex pt-3 gap-13 flex-col min-w-100 w-158 z-1'>
+        <div className='test-red flex pt-3 gap-13 flex-col min-w-100 w-158 z-1'>
           <div>
             <a href='#about-start'><p className='text-xl pb-3 text-ggwhite font-display scroll-m-30' id='about-start'>Who are we?</p></a>
             <p className='text-3xl pb-2 font-bold text-ggwhite font-display'>We Always Make Epic Plays</p>

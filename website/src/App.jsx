@@ -10,10 +10,10 @@ const App = () => {
   return (
     <>
       <div className='bg-ggbg w-fit scroll-smooth'>
-        <BlurOne/>
+        {/* <BlurOne/> */}
         <Navbar selected={selected} setSelected = {setSelected}/>
         <Hero/>
-        {/* <HomeContent/> */}
+        <HomeContent/>
       </div>
     </>
   )
