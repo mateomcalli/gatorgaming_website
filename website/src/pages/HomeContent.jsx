@@ -28,7 +28,7 @@ const HomeContent = () => {
             </a>
           </div>
         </div>
-        <div className='-mt-8 pl-6 xl:-mt-0 xl:pl-8 z-2'>
+        <div className='-mt-6 pl-6 xl:-mt-0 xl:pl-8 z-2'>
           <p className='pb-2 text-2xl xl:text-3xl text-ggwhite font-display z-2'>
           Our Skills
           </p>
