@@ -4,7 +4,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 const HomeContent = () => {
   return (
     <div className='justify-center flex z-2'>
-      <div className='test-blue grid grid-cols-2 grid-rows-[1fr_1fr] gap-x-15 xl:gap-y-13 w-215 xl:w-250 2xl:w-332 z-1'>
+      <div className='test-blue grid grid-cols-2 grid-rows-[1fr_1fr] gap-x-15 gap-y-10 w-215 xl:w-250 2xl:w-332 z-1'>
         <div className='place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
           <img 
             className="aspect-auto z-2"
