@@ -4,8 +4,8 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 const HomeContent = () => {
   return (
     <div className='justify-center flex z-2'>
-      <div className='grid grid-cols-2 grid-rows-[1fr_1fr] gap-x-15 xl:gap-y-10 w-215 xl:w-300 2xl:w-332 h-screen z-1'>
-        <div className='place-self-center xl:place-self-stretch flex flex-col gap-8 h-fit'>
+      <div className='grid grid-cols-2 grid-rows-[1fr_1fr] gap-x-15 xl:gap-y-10 w-215 xl:w-250 2xl:w-332 h-screen z-1'>
+        <div className='place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
           <img 
             className="aspect-auto z-2"
             src="home/home-players.png"
@@ -28,7 +28,7 @@ const HomeContent = () => {
             </a>
           </div>
         </div>
-        <div className='-mt-6 pl-6 xl:-mt-0 xl:pl-8 z-2'>
+        <div className='-mt-6 pl-6 2xl:-mt-0 xl:pl-6 z-2'>
           <p className='pb-2 text-2xl xl:text-3xl text-ggwhite font-display z-2'>
           Our Skills
           </p>
