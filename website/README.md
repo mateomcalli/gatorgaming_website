@@ -1,8 +1,7 @@
 TODO: 
 
-- Change the HomeContent image to relative path in the public folder
-
-- Finish hero lines, inconsistencies with length on different devices
+- Design and implement a mobile navbar that I can just put in every page
+- Design website for mobile devices :(
 
 
 
