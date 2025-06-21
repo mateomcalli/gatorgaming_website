@@ -14,7 +14,7 @@ const HomeButtons = () => {
         </div>
       </a>
       <a
-        href='#about-start'
+        href='https://linktr.ee/gatorgaminguf'
         className='z-3 h-10 w-fit px-5 flex items-center justify-around rounded-3xl border-1 border-ggwhite text-ggwhite fade-bg-orange'
       >Learn more
       </a>

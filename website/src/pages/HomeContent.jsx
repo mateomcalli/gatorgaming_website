@@ -1,9 +1,9 @@
 import SkillsList from '../components/SkillsList'
-import { FaArrowRightLong } from 'react-icons/fa6';
+import { FaArrowRightLong } from 'react-icons/fa6'
 import { useMediaQuery } from 'react-responsive'
 
 const HomeContent = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isSm = useMediaQuery({ maxWidth: 767 })
 
   return (
     <div className='justify-center flex z-2'>
@@ -15,7 +15,7 @@ const HomeContent = () => {
           />
         </div>
         <div className='w-3/4 md:w-auto m-auto text-center md:text-left items-center md:items-start xl:pl-10 md:justify-center flex flex-col z-1'>
-          {!isMobile && <a href='#about-start'><p className='text-lg xl:text-xl pb-3 text-ggwhite font-display scroll-m-30' id='about-start'>Who are we?</p></a>}
+          {!isSm && <a href='#about-start'><p className='text-lg xl:text-xl pb-3 text-ggwhite font-display scroll-m-30' id='about-start'>Who are we?</p></a>}
           <p className='pt-4 md:pt-0 text-2xl xl:text-3xl pb-2 font-bold text-ggwhite font-display'>We Always Make Epic Plays</p>
           <p className='text-md xl:text-lg text-ggwhite font-display'>We’re a passionate gaming community dedicated to uniting players of all skill levels—whether you’re here to dominate tournaments, squad up with friends, or just have a good time. Join us and level up your gaming experience!</p>
           <div className='flex gap-5 pt-8 font-display'>
@@ -31,7 +31,7 @@ const HomeContent = () => {
             </a>
           </div>
         </div>
-        {!isMobile && // disabled when width < 768px
+        {!isSm && // disabled when width < 768px
           <div className='pl-6 2xl:-mt-0 xl:pl-6 z-2'>
             <p className='pb-2 text-2xl xl:text-3xl text-ggwhite font-display z-2'>
             Our Skills
