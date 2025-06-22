@@ -1,4 +1,4 @@
-import NavButtons from './NavButtons'
+import NavButtons from '../NavButtons'
 import { FaDiscord, FaInstagram } from 'react-icons/fa'
 
 const Navbar = ({selected, setSelected}) => {

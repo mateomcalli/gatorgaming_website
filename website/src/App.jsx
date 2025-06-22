@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import Navbar from './components/Navbar'
-import MobileNavbar from './components/MobileNavbar'
+import Navbar from './components/navbar/Navbar'
+import MobileNavbar from './components/navbar/MobileNavbar'
 import Hero from './pages/Hero'
 import HomeContent from './pages/HomeContent'
 import BlurOne from './bgblurs/BlurOne'
@@ -13,9 +13,9 @@ const App = () => {
   return (
     <>
       <div className='bg-ggbg w-fit scroll-smooth'>
-        <BlurOne/>
+        {/* <BlurOne/> */}
         {!isMobile && <Navbar selected={selected} setSelected = {setSelected}/>}
-        {isMobile && <MobileNavbar/>}
+        {isMobile && <MobileNavbar setSelected = {setSelected}/>}
         <Hero/>
         <HomeContent/>
       </div>
