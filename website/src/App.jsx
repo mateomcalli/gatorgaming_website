@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <div className='bg-ggbg w-fit scroll-smooth'>
-        {/* <BlurOne/> */}
+        <BlurOne/>
         {!isMobile && <Navbar selected={selected} setSelected = {setSelected}/>}
         {isMobile && <MobileNavbar setSelected = {setSelected}/>}
         <Hero/>
