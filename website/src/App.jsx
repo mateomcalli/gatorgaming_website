@@ -17,7 +17,7 @@ const App = () => {
         {!isMobile && <Navbar selected={selected} setSelected = {setSelected}/>}
         {isMobile && <MobileNavbar setSelected = {setSelected}/>}
         <Hero/>
-        <HomeContent/>
+        <HomeContent isMobile={isMobile}/>
       </div>
     </>
   )
