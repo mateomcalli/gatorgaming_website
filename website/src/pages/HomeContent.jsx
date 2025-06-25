@@ -8,8 +8,8 @@ const HomeContent = ( {isMobile} ) => {
 
   return (
     <>
-      <div className='relative justify-center flex z-2'>
-        <div className='md:grid md:grid-cols-2 md:grid-rows-[1fr_1fr] md:gap-x-15 lg:gap-y-10 md:w-180 lg:w-215 xl:w-250 2xl:w-332'>
+      <div className='test-red relative justify-center flex z-2'>
+        <div className='test-blue md:grid md:grid-cols-2 md:grid-rows-[1fr_1fr] md:gap-x-15 lg:gap-y-10 md:w-180 lg:w-215 xl:w-250 2xl:w-332'>
           <div className='w-3/5 md:w-auto place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
             <img 
               className="aspect-auto z-2"
@@ -77,10 +77,10 @@ const HomeContent = ( {isMobile} ) => {
         </div>
       </div>
       {/* start of faq section */}
-      <div className='w-screen h-screen flex bg-no-repeat bg-[url(home/faq-bg3.png)] bg-[calc(50%-150px)_-50px] justify-center xl:justify-start'>
-        <div className='h-fit w-full px-10 md:px-0 xl:px-40 md:w-180 lg:w-210 flex flex-col text-center'>
-          <p className='pt-20 pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2'>FAQ</p>
-          <div className=''>
+      <div className='test-red w-screen h-screen flex bg-no-repeat bg-[url(home/faq-bg3.png)] bg-[calc(50%-150px)_-60px] justify-center'>
+        <div className='test-blue h-fit w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex flex-col text-center'>
+          <div className='xl:w-1/2'>
+            <p className='pt-35 pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2'>FAQ</p>
             <div className='pb-3'>
               <div className='flex items-center gap-5 pb-3'>
                 <FaPlus size='24' />
