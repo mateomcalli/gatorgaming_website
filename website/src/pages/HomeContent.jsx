@@ -77,7 +77,7 @@ const HomeContent = ( {isMobile} ) => {
         </div>
       </div>
       {/* start of faq section */}
-      <div className='w-screen h-screen flex bg-[url(home/faq-bg.png)] bg-[calc(50%-150px)_-100px] justify-center xl:justify-start'>
+      <div className='w-screen h-screen flex bg-no-repeat bg-[url(home/faq-bg3.png)] bg-[calc(50%-150px)_-50px] justify-center xl:justify-start'>
         <div className='h-fit w-full px-10 md:px-0 xl:px-40 md:w-180 lg:w-210 flex flex-col text-center'>
           <p className='pt-20 pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2'>FAQ</p>
           <div className=''>
