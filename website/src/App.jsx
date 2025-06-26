@@ -9,6 +9,7 @@ import BlurOne from './bgblurs/BlurOne'
 const App = () => {
   const [selected, setSelected] = useState('Home')
   const isMobile = useMediaQuery({ maxWidth: 920 })
+  const minXl = useMediaQuery({ minWidth: 1280 })
 
   return (
     <>
@@ -17,7 +18,7 @@ const App = () => {
         {!isMobile && <Navbar selected={selected} setSelected = {setSelected}/>}
         {isMobile && <MobileNavbar setSelected = {setSelected}/>}
         <Hero/>
-        <HomeContent isMobile={isMobile}/>
+        <HomeContent minXl={minXl}/>
       </div>
     </>
   )
