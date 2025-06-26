@@ -79,12 +79,15 @@ const HomeContent = ( {minXl} ) => {
       {/* start of faq section */}
       <div className='w-screen h-screen flex bg-no-repeat bg-[url(home/faq-bg3.png)] bg-[calc(50%-150px)_-60px] justify-center'>
         <div className='pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center'>
-          <div className='w-full xl:w-1/2'>
-            <p className='pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2'>FAQ</p>
+          <div className='px-5 w-full xl:w-1/2'>
+            <p className='pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2 font-bold'>FAQ</p>
             <div className='pb-3'>
               <div className='flex items-center gap-5 pb-3'>
                 <FaPlus size='24' />
                 <p className='text-md sm:text-lg font-display'>How do I join Gator Gaming?</p>
+                {/* <motion.div>
+
+                </motion.div> */}
               </div>
               <div className='h-[1px] bg-ggwhite' />
             </div>
