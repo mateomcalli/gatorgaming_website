@@ -120,7 +120,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
       {/* start of faq section */}
       <div className='relative w-screen h-screen flex justify-center'>
         <FaqBlur/>
-        <div className='pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
+        <div className='xl:gap-30 pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
           <div className='px-10 md:px-5 w-full xl:w-1/2'>
             <p className='pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2 font-bold'>FAQ</p>
               {faq.map((question) => (
