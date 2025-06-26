@@ -8,7 +8,7 @@ import { LuGalleryVerticalEnd } from "react-icons/lu";
 import { FaDiscord, FaInstagram } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion';
 
-const MobileNavbar = ({setSelected}) => {
+const MobileNavbar = ({setSelectedPage}) => {
   const [isNavOpen, setisNavOpen] = useState(false)
 
   return (
@@ -16,7 +16,7 @@ const MobileNavbar = ({setSelected}) => {
       <div className="px-6 border-b-1 border-[#2e2e2d] fixed justify-between items-center w-screen top-0 flex h-20 bg-ggbg font-display z-10">
         <div className="w-fit flex-shrink-0">
           <img
-            onClick={() => setSelected('Home')}
+            onClick={() => setSelectedPage('Home')}
             className="w-16"
             src="https://i.imgur.com/n2RSSOQ.png"
           ></img>

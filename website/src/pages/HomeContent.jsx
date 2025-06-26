@@ -1,10 +1,51 @@
 import SkillsList from '../components/SkillsList'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react';
+import FaqBlur from '../bgblurs/FaqBlur';
 import { FaArrowRightLong } from 'react-icons/fa6'
-import { useMediaQuery } from 'react-responsive'
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus } from 'react-icons/fa6';
 
-const HomeContent = ( {minXl} ) => {
-  const maxSm = useMediaQuery({ maxWidth: 767 })
+const HomeContent = ( {maxSm, minXl} ) => {
+  const [faqSelection, setFaqSelection] = useState(null)
+
+  const faq = [
+    { q: 'How do I join Gator Gaming?',
+      a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis commodo enim. Mauris sit amet mi lobortis, luctus orci accumsan, maximus diam. Nullam auctor nulla bibendum sapien faucibus fringilla.',
+      i: 1
+    },
+    { q: 'How can I get involved with Gator Gaming?',
+      a: 'The best way to get connected is first by joining our Discord channel and taking the time to come out to our events and meet your fellow gamers!',
+      i: 2
+    },
+    { q: 'What events does Gator Gaming host?',
+      a: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis commodo enim. Mauris sit amet.',
+      i: 3
+    }
+  ]
+
+  const plusSpin = {
+    open: {opacity: 1, rotate: 45},
+    closed: {opacity: 1, rotate: 0}
+  }
+
+  const faqItemVariants = {
+    open: {
+      height: 'auto',
+      opacity: 1,
+      transition: {
+        height: {duration: 0.3},
+        opacity: {duration: 0.6}
+      }
+    },
+    closed: {
+      height: 0,
+      opacity: 0,
+      transition: {
+        height: {duration: 0.3},
+        opacity: {duration: 0.1}
+      }
+    }
+  }
 
   return (
     <>
@@ -12,8 +53,8 @@ const HomeContent = ( {minXl} ) => {
         <div className='md:grid md:grid-cols-2 md:grid-rows-[1fr_1fr] md:gap-x-15 lg:gap-y-10 md:w-180 lg:w-215 xl:w-250 2xl:w-332'>
           <div className='w-3/5 md:w-auto place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
             <img 
-              className="aspect-auto z-2"
-              src="home/home-players.png"
+              className='aspect-auto z-2'
+              src='home/home-players.png'
             />
           </div>
           <div className='w-3/4 md:w-auto m-auto text-center md:text-left items-center md:items-start xl:pl-10 md:justify-center flex flex-col'>
@@ -22,13 +63,13 @@ const HomeContent = ( {minXl} ) => {
             <p className='text-md xl:text-lg text-ggwhite font-display'>We’re a passionate gaming community dedicated to uniting players of all skill levels—whether you’re here to dominate tournaments, squad up with friends, or just have a good time. Join us and level up your gaming experience!</p>
             <div className='flex gap-5 pt-8 font-display'>
               <a
-                href="https://discord.com/invite/s99axhqQac"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken"
+                href='https://discord.com/invite/s99axhqQac'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken'
               >Events
-                <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4">
-                  <FaArrowRightLong className="text-lg" />
+                <div className='flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4'>
+                  <FaArrowRightLong className='text-lg' />
                 </div>
               </a>
             </div>
@@ -77,40 +118,58 @@ const HomeContent = ( {minXl} ) => {
         </div>
       </div>
       {/* start of faq section */}
-      <div className='w-screen h-screen flex bg-no-repeat bg-[url(home/faq-bg3.png)] bg-[calc(50%-150px)_-60px] justify-center'>
-        <div className='pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center'>
-          <div className='px-5 w-full xl:w-1/2'>
+      <div className='relative w-screen h-screen flex justify-center'>
+        <FaqBlur/>
+        <div className='pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
+          <div className='px-10 md:px-5 w-full xl:w-1/2'>
             <p className='pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2 font-bold'>FAQ</p>
-            <div className='pb-3'>
-              <div className='flex items-center gap-5 pb-3'>
-                <FaPlus size='24' />
-                <p className='text-md sm:text-lg font-display'>How do I join Gator Gaming?</p>
-                {/* <motion.div>
-
-                </motion.div> */}
-              </div>
-              <div className='h-[1px] bg-ggwhite' />
-            </div>
-            <div className='pb-3'>
-              <div className='flex items-center gap-5 pb-3'>
-                <FaPlus size='24' />
-                <p className='text-md sm:text-lg font-display'>How can I get involved with Gator Gaming?</p>
-              </div>
-              <div className='h-[1px] bg-ggwhite' />
-            </div>
-            <div className='pb-3'>
-              <div className='flex items-center gap-5 pb-3'>
-                <FaPlus size='24' />
-                <p className='text-md sm:text-lg font-display'>What events does Gator Gaming host?</p>
-              </div>
-              <div className='h-[1px] bg-ggwhite' />
-            </div>
+              {faq.map((question) => (
+                <div className='pb-3' key={question.i}>
+                  <div 
+                    className='flex items-center gap-5 pb-3'
+                    onClick={faqSelection === question.i ? () => setFaqSelection(null) : () => setFaqSelection(question.i)} 
+                    key={question.i}
+                  >
+                    <motion.div
+                      initial='closed'
+                      animate={faqSelection === question.i ? 'open' : 'closed'}
+                      exit='closed'
+                      variants={plusSpin}
+                      transition={{
+                        type: 'spring',
+                        bounce: 0,
+                        duration: 0.6
+                      }}
+                    >
+                      <FaPlus size='24'/>
+                    </motion.div>
+                    <p className='text-md sm:text-lg font-display'>{question.q}</p>
+                  </div>
+                  <AnimatePresence>
+                    {faqSelection === question.i && (
+                      <motion.div
+                        key={question.i}
+                        initial='closed'
+                        animate='open'
+                        exit='closed'
+                        variants={faqItemVariants}
+                        className='text-sm sm:text-base text-ggwhite font-display'
+                      >
+                        <div className='pb-3'>
+                          {question.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <div className='h-[1px] bg-ggwhite' />
+                </div>
+              ))}
           </div>
           {minXl &&
           <div className='w-fit'>
             <img 
-              className="rounded-3xl aspect-auto z-2"
-              src="home/faq-image.png"
+              className='rounded-3xl aspect-auto z-2'
+              src='home/faq-image.png'
             />
           </div>
           }

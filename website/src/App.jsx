@@ -7,7 +7,8 @@ import HomeContent from './pages/HomeContent'
 import BlurOne from './bgblurs/BlurOne'
 
 const App = () => {
-  const [selected, setSelected] = useState('Home')
+  const [selectedPage, setSelectedPage] = useState('Home')
+  const maxSm = useMediaQuery({ maxWidth: 767 })
   const isMobile = useMediaQuery({ maxWidth: 920 })
   const minXl = useMediaQuery({ minWidth: 1280 })
 
@@ -15,10 +16,10 @@ const App = () => {
     <>
       <div className='bg-ggbg w-fit scroll-smooth'>
         <BlurOne/>
-        {!isMobile && <Navbar selected={selected} setSelected = {setSelected}/>}
-        {isMobile && <MobileNavbar setSelected = {setSelected}/>}
+        {!isMobile && <Navbar selectedPage={selectedPage} setSelectedPage = {setSelectedPage}/>}
+        {isMobile && <MobileNavbar setSelectedPage = {setSelectedPage}/>}
         <Hero/>
-        <HomeContent minXl={minXl}/>
+        <HomeContent maxSm={maxSm} minXl={minXl}/>
       </div>
     </>
   )

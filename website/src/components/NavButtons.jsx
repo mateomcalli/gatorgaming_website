@@ -1,4 +1,4 @@
-const NavButtons = ({selected, setSelected}) => {
+const NavButtons = ({selectedPage, setSelectedPage}) => {
   const NavSelections = ['Home', 'About Us', 'Our Team', 'Events', 'Gallery']
 
   return (
@@ -6,8 +6,8 @@ const NavButtons = ({selected, setSelected}) => {
       {NavSelections.map((item) => (
         <button
           key={item} 
-          onClick={() => setSelected(item)}
-          className = {selected === item ? 'text-ggorange px-5 py-0.5 border-1 border-ggorange rounded-2xl' : 'text-ggwhite fade-orange px-5 py-0.5 border-1 border-ggwhite hover:border-ggorange rounded-2xl'}
+          onClick={() => setSelectedPage(item)}
+          className = {selectedPage === item ? 'text-ggorange px-5 py-0.5 border-1 border-ggorange rounded-2xl' : 'text-ggwhite fade-orange px-5 py-0.5 border-1 border-ggwhite hover:border-ggorange rounded-2xl'}
         >
           {item}
         </button>
