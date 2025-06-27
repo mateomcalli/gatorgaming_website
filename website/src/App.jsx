@@ -5,6 +5,7 @@ import MobileNavbar from './components/navbar/MobileNavbar'
 import Hero from './pages/Hero'
 import HomeContent from './pages/HomeContent'
 import BlurOne from './bgblurs/BlurOne'
+import Footer from './components/footer/Footer'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState('Home')
@@ -20,6 +21,7 @@ const App = () => {
         {isMobile && <MobileNavbar setSelectedPage = {setSelectedPage}/>}
         <Hero/>
         <HomeContent maxSm={maxSm} minXl={minXl}/>
+        <Footer/>
       </div>
     </>
   )
