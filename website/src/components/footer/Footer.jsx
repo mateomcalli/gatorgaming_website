@@ -1,23 +1,46 @@
 import { LuX } from 'react-icons/lu'
+import { FaDiscord, FaInstagram } from 'react-icons/fa'
+import { SiLinktree } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <div className='relative w-screen h-80 flex justify-center z-2'>
-      <div className='mx-8 w-full md:w-169 lg:w-205 xl:w-240 2xl:w-324 flex flex-col z-2'>
-        <div className='flex h-fit w-full items-center gap-5'>
+    <div className='mt-20 relative w-screen h-fit flex justify-center md:mt-70 lg:mt-20 xl:mt-0 z-2'>
+      <img className='absolute inset-0 w-full h-full object-cover pointer-events-none overflow-hidden' src='footer-blur.png'/>
+      <div className='relative mx-8 w-full md:w-169 lg:w-205 xl:w-240 2xl:w-324 flex flex-col z-2'>
+        <div className='flex h-fit w-full items-center gap-5 z-2'>
           <LuX size='40'/>
-          <div className='h-[1px] w-[79%] bg-ggwhite'/>
+          <div className='h-[1px] w-[79%] xl:w-[83%] bg-ggwhite'/>
           <p className='text-ggwhite text-sm font-display text-nowrap'>Thanks for visiting</p>
         </div>
-        <div className='flex justify-between'>
+        <div className='flex justify-between z-2'>
           <img
             src='gatorgaming-logo.png'
             className='w-28'
           />
           <img
             src='gud-logo.png'
-            className='mt-2 w-20 h-20'
+            className='mt-2 w-21 h-21'
           />
+        </div>
+        <div className='flex justify-between z-2'>
+          <p className='text-md w-fit pl-2 md:text-lg text-ggorange font-display'>Contact us</p>
+          <p className='text-md w-fit pr-2 md:text-lg text-[#b398d6] font-display'>Designed by Gator User Design</p>
+        </div>
+        <div className='flex justify-between z-2'>
+          <div className='flex items-center gap-5 w-fit h-fit pt-3 pl-2 font-display'>
+            <FaDiscord size='30'/>
+            <p className='underline text-xs text-gray-300'>Discord</p>
+          </div>
+          <div className='flex items-center gap-5 w-fit h-fit pt-3 pr-2 font-display'>
+            <p className='underline text-xs text-gray-300'>Linktree</p>
+            <SiLinktree size='28'/>
+          </div>
+        </div>
+        <div className='flex justify-between z-2'>
+          <div className='flex items-center gap-5 w-fit h-fit pt-3 pl-2 pb-5 font-display'>
+            <FaInstagram size='30'/>
+            <p className='underline text-xs text-gray-300'>Instagram</p>
+          </div>
         </div>
       </div>
     </div>
