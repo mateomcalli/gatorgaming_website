@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* * {
+  border: 1px solid red;
+} */
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
