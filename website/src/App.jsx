@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/navbar/Navbar'
 import MobileNavbar from './components/navbar/MobileNavbar'
-import Hero from './pages/Hero'
-import HomeContent from './pages/HomeContent'
+import Hero from './pages/home/Hero'
+import HomeContent from './pages/home/HomeContent'
 import BlurOne from './bgblurs/BlurOne'
 import Footer from './components/footer/Footer'
 
@@ -15,14 +16,18 @@ const App = () => {
 
   return (
     <>
-      <div className='bg-ggbg w-fit scroll-smooth'>
-        <BlurOne/>
-        {!isMobile && <Navbar selectedPage={selectedPage} setSelectedPage = {setSelectedPage}/>}
-        {isMobile && <MobileNavbar setSelectedPage = {setSelectedPage}/>}
-        <Hero/>
-        <HomeContent maxSm={maxSm} minXl={minXl}/>
-        <Footer maxSm={maxSm}/>
-      </div>
+      <Routes>
+        <Route path='/' element={
+          <div className='bg-ggbg w-fit scroll-smooth'>
+            <BlurOne/>
+            {!isMobile && <Navbar selectedPage={selectedPage} setSelectedPage = {setSelectedPage}/>}
+            {isMobile && <MobileNavbar setSelectedPage = {setSelectedPage}/>}
+            <Hero/>
+            <HomeContent maxSm={maxSm} minXl={minXl}/>
+            <Footer maxSm={maxSm}/>
+          </div>
+        } />
+      </Routes>
     </>
   )
 }

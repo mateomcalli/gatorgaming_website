@@ -1,6 +1,6 @@
 import { useMediaQuery } from 'react-responsive'
-import HomeButtons from '../components/HomeButtons'
-import HeroLines from '../components/HeroLines'
+import HomeButtons from '../../components/HomeButtons'
+import HeroLines from '../../components/HeroLines'
 
 const Hero = () => {
   const isLg = useMediaQuery({ minWidth: 1024 })

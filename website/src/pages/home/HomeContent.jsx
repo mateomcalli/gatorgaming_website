@@ -1,7 +1,7 @@
-import SkillsList from '../components/SkillsList'
+import SkillsList from '../../components/SkillsList'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react';
-import FaqBlur from '../bgblurs/FaqBlur';
+import FaqBlur from '../../bgblurs/FaqBlur';
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { FaPlus } from 'react-icons/fa6';
 
@@ -143,7 +143,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
                     >
                       <FaPlus size='24'/>
                     </motion.div>
-                    <p className='text-md sm:text-lg font-display'>{question.q}</p>
+                    <p className='text-[15px] sm:text-lg font-display'>{question.q}</p>
                   </div>
                   <AnimatePresence>
                     {faqSelection === question.i && (
