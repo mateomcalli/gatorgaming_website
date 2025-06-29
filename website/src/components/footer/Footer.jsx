@@ -4,9 +4,9 @@ import { SiLinktree } from "react-icons/si";
 
 const Footer = () => {
   return (
-    <div className='mt-20 relative w-screen h-fit flex justify-center md:mt-70 lg:mt-20 xl:mt-0 z-2'>
+    <div className='mt-20 relative w-screen h-fit flex justify-center md:mt-70 lg:mt-20 xl:-mt-10 2xl:mt-0 z-2'>
       <img className='absolute inset-0 w-full h-full object-cover pointer-events-none overflow-hidden' src='footer-blur.png'/>
-      <div className='relative mx-8 w-full md:w-169 lg:w-205 xl:w-240 2xl:w-324 flex flex-col z-2'>
+      <div className='relative mx-8 w-full md:w-169 lg:w-205 xl:w-240 2xl:w-300 flex flex-col z-2'>
         <div className='flex h-fit w-full items-center gap-5 z-2'>
           <LuX size='40'/>
           <div className='h-[1px] w-[79%] xl:w-[83%] bg-ggwhite'/>
