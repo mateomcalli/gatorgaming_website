@@ -21,7 +21,7 @@ const App = () => {
         {isMobile && <MobileNavbar setSelectedPage = {setSelectedPage}/>}
         <Hero/>
         <HomeContent maxSm={maxSm} minXl={minXl}/>
-        <Footer/>
+        <Footer maxSm={maxSm}/>
       </div>
     </>
   )
