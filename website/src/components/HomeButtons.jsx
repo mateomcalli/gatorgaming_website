@@ -15,6 +15,8 @@ const HomeButtons = () => {
       </a>
       <a
         href='https://linktr.ee/gatorgaminguf'
+        target="_blank"
+        rel="noopener noreferrer"
         className='z-3 h-10 w-fit px-5 flex items-center justify-around rounded-3xl border-1 border-ggwhite text-ggwhite fade-bg-orange'
       >Learn more
       </a>
