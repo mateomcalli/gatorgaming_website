@@ -11,6 +11,7 @@ import Footer from './components/footer/Footer'
 const App = () => {
   const [selectedPage, setSelectedPage] = useState('Home')
   const maxSm = useMediaQuery({ maxWidth: 767 })
+  const maxMd = useMediaQuery({ maxWidth: 1023 })
   const isMobile = useMediaQuery({ maxWidth: 920 })
   const minXl = useMediaQuery({ minWidth: 1280 })
 
@@ -24,7 +25,7 @@ const App = () => {
             {isMobile && <MobileNavbar setSelectedPage = {setSelectedPage}/>}
             <Hero/>
             <HomeContent maxSm={maxSm} minXl={minXl}/>
-            <Footer maxSm={maxSm}/>
+            <Footer maxMd={maxMd}/>
           </div>
         } />
       </Routes>
