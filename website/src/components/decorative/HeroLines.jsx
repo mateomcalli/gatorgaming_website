@@ -7,7 +7,7 @@ const HeroLines = () => {
         <div className='lg:w-[3px] lg:h-30 lg:mb-75 lg:bg-[#d9d9d9]'/>
         <div className ='lg:w-[3px] lg:h-130 lg:bg-[#d9d9d9]'/>
       </div>
-    <LuX size={45} className='mt-3'/>
+    <LuX size='45' className='mt-3'/>
     </div>
   )
 }

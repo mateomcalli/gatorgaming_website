@@ -11,6 +11,7 @@ const App = () => {
   const maxMd = useMediaQuery({ maxWidth: 1023 })
   const isMobile = useMediaQuery({ maxWidth: 920 })
   const minXl = useMediaQuery({ minWidth: 1280 })
+  const minLg = useMediaQuery({ minWidth: 1024 })
 
   return (
     <>
@@ -21,14 +22,14 @@ const App = () => {
             element={
               <>
                 <BlurOne/>
-                <Hero/>
+                <Hero minLg={minLg}/>
                 <HomeContent maxSm={maxSm} minXl={minXl}/>
               </>
             }
           />
           <Route
             path='/about'
-            element={<AboutContent/>}
+            element={<AboutContent minLg={minLg}/>}
           />
         </Route>
       </Routes>

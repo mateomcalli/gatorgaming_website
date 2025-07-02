@@ -1,10 +1,7 @@
-import { useMediaQuery } from 'react-responsive'
 import HomeButtons from '../../components/HomeButtons'
-import HeroLines from '../../components/HeroLines'
+import HeroLines from '../../components/decorative/HeroLines'
 
-const Hero = () => {
-  const isLg = useMediaQuery({ minWidth: 1024 })
-
+const Hero = ({ minLg }) => {
   return (
     <div className='w-screen pt-20 md:justify-center flex z-2'>
       <div className='w-screen flex justify-between lg:items-center lg:w-3/4 lg:h-[calc(100vh-5rem)] z-2'>
@@ -20,7 +17,7 @@ const Hero = () => {
           </p>
           <HomeButtons/>
         </div>
-        {isLg && <HeroLines/>}
+        {minLg && <HeroLines/>}
       </div>
     </div>
   )
