@@ -4,7 +4,7 @@ import HeroLines from '../../components/decorative/HeroLines'
 const Hero = ({ minLg }) => {
   return (
     <div className='w-screen pt-20 md:justify-center flex z-2'>
-      <div className='w-screen flex justify-between lg:items-center lg:w-3/4 lg:h-[calc(100vh-5rem)] z-2'>
+      <div className='w-screen flex justify-between lg:items-center lg:w-3/4 lg:min-h-[calc(100vh-5rem)] z-2'>
         <div className='px-3 text-balance flex flex-col items-center text-center pt-10 pb-20 sm:pl-2 md:pl-5 lg:text-left lg:items-start lg:w-2/3 lg:pl-20 lg:text-pretty z-2 font-display'>
           <p className='text-xl pb-3 sm:text-2xl text-ggwelcome'>
             Welcome to Gator Gaming!

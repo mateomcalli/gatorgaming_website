@@ -118,7 +118,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
         </div>
       </div>
       {/* start of faq section */}
-      <div className='relative mb-50 lg:mb-0 w-screen lg:h-[80vh] xl:h-screen flex justify-center'>
+      <div className='relative mb-50 lg:mb-0 w-screen lg:h-[80vh] xl:min-h-screen flex justify-center'>
         <FaqBlur/>
         <div className='xl:gap-35 pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
           <div className='px-10 md:px-5 w-full xl:w-1/2'>
@@ -153,9 +153,9 @@ const HomeContent = ( {maxSm, minXl} ) => {
                         animate='open'
                         exit='closed'
                         variants={faqItemVariants}
-                        className='text-sm sm:text-base text-ggwhite font-display'
+                        className='text-left text-sm sm:text-base text-ggwhite font-display'
                       >
-                        <div className='pb-3'>
+                        <div className='pb-4'>
                           {question.a}
                         </div>
                       </motion.div>
