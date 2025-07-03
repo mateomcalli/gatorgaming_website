@@ -122,7 +122,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
         <FaqBlur/>
         <div className='xl:gap-35 pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
           <div className='px-10 md:px-5 w-full xl:w-1/2'>
-            <p className='pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2 font-bold'>FAQ</p>
+            <p className='pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2 text-ggwhite font-bold'>FAQ</p>
               {faq.map((question) => (
                 <div className='pb-3' key={question.i}>
                   <div 
@@ -143,7 +143,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
                     >
                       <FaPlus size='24'/>
                     </motion.div>
-                    <p className='text-[15px] sm:text-lg font-display'>{question.q}</p>
+                    <p className='text-[15px] sm:text-lg text-ggwhite font-display'>{question.q}</p>
                   </div>
                   <AnimatePresence>
                     {faqSelection === question.i && (

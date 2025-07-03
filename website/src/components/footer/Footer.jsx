@@ -23,8 +23,8 @@ const Footer = ( {maxMd} ) => {
           />
         </div>
         <div className='flex justify-between z-2'>
-          <p className='text-md w-fit pl-2 md:text-lg text-ggorange font-display'>Contact us</p>
-          <p className='text-md w-fit pr-2 md:text-lg text-[#b398d6] font-display'>Designed by Gator User Design</p>
+          <p className='text-sm sm:text-lg w-fit pl-2 md:text-lg text-ggorange font-display'>Contact us</p>
+          <p className='text-sm sm:text-lg sm:w-fit pr-2 md:text-lg text-[#b398d6] font-display'>Designed by Gator User Design</p>
         </div>
         <div className='flex justify-between z-2'>
           <div className='flex items-center gap-5 w-fit h-fit pt-3 pl-2 font-display'>
