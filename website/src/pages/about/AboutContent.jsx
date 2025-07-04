@@ -2,12 +2,36 @@ import AboutBlurOne from '../../bgblurs/AboutBlurOne'
 import AboutTopLines from '../../components/decorative/AboutTopLines'
 import AboutBottomLines from '../../components/decorative/AboutBottomLines'
 import Carousel from '../../components/Carousel'
-import { FaArrowRightLong } from 'react-icons/fa6';
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { LuX } from 'react-icons/lu'
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 const AboutContent = ({ minLg }) => {
+  const [isTriggered, setIsTriggered] = useState(false)
+
+  const container1Variants = {
+    hidden: {},
+    visible: { 
+      transition: { staggerChildren: 0.3 },
+    }
+  }
+
+  const container2Variants = {
+    hidden: {},
+    visible: { 
+      transition: { delayChildren: 1, staggerChildren: 0.3 },
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 }
+  }
+
   return (
     <>
-      <div className='relative my-20 flex flex-col items-center justify-center w-screen min-h-screen'>
+      <div className='relative my-20 lg:my-20 flex flex-col items-center justify-center w-screen min-h-screen'>
         <AboutBlurOne/>
         <div className='mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
           {minLg && <AboutTopLines/>}
@@ -20,7 +44,16 @@ const AboutContent = ({ minLg }) => {
             </div>
           {minLg && <AboutBottomLines/>}
         </div>
-        <div className='px-20 flex flex-col min-h-fit pt-10 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
+
+        {/* divider for smaller screens*/}
+        {!minLg && 
+          <div className='flex items-center justify-center mb-9 gap-x-5 w-screen z-2'>
+            <div className='h-[3px] bg-ggwhite w-3/5 z-2'/>
+            <LuX size='32'/>
+          </div>
+        }
+
+        <div className='px-10 lg:px-20 flex flex-col gap-y-15 min-h-fit pt-5 lg:pt-10 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
           <div className='items-center flex gap-x-15'>
             {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img1.png'/>}
             <div className='flex flex-col text-center justify-center items-center gap-y-3'>
@@ -37,7 +70,70 @@ const AboutContent = ({ minLg }) => {
               </a>
             </div>
           </div>
+          <div className='items-center flex gap-x-15'>
+            <div className='flex flex-col text-center justify-center items-center gap-y-3'>
+              <p className='text-3xl text-ggwhite font-display'>Let's-A-Go</p>
+              <p className='text-base text-ggwhite font-display'>Gator Gaming hosts weekly events for members to come together and share their love of gaming! From roller skating outings to family-feud competition to te traditional double-elimination bracket, there’s an event for everyone. </p>
+              <a
+                href="/team"
+                rel="noopener noreferrer"
+                className="mt-4 z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken"
+              >Team
+                <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4">
+                  <FaArrowRightLong className="text-lg" />
+                </div>
+              </a>
+            </div>
+            {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img2.png'/>}
+          </div>
         </div>
+        
+        {minLg && 
+          <div className='test-green mt-20 flex flex-col mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
+            <motion.div
+              initial='hidden'
+              whileInView='visible'
+              viewport={{ once: true, amount: 0.5 }}
+              variants={container1Variants}
+              onAnimationStart={() => setIsTriggered(true)}
+              className='test-red justify-around flex items-end'
+            >
+                <motion.img
+                  variants={itemVariants}
+                  className='mb-7'
+                  src='/about/coin.png'
+                />
+                <motion.img
+                  variants={itemVariants}
+                  className='mt-27'
+                  src='/about/coin2.png'
+                />
+                <motion.img
+                  variants={itemVariants}
+                  className='mb-17'
+                  src='/about/coin3.png'
+                />
+            </motion.div>
+            <motion.div
+              initial='hidden'
+              animate={isTriggered ? 'hidden' : 'visible'}
+              variants={container2Variants}
+              className='test-red -mt-10 justify-around flex items-end'
+            >
+              <motion.img
+                variants={itemVariants}
+                className='mt-8 ml-30'
+                src='/about/coin4.png'
+              />
+              <motion.img
+                variants={itemVariants}
+                className='mb-8 mr-20'
+                src='/about/coin5.png'
+              />
+            </motion.div>
+          </div>
+        }
+
       </div>
     </>
   )
