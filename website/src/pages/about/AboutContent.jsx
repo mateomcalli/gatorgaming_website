@@ -2,33 +2,12 @@ import AboutBlurOne from '../../bgblurs/AboutBlurOne'
 import AboutTopLines from '../../components/decorative/AboutTopLines'
 import AboutBottomLines from '../../components/decorative/AboutBottomLines'
 import Carousel from '../../components/Carousel'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import Coins from '../../components/decorative/Coins'
+import AffiliatedClubs from './AffiliatedClubs'
 import { LuX } from 'react-icons/lu'
 import { FaArrowRightLong } from 'react-icons/fa6'
 
 const AboutContent = ({ minLg }) => {
-  const [isTriggered, setIsTriggered] = useState(false)
-
-  const container1Variants = {
-    hidden: {},
-    visible: { 
-      transition: { staggerChildren: 0.3 },
-    }
-  }
-
-  const container2Variants = {
-    hidden: {},
-    visible: { 
-      transition: { delayChildren: 1, staggerChildren: 0.3 },
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0 }
-  }
-
   return (
     <>
       <div className='relative my-20 lg:my-20 flex flex-col items-center justify-center w-screen min-h-screen'>
@@ -87,53 +66,10 @@ const AboutContent = ({ minLg }) => {
             {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img2.png'/>}
           </div>
         </div>
-        
-        {minLg && 
-          <div className='test-green mt-20 flex flex-col mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
-            <motion.div
-              initial='hidden'
-              whileInView='visible'
-              viewport={{ once: true, amount: 0.5 }}
-              variants={container1Variants}
-              onAnimationStart={() => setIsTriggered(true)}
-              className='test-red justify-around flex items-end'
-            >
-                <motion.img
-                  variants={itemVariants}
-                  className='mb-7'
-                  src='/about/coin.png'
-                />
-                <motion.img
-                  variants={itemVariants}
-                  className='mt-27'
-                  src='/about/coin2.png'
-                />
-                <motion.img
-                  variants={itemVariants}
-                  className='mb-17'
-                  src='/about/coin3.png'
-                />
-            </motion.div>
-            <motion.div
-              initial='hidden'
-              animate={isTriggered ? 'hidden' : 'visible'}
-              variants={container2Variants}
-              className='test-red -mt-10 justify-around flex items-end'
-            >
-              <motion.img
-                variants={itemVariants}
-                className='mt-8 ml-30'
-                src='/about/coin4.png'
-              />
-              <motion.img
-                variants={itemVariants}
-                className='mb-8 mr-20'
-                src='/about/coin5.png'
-              />
-            </motion.div>
-          </div>
-        }
 
+        <Coins minLg={minLg}/>
+
+        <AffiliatedClubs minLg={minLg}/>
       </div>
     </>
   )
