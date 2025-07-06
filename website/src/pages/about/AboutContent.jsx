@@ -1,4 +1,6 @@
 import AboutBlurOne from '../../bgblurs/AboutBlurOne'
+import AboutBlurTwo from '../../bgblurs/AboutBlurTwo'
+import AboutBlurThree from '../../bgblurs/AboutBlurThree'
 import AboutTopLines from '../../components/decorative/AboutTopLines'
 import AboutBottomLines from '../../components/decorative/AboutBottomLines'
 import Carousel from '../../components/Carousel'
@@ -7,7 +9,7 @@ import AffiliatedClubs from './AffiliatedClubs'
 import { LuX } from 'react-icons/lu'
 import OrangeButton from '../../components/OrangeButton'
 
-const AboutContent = ({ minLg, minMd }) => {
+const AboutContent = ({ minXl, minLg, minMd }) => {
   return (
     <>
       <div className='relative py-20 lg:py-20 flex flex-col items-center justify-center w-screen min-h-screen'>
@@ -32,7 +34,9 @@ const AboutContent = ({ minLg, minMd }) => {
           </div>
         }
 
-        <div className='px-10 lg:px-20 flex flex-col gap-y-15 min-h-fit pt-5 lg:pt-10 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
+        <AboutBlurTwo/>
+
+        <div className='px-10 lg:px-20 flex flex-col gap-y-15 min-h-fit pt-5 lg:pt-10 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300 z-2'>
           <div className='items-center flex gap-x-15'>
             {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img1.png'/>}
             <div className='flex flex-col text-center justify-center items-center gap-y-3'>
@@ -50,6 +54,8 @@ const AboutContent = ({ minLg, minMd }) => {
             {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img2.png'/>}
           </div>
         </div>
+
+        <AboutBlurThree/>
 
         <Coins minMd={minMd}/>
 

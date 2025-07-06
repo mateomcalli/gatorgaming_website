@@ -30,7 +30,7 @@ const App = () => {
           />
           <Route
             path='/about'
-            element={<AboutContent minMd={minMd} minLg={minLg}/>}
+            element={<AboutContent minXl={minXl} minMd={minMd} minLg={minLg}/>}
           />
         </Route>
       </Routes>
