@@ -7,7 +7,7 @@ import AffiliatedClubs from './AffiliatedClubs'
 import { LuX } from 'react-icons/lu'
 import OrangeButton from '../../components/OrangeButton'
 
-const AboutContent = ({ minLg }) => {
+const AboutContent = ({ minLg, minMd }) => {
   return (
     <>
       <div className='relative py-20 lg:py-20 flex flex-col items-center justify-center w-screen min-h-screen'>
@@ -51,9 +51,9 @@ const AboutContent = ({ minLg }) => {
           </div>
         </div>
 
-        <Coins minLg={minLg}/>
+        <Coins minMd={minMd}/>
 
-        <AffiliatedClubs minLg={minLg}/>
+        <AffiliatedClubs/>
       </div>
     </>
   )

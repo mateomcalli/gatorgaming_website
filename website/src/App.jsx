@@ -8,6 +8,7 @@ import AboutContent from './pages/about/AboutContent'
 
 const App = () => {
   const maxSm = useMediaQuery({ maxWidth: 767 })
+  const minMd = useMediaQuery({ minWidth: 768 })
   const maxMd = useMediaQuery({ maxWidth: 1023 })
   const isMobile = useMediaQuery({ maxWidth: 920 })
   const minXl = useMediaQuery({ minWidth: 1280 })
@@ -29,7 +30,7 @@ const App = () => {
           />
           <Route
             path='/about'
-            element={<AboutContent minLg={minLg}/>}
+            element={<AboutContent minMd={minMd} minLg={minLg}/>}
           />
         </Route>
       </Routes>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const Coins = ({ minLg }) => {
+const Coins = ({ minMd }) => {
   const [isTriggered, setIsTriggered] = useState(false)
   
     const container1Variants = {
@@ -25,8 +25,8 @@ const Coins = ({ minLg }) => {
   
   return (
     <>
-      {minLg && 
-        <div className='mt-20 flex flex-col mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
+      {minMd && 
+        <div className='mt-20 flex flex-col mb-10 min-h-fit pt-0 relative w-screen md:w-190 lg:w-230 xl:w-250 2xl:w-300'>
           <motion.div
             initial='hidden'
             whileInView='visible'
@@ -70,6 +70,16 @@ const Coins = ({ minLg }) => {
           </motion.div>
         </div>
       }
+      {/* {!minLg &&
+        <div className='test-red grid grid-cols-2 grid-rows-3 w-fit mt-20'>
+          <img className='test-red w-50 h-50' src='/about/coin.png' />
+          <img className='w-50 h-50' src='/about/coin3.png' />
+          <img className='w-50 h-50' src='/about/coin2.png' />
+          <img className='w-50 h-50' src='/about/coin5.png' />
+          <img className='ml-50 w-50 h-50' src='/about/coin4.png' />
+        </div>
+
+      } */}
     </>
   )
 }
