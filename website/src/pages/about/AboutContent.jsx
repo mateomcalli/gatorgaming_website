@@ -5,12 +5,12 @@ import Carousel from '../../components/Carousel'
 import Coins from '../../components/decorative/Coins'
 import AffiliatedClubs from './AffiliatedClubs'
 import { LuX } from 'react-icons/lu'
-import { FaArrowRightLong } from 'react-icons/fa6'
+import OrangeButton from '../../components/OrangeButton'
 
 const AboutContent = ({ minLg }) => {
   return (
     <>
-      <div className='relative my-20 lg:my-20 flex flex-col items-center justify-center w-screen min-h-screen'>
+      <div className='relative py-20 lg:py-20 flex flex-col items-center justify-center w-screen min-h-screen'>
         <AboutBlurOne/>
         <div className='mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
           {minLg && <AboutTopLines/>}
@@ -37,31 +37,15 @@ const AboutContent = ({ minLg }) => {
             {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img1.png'/>}
             <div className='flex flex-col text-center justify-center items-center gap-y-3'>
               <p className='text-3xl text-ggwhite font-display'>Everyone is here!</p>
-              <p className='text-base text-ggwhite font-display'>Whether you are interested in casual gaming or looking for a new challenge, we strive to. Here at Gator Gaming, we just want to have fun playing video-games (and we know you do too). Our team is dedicated to creating a collaborative environment that promotes quality gaming, integrity, diversity, and a sense of community.</p>
-              <a
-                href="/team"
-                rel="noopener noreferrer"
-                className="mt-4 z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken"
-              >Team
-                <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4">
-                  <FaArrowRightLong className="text-lg" />
-                </div>
-              </a>
+              <p className='text-base text-ggwhite font-display pb-4'>Whether you are interested in casual gaming or looking for a new challenge, we strive to. Here at Gator Gaming, we just want to have fun playing video-games (and we know you do too). Our team is dedicated to creating a collaborative environment that promotes quality gaming, integrity, diversity, and a sense of community.</p>
+              <OrangeButton text='Team'/>
             </div>
           </div>
           <div className='items-center flex gap-x-15'>
             <div className='flex flex-col text-center justify-center items-center gap-y-3'>
               <p className='text-3xl text-ggwhite font-display'>Let's-A-Go</p>
-              <p className='text-base text-ggwhite font-display'>Gator Gaming hosts weekly events for members to come together and share their love of gaming! From roller skating outings to family-feud competition to te traditional double-elimination bracket, there’s an event for everyone. </p>
-              <a
-                href="/team"
-                rel="noopener noreferrer"
-                className="mt-4 z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken"
-              >Team
-                <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4">
-                  <FaArrowRightLong className="text-lg" />
-                </div>
-              </a>
+              <p className='text-base text-ggwhite font-display pb-4'>Gator Gaming hosts weekly events for members to come together and share their love of gaming! From roller skating outings to family-feud competition to te traditional double-elimination bracket, there’s an event for everyone. </p>
+              <OrangeButton text='Events'/>
             </div>
             {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img2.png'/>}
           </div>

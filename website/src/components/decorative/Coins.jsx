@@ -26,7 +26,7 @@ const Coins = ({ minLg }) => {
   return (
     <>
       {minLg && 
-        <div className='test-red mt-20 flex flex-col mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
+        <div className='mt-20 flex flex-col mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
           <motion.div
             initial='hidden'
             whileInView='visible'
