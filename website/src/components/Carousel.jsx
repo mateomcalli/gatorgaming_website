@@ -27,7 +27,7 @@ const Carousel = () => {
 
   return (
     <>
-      <div className='m-auto lg:m-0 lg:mt-5 items-center w-fit relative'>
+      <div className='m-auto lg:m-0 lg:mt-5 items-center w-fit relative z-2'>
         <div className='flex items-center'>
           <motion.button
             whileTap={{

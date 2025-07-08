@@ -4,7 +4,7 @@ import { SiLinktree } from "react-icons/si";
 
 const Footer = ( {maxMd} ) => {
   return (
-    <div className='mt-20 relative w-screen h-fit flex justify-center md:mt-70 lg:mt-20 xl:-mt-10 2xl:mt-0'>
+    <div className='mt-20 relative w-screen h-fit flex justify-center md:mt-70 lg:mt-0 xl:-mt-10 2xl:mt-0'>
       {!maxMd && <img className='absolute inset-0 w-full h-full object-cover pointer-events-none overflow-hidden z-0 sm:z-0' src='footer-blur4.png'/>}
       <div className='relative px-8 w-full md:w-169 lg:w-205 xl:w-240 2xl:w-300 flex flex-col z-2'>
         <div className='flex h-fit w-full items-center gap-5 z-2'>

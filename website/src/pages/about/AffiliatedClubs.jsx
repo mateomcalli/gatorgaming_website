@@ -27,7 +27,7 @@ const AffiliatedClubs = ({ minLg }) => {
   return (
     <>
       <div className='mt-25 flex flex-col justify-center min-h-fit gap-y-8 w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
-        <p className='text-4xl text-ggwhite font-display text-center'>Affiliated Clubs:</p>
+        <p className='text-4xl text-ggwhite font-display text-center z-2'>Affiliated Clubs:</p>
           <div className='flex flex-col gap-y-5 items-center md:pl-16 md:grid md:grid-cols-2 md:grid-rows-2 lg:pl-0 lg:flex lg:gap-y-0 lg:flex-row justify-around lg:items-start text-center min-h-fit w-full'>
             {clubs.map(club => {
               const [renderInfo, setRenderInfo] = useState(false)
