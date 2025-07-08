@@ -12,7 +12,7 @@ import OrangeButton from '../../components/OrangeButton'
 const AboutContent = ({ minXl, minLg, minMd }) => {
   return (
     <>
-      <div className='relative pt-20 lg:pt-20 lg:pb-70 flex flex-col items-center justify-center w-screen min-h-screen'>
+      <div className='relative pt-20 lg:pb-70 flex flex-col items-center justify-center w-screen min-h-screen'>
         <AboutBlurOne/>
         <div className='mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
           {minLg && <AboutTopLines/>}

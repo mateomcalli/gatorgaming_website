@@ -5,6 +5,7 @@ import Hero from './pages/home/Hero'
 import HomeContent from './pages/home/HomeContent'
 import BlurOne from './bgblurs/BlurOne'
 import AboutContent from './pages/about/AboutContent'
+import TeamContent from './pages/team/TeamContent'
 
 const App = () => {
   const maxSm = useMediaQuery({ maxWidth: 767 })
@@ -31,6 +32,10 @@ const App = () => {
           <Route
             path='/about'
             element={<AboutContent minXl={minXl} minMd={minMd} minLg={minLg}/>}
+          />
+          <Route
+            path='/team'
+            element={<TeamContent/>}
           />
         </Route>
       </Routes>
