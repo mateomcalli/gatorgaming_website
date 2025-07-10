@@ -52,3 +52,13 @@ html {
 .simplebar-scrollbar::before {
   background-color: white !important;
 }
+
+@media (max-width: 1024px) {
+  .simplebar-scrollbar {
+    display: none !important;
+  }
+  
+  .simplebar-track {
+    display: none !important;
+  }
+}
