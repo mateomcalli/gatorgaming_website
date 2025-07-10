@@ -48,3 +48,7 @@ html {
 .h-screen-minus-navbar {
   height: calc(100vh - 5rem)
 }
+
+.simplebar-scrollbar::before {
+  background-color: white !important;
+}
