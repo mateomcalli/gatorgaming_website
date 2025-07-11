@@ -21,15 +21,15 @@ html {
   --font-display: Inter, sans-serif; 
 } 
 
-.test-red {
+.red {
   @apply border-1 border-red-500
 }
 
-.test-green {
+.green {
   @apply border-1 border-green-500
 }
 
-.test-blue {
+.blue {
   @apply border-1 border-blue-500
 }
 

@@ -1,3 +1,5 @@
+import CardFront from "../../components/CardFront"
+import CardBack from "../../components/CardBack"
 import Card from "../../components/Card"
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
@@ -30,11 +32,17 @@ const TeamContent = () => {
       <p className='relative text-4xl text-ggwhite font-display pb-10'>Meet our officers!</p>
       <div className='relative'>
         <SimpleBar className='h-115 w-screen lg:w-259.5 max-w-259.5' ref={scrollRef}>
-          <div className='relative px-10 lg:px-5 flex gap-x-12 w-fit select-none cursor-grab active:cursor-grabbing' {...bind()}>
+          <div className='relative touch-none px-10 lg:px-5 flex gap-x-12 w-fit select-none cursor-grab active:cursor-grabbing' {...bind()}>
             {members.map((member, index) => {
               const [flipped, setFlipped] = useState(false)
               return (
-                <Card flipped={flipped} setFlipped={setFlipped} key={index} name={member.name} position={member.position}/>
+                <Card
+                  name={member.name}
+                  position={member.position}
+                  flipped={flipped}
+                  setFlipped={setFlipped}
+                  key={index}
+                />
             )})}
           </div>
         </SimpleBar>
