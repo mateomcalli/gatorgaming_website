@@ -12,22 +12,22 @@ const TeamContent = () => {
   const subScrollRef = useRef(null)
 
   const members = [
-    {name: 'Amelia Reeves', position: 'Co-President'},
-    {name: 'Matthew Grimaldi', position: 'Co-President'},
-    {name: 'Wyatt Powell', position: 'Vice President'},
-    {name: 'Kaiden Joy', position: 'Treasurer'},
-    {name: 'Zack Philips', position: 'Secretary'},
-    {name: 'Evelyn Perez', position: 'Outreach Lead'}
+    {name: 'Amelia Reeves', position: 'Co-President', picture: ''},
+    {name: 'Matthew Grimaldi', position: 'Co-President', picture: ''},
+    {name: 'Wyatt Powell', position: 'Vice President', picture: ''},
+    {name: 'Kaiden Joy', position: 'Treasurer', picture: ''},
+    {name: 'Zack Philips', position: 'Secretary', picture: ''},
+    {name: 'Evelyn Perez', position: 'Outreach Lead', picture: ''}
   ]
 
   const designers = [
-    {name: 'Mateo McAllister',},
-    {name: 'Joyin Ang',},
-    {name: 'Colin Mendoza',},
-    {name: 'Rhythm Kumar',},
-    {name: 'Lucas McAllister',},
-    {name: 'Nicolas Boulton',},
-    {name: 'Steven Lautenbach'}
+    {name: 'Mateo McAllister', picture: '/people/mateo-m.png'},
+    {name: 'Joyin Ang', picture: '/people/joyin-a.png'},
+    {name: 'Colin Mendoza', picture: '/people/colin-m.png'},
+    {name: 'Rhythm Kumar', picture: '/people/rhythm-k.png'},
+    {name: 'Lucas McAllister', picture: '/people/lucas-m.png'},
+    {name: 'Nicolas Boulton', picture: '/people/nico-b.png'},
+    {name: 'Steven Lautenbach', picture: '/people/steven-l.png'}
   ]
 
   const main = useDrag(({ delta: [dx] }) => {
@@ -84,7 +84,7 @@ const TeamContent = () => {
       </div>
       <div className='relative flex flex-col items-center mt-20'>
         <p className='relative text-2xl italic text-ggwhite font-display pb-8'>developer:</p>
-          <SmallCard name={'Mateo McAllister'}/>
+          <SmallCard name={'Mateo McAllister'} picture={'/people/mateo-m.png'}/>
       </div>
     </div>
   )
