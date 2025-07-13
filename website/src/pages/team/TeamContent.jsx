@@ -1,11 +1,10 @@
-import CardFront from "../../components/CardFront"
-import CardBack from "../../components/CardBack"
-import Card from "../../components/Card"
+import Card from "../../components/cards/Card"
+import SmallCard from "../../components/cards/SmallCard"
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 import { useDrag } from '@use-gesture/react'
 import { useRef, useState } from 'react'
-import SmallCard from "../../components/SmallCard"
+
 
 const TeamContent = () => {
   const mainScrollRef = useRef(null)
