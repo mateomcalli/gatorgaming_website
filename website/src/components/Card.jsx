@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import CardFront from "./CardFront"
 import CardBack from "./CardBack"
 
-const Card = ({ name, position, flipped, setFlipped }) => {
+const Card = ({ name, position, flipped, setFlipped, picture }) => {
   const [hovered, setHovered] = useState(false)
 
   return (
