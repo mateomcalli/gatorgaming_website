@@ -48,7 +48,7 @@ const TeamContent = () => {
   })
 
   return (
-    <div className='relative pt-30 lg:pt-30 lg:pb-70 flex flex-col items-center w-screen min-h-screen'>
+    <div className='relative pt-30 lg:pb-70 flex flex-col items-center w-screen min-h-screen'>
       <p className='relative text-4xl text-ggwhite font-display pb-2'>Meet our officers!</p>
       <div className='relative'>
         <SimpleBar className='pt-8 h-124 w-screen lg:w-265 max-w-265' ref={mainScrollRef}>
