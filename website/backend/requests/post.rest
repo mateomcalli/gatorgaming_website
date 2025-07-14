@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/events
+Content-Type: application/json
+
+{
+    "title": "Sample",
+    "location": "Reitz",
+    "date": "2025-08-08",
+    "time": "14:30"
+}
