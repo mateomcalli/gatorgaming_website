@@ -64,11 +64,13 @@ const Admin = () => {
       })
   }
 
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3000/api/events/${id}`)
-      .then(response => response.data)
-    toggleRefresh(true)
+  const handleDelete = (id, title) => {
+    if (confirm(`Are you sure you want to delete this event: ${title}?`)) {
+      axios
+        .delete(`http://localhost:3000/api/events/${id}`)
+        .then(response => response.data)
+      toggleRefresh(true)
+    }
   }
 
   return (
@@ -85,7 +87,7 @@ const Admin = () => {
                   <p>{event.date}</p>
                   <p>{event.time}</p>
                 </div>
-                <a onClick={() => handleDelete(event.id)} className='cursor-pointer'><LuX size='24'/></a>
+                <a onClick={() => handleDelete(event.id, event.title)} className='cursor-pointer'><LuX size='24'/></a>
               </div>
             ))}
           </div>

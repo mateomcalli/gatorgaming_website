@@ -72,6 +72,7 @@ app.post('/api/events/', (req, res) => {
 
 app.delete('/api/events/:id', (req, res) => {
   events = events.filter(event => event.id !== req.params.id)
+  res.status(200).json({ message: `event with id ${req.params.id} successfully deleted`})
 })
 
 app.listen(port, () => {
