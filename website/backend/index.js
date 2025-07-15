@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 app.use(cors()) // necessary to send req from frontend
-app.use(express.json()) // necessary to parse json data
+app.use(express.json()) // necessary to parse json data (req.body)
 const port = 3000
 
 let events = [
@@ -10,21 +10,31 @@ let events = [
     id: '1',
     title: "Smash Bros Tournament",
     date: "2025-08-10",
-    location: "UF Reitz Union Game Room"
+    location: "UF Reitz Union Game Room",
+    time: '12:30'
   },
   {
     id: '2',
     title: "Board Game Night",
     date: "2025-08-17",
-    location: "Santa Fe College Student Center"
+    location: "Santa Fe College Student Center",
+    time: '12:30'
   },
   {
     id: '3',
     title: "LAN Party & Pizza",
     date: "2025-08-24",
-    location: "Cade Museum Community Room"
+    location: "Cade Museum Community Room",
+    time: '12:30'
   }
 ]
+
+const generateId = () => {
+  if (events.length > 0) {
+    return String(Math.max(...events.map(e => Number(e.id))) + 1)
+  }
+  return '0'
+}
 
 app.get('/', (req, res) => {
   res.send('<h1>Gs twin</h1>')
@@ -49,6 +59,7 @@ app.post('/api/events/', (req, res) => {
   const body = req.body
   
   const event = {
+    id: generateId(),
     title: body.title,
     location: body.location,
     date: body.date,
@@ -57,6 +68,10 @@ app.post('/api/events/', (req, res) => {
 
   events = events.concat(event)
   res.json(event)
+})
+
+app.delete('/api/events/:id', (req, res) => {
+  events = events.filter(event => event.id !== req.params.id)
 })
 
 app.listen(port, () => {
