@@ -126,7 +126,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
               {faq.map((question) => (
                 <div className='pb-3' key={question.i}>
                   <div 
-                    className='flex hover:cursor-pointer items-center gap-5 pb-3'
+                    className='flex hover:cursor-pointer select-none items-center gap-5 pb-3'
                     onClick={faqSelection === question.i ? () => setFaqSelection(null) : () => setFaqSelection(question.i)} 
                     key={question.i}
                   >
