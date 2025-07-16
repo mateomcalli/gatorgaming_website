@@ -1,80 +1,80 @@
-const express = require('express')
-const cors = require('cors')
-const app = express()
-app.use(cors()) // necessary to send req from frontend
-app.use(express.json()) // necessary to parse json data (req.body)
-const port = 3000
+// const express = require('express')
+// const cors = require('cors')
+// const app = express()
+// app.use(cors()) // necessary to send req from frontend
+// app.use(express.json()) // necessary to parse json data (req.body)
+// const port = 3000
 
-let events = [
-  {
-    id: '1',
-    title: "Smash Bros Tournament",
-    date: "2025-08-10",
-    location: "UF Reitz Union Game Room",
-    time: '12:30'
-  },
-  {
-    id: '2',
-    title: "Board Game Night",
-    date: "2025-08-17",
-    location: "Santa Fe College Student Center",
-    time: '12:30'
-  },
-  {
-    id: '3',
-    title: "LAN Party & Pizza",
-    date: "2025-08-24",
-    location: "Cade Museum Community Room",
-    time: '12:30'
-  }
-]
+// let events = [
+//   {
+//     id: '1',
+//     title: "Smash Bros Tournament",
+//     date: "2025-08-10",
+//     location: "UF Reitz Union Game Room",
+//     time: '12:30'
+//   },
+//   {
+//     id: '2',
+//     title: "Board Game Night",
+//     date: "2025-08-17",
+//     location: "Santa Fe College Student Center",
+//     time: '12:30'
+//   },
+//   {
+//     id: '3',
+//     title: "LAN Party & Pizza",
+//     date: "2025-08-24",
+//     location: "Cade Museum Community Room",
+//     time: '12:30'
+//   }
+// ]
 
-const generateId = () => {
-  if (events.length > 0) {
-    return String(Math.max(...events.map(e => Number(e.id))) + 1)
-  }
-  return '0'
-}
+// const generateId = () => {
+//   if (events.length > 0) {
+//     return String(Math.max(...events.map(e => Number(e.id))) + 1)
+//   }
+//   return '0'
+// }
 
-app.get('/', (req, res) => {
-  res.send('<h1>Gs twin</h1>')
-})
+// app.get('/', (req, res) => {
+//   res.send('<h1>Gs twin</h1>')
+// })
 
-app.get('/api/events', (req, res) => {
-  res.json(events)
-})
+// app.get('/api/events', (req, res) => {
+//   res.json(events)
+// })
 
-app.get('/api/events/:id', (req, res) => {
-  const id = req.params.id
-  const match = events.find(event => event.id === id)
-  if (match) {
-    res.json(match)
-  }
-  else {
-    res.status(404).json({ error: 'event not found' })
-  }
-})
+// app.get('/api/events/:id', (req, res) => {
+//   const id = req.params.id
+//   const match = events.find(event => event.id === id)
+//   if (match) {
+//     res.json(match)
+//   }
+//   else {
+//     res.status(404).json({ error: 'event not found' })
+//   }
+// })
 
-app.post('/api/events/', (req, res) => {
-  const body = req.body
+// app.post('/api/events/', (req, res) => {
+//   const body = req.body
   
-  const event = {
-    id: generateId(),
-    title: body.title,
-    location: body.location,
-    date: body.date,
-    time: body.time
-  }
+//   const event = {
+//     id: generateId(),
+//     title: body.title,
+//     location: body.location,
+//     date: body.date,
+//     time: body.time
+//   }
 
-  events = events.concat(event)
-  res.json(event)
-})
+//   events = events.concat(event)
+//   res.json(event)
+// })
 
-app.delete('/api/events/:id', (req, res) => {
-  events = events.filter(event => event.id !== req.params.id)
-  res.status(200).json({ message: `event with id ${req.params.id} successfully deleted`})
-})
+// app.delete('/api/events/:id', (req, res) => {
+//   events = events.filter(event => event.id !== req.params.id)
+//   res.status(200).json({ message: `event with id ${req.params.id} successfully deleted`})
+// })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`)
+// })

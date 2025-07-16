@@ -64,13 +64,16 @@ const Admin = () => {
       })
   }
 
-  const handleDelete = (id, title) => {
+  const handleDelete = async (id, title) => {
     if (confirm(`Are you sure you want to delete this event: ${title}?`)) {
-      axios
-        .delete(`http://localhost:3000/api/events/${id}`)
-        .then(response => response.data)
-      toggleRefresh(true)
-    }
+      try {
+        await axios.delete(`http://localhost:3000/api/events/${id}`)
+        toggleRefresh(true)
+      } catch (error) {
+        console.log(error)
+        alert('Failed to delete the event. Error:', error)
+      }
+    } return
   }
 
   return (
