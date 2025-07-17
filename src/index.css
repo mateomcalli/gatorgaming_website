@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap');
 @import "tailwindcss";
 
 /* * {
@@ -18,7 +19,8 @@ html {
   --color-ggbg: #0a0e15;
   --color-ggwhite: #d9d9d9;
   --color-ggwelcome: #c1bdbd;
-  --font-display: Inter, sans-serif; 
+  --font-display: 'Inter', sans-serif; 
+  --font-pixels: 'Press Start 2P', sans-serif;
 } 
 
 .red {
