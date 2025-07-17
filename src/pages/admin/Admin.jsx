@@ -19,13 +19,15 @@ const Admin = () => {
   const url = 'http://localhost:3000/api/events'
 
   useEffect(() => {
-    const getEvents = () => {
-      toggleRefresh(false)
-      axios
-        .get(url)
-        .then(response => {
-          setEventList(response.data)
-        })
+    const getEvents = async () => {
+      try {
+        toggleRefresh(false)
+        const list = await axios.get(url)
+        setEventList(list.data)
+      } catch (error) {
+        console.log('Error:', error)
+        alert('There was an error loading the events list, more details in the browser console.')
+      }
     }
     getEvents()
   }, [refresh])
@@ -45,23 +47,22 @@ const Admin = () => {
     }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    axios
-      .post(url, eventData)
-      .then(response => {
-        successMessage()
-        setEventData(
-          {
-            title: '',
-            location: '',
-            date: '',
-            time: '',
-          })
-        formRef.current.reset()
-        toggleRefresh(true)
-        return response.data
+    try {
+      await axios.post(url, eventData)
+      successMessage()
+      setEventData({
+        title: '',
+        location: '',
+        date: '',
+        time: ''
       })
+      formRef.current.reset()
+      toggleRefresh(true)
+    } catch (error) {
+
+    }
   }
 
   const handleDelete = async (id, title) => {

@@ -1,6 +1,6 @@
 TODO: 
 
-- Add MongoDB functionality.
+- Add calendar and events list.
 
 
 

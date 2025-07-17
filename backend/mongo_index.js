@@ -15,16 +15,6 @@ const generateId = async () => {
   return String(events + 1)
 }
 
-const createEvent = async () => {
-  return new Event({
-    id: await generateId(),
-    title: body.title,
-    location: body.location,
-    date: body.date,
-    time: body.time
-  })
-}
-
 mongoose.connect(url)
   .then(() => console.log('Connected to MongoDB!'))
   .catch(error => console.log('Error connecting to MongoDB:', error.message))
