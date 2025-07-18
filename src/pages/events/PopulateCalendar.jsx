@@ -1,6 +1,5 @@
-const PopulateCalendar = ({ dateTime }) => {
-  const year = dateTime.getFullYear()
-  const monthIndex = dateTime.getMonth()
+const PopulateCalendar = ({ dateTime, changingMonth, year }) => {
+  const monthIndex = changingMonth.getMonth()
   const firstDay = new Date(year, monthIndex, 1) // Tue Jul 01 2025
   const firstDayWeekday = firstDay.getDay() // 2
   const lastDay = new Date(year, monthIndex + 1, 0)
