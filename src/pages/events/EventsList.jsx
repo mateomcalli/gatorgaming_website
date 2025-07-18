@@ -1,26 +1,8 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { IoIosPin } from "react-icons/io"
 import { TbClock } from "react-icons/tb"
 import { TfiArrowTopRight } from "react-icons/tfi"
 
-const EventsList = () => {
-  const url = 'http://localhost:3000/api/events'
-  const [eventList, setEventList] = useState([])
-
-  useEffect(() => {
-    const getEvents = async () => {
-      try {
-        const list = await axios.get(url)
-        setEventList(list.data)
-      } catch (error) {
-        console.log('Error:', error)
-        alert('There was an error loading the events list, more details in the browser console.')
-      }
-    }
-    getEvents()
-  }, [])
-
+const EventsList = ({ eventList }) => {
   const eventDateFormatter = (rawDate, rawTime) => {
     const isoString = `${rawDate}T${rawTime}:00`
     const eventDate = new Date(isoString)

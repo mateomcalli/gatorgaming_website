@@ -1,4 +1,4 @@
-const PopulateCalendar = ({ dateTime, changingMonth, year }) => {
+const PopulateCalendar = ({ eventDateStrings, changingMonth, year, dateTime }) => {
   const monthIndex = changingMonth.getMonth()
   const firstDay = new Date(year, monthIndex, 1) // Tue Jul 01 2025
   const firstDayWeekday = firstDay.getDay() // 2
@@ -13,14 +13,32 @@ const PopulateCalendar = ({ dateTime, changingMonth, year }) => {
     i.setDate(i.getDate() + 1)
   }
 
+  const dateTimeString = dateTime.toISOString().split('T')[0]
+
   return (
     <div className='w-full px-2.5 gap-y-6 grid grid-cols-7'>
       {[...Array(firstDayWeekday)].map((_, index) => (
         <div key={`empty-${index}`} />
       ))}
-      {daysInMonth.map(day => (
-        <div className='font-display text-ggwhite'key={day.toISOString().split('T')[0]}>{day.getDate()}</div>
-      ))}
+      {daysInMonth.map(day => {
+        const dayString = day.toISOString().split('T')[0]
+        const isToday = dateTimeString === dayString
+        const hasEvent = eventDateStrings.includes(dayString)
+
+        return (
+          <div
+            key={dayString}
+            className={`
+              font-display
+              ${isToday ? 
+                `${hasEvent ? 'bg-ggorange text-ggbg' : 'bg-ggwhite text-ggbg'} rounded-full mx-4` 
+                : `${hasEvent ? 'text-ggorange' : 'text-ggwhite'}`}
+            `}
+          >
+            {day.getDate()}
+          </div>
+        )
+      })}
     </div>
   )
 }
