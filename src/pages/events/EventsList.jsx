@@ -32,6 +32,7 @@ const EventsList = () => {
       minute: '2-digit',
       hour12: true
     })
+    
     return { month, dayNumber, year, time }
   }
 
@@ -41,15 +42,15 @@ const EventsList = () => {
       {eventList.map(event => {
         const { month, dayNumber, year, time } = eventDateFormatter(event.date, event.time)
         return (
-          <div className='flex relative pb-8 gap-4 self-end'>
-            <TfiArrowTopRight size='32' className='absolute top-0 right-0 mt-1'/>
+          <div key={event.id} className='flex relative pb-8 gap-4 self-end'>
+            <a href='' className='hover:cursor-pointer'><TfiArrowTopRight size='32' className='absolute top-0 right-0 mt-1'/></a>
             <p className='text-[40px] -mt-1 text-ggorange font-pixels'>{dayNumber}</p>
             <div className='flex items-start flex-col text-ggwhite font-display' key={event.id}>
               <p className='text-xl text-ggwhite font-display'>{month} {year}</p>
               <p className='text-[18px] text-ggorange font-display'>{event.title}</p>
               <div className='flex'>
                 <IoIosPin size='20' className='text-ggorange mt-0.5'/>
-                <p className='text-ggwhite font-display ml-0.5 mr-2'>{event.location}</p>
+                <p className='text-wrap max-w-30 text-ggwhite font-display ml-0.5 mr-2'>{event.location}</p>
                 <TbClock size='20' className='text-ggorange mt-0.5'/>
                 <p className='text-ggwhite font-display ml-1 pr-10'>{time}</p>
               </div>
