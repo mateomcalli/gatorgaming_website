@@ -14,6 +14,7 @@ const PopulateCalendar = ({ eventDateStrings, changingMonth, year, dateTime }) =
   }
 
   const dateTimeString = dateTime.toISOString().split('T')[0]
+  // toISOString returns UTC, fix that
 
   return (
     <div className='w-full px-2.5 gap-y-6 grid grid-cols-7'>

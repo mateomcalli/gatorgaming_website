@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
+import { motion } from 'framer-motion'
 import axios from 'axios'
 import EventsList from './EventsList'
 import PopulateCalendar from './PopulateCalendar'
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 const EventsContent = () => {
   const [eventList, setEventList] = useState([])
@@ -66,9 +67,37 @@ const EventsContent = () => {
           <div className='flex gap-x-24 justify-center'>
             <div className='flex flex-col items-center border-2 border-[#1a1a1a] rounded-2xl min-w-105 h-110'>
               <div className='mt-5 flex w-full justify-between px-5 items-center'>
-                <button className='hover:cursor-pointer' onClick={handleLeft}><IoIosArrowBack size='20'/></button>
+                <motion.button
+                  initial={{ x: 0 }}
+                  whileHover={{ 
+                    x: [0, -3, 0,],
+                    transition: { duration: 0.5 }
+                  }}
+                  whileTap={{
+                    scale: 1.3,
+                    transition: { duration: 0.1 }
+                  }}
+                  className='pr-2 pl-1 hover:cursor-pointer'
+                  onClick={handleLeft}
+                >
+                  <IoIosArrowBack size='20'/>
+                </motion.button>
                 <p className='text-3xl text-ggwhite font-display'>{month} {year}</p>
-                <button className='hover:cursor-pointer' onClick={handleRight}><IoIosArrowForward size='20'/></button>
+                <motion.button
+                  initial={{ x: 0 }}
+                  whileHover={{ 
+                    x: [0, 3, 0,],
+                    transition: { duration: 0.5 }
+                  }}
+                  whileTap={{
+                    scale: 1.3,
+                    transition: { duration: 0.1 }
+                  }}
+                  className='pl-2 pr-1 hover:cursor-pointer'
+                  onClick={handleRight}
+                >
+                  <IoIosArrowForward size='20'/>
+                </motion.button>
               </div>
               <div className='pt-5 pb-4 grid grid-rows-1 grid-cols-7 gap-5'>
                 {weekdays.map((day, index) => (
