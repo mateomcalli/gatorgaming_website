@@ -1,9 +1,8 @@
 const PopulateCalendar = ({ eventDateStrings, changingMonth, year, dateTime }) => {
   const monthIndex = changingMonth.getMonth()
-  const firstDay = new Date(year, monthIndex, 1) // Tue Jul 01 2025
-  const firstDayWeekday = firstDay.getDay() // 2
+  const firstDay = new Date(year, monthIndex, 1)
+  const firstDayWeekday = firstDay.getDay()
   const lastDay = new Date(year, monthIndex + 1, 0)
-  // use firstDayWeekday as a starting weekday for a for loop that spans lastDay times, populating a css grid.
 
   let daysInMonth = []
   const i = new Date(firstDay)
@@ -14,8 +13,6 @@ const PopulateCalendar = ({ eventDateStrings, changingMonth, year, dateTime }) =
   }
 
   const dateTimeString = dateTime.toLocaleString().split(',')[0]
-  console.log(dateTimeString)
-  // toISOString returns UTC, fix that
 
   return (
     <div className='w-full px-2.5 gap-y-6 grid grid-cols-7'>
@@ -23,8 +20,8 @@ const PopulateCalendar = ({ eventDateStrings, changingMonth, year, dateTime }) =
         <div key={`empty-${index}`} />
       ))}
       {daysInMonth.map(day => {
-        const dayStringEST = day.toLocaleString().split(',')[0]
-        const dayStringUTC = day.toISOString().split('T')[0]
+        const dayStringEST = day.toLocaleString().split(',')[0] // 7/20/25
+        const dayStringUTC = day.toISOString().split('T')[0] // 2025-07-20
         const isToday = dateTimeString === dayStringEST
         const hasEvent = eventDateStrings.includes(dayStringUTC)
 

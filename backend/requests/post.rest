@@ -5,5 +5,8 @@ Content-Type: application/json
     "title": "REST Client POST",
     "location": "Reitz",
     "date": "2025-08-08",
-    "time": "14:30"
+    "time": "14:30",
+    "link": "https://www.instagram.com/p/DMEca8WMCFO/"
 }
+
+// this won't give you an expiryDate, only way to get that is to post through the UI.

@@ -1,6 +1,7 @@
 TODO: 
 
-- Add calendar and events list.
+- Add GatorLAN stuff
+
 
 
 

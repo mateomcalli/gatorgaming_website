@@ -2,7 +2,7 @@ import 'dotenv/config'
 import mongoose from 'mongoose'
 import express from 'express'
 import cors from 'cors'
-import Event from './models/events.js'
+import Event from './models/Events.js'
 
 const app = express()
 app.use(cors()) // necessary to send req from frontend
@@ -11,8 +11,10 @@ app.use(express.json()) // necessary to parse json data (req.body)
 const url = process.env.MONGO_URI
 
 const generateId = async () => {
-  const events = await Event.countDocuments({})
-  return String(events + 1)
+  const events = await Event.find()
+  const ids = events.map(event => Number(event.id))
+  const maxId = ids.length > 0 ? Math.max(...ids) : 0
+  return String(maxId + 1)
 }
 
 mongoose.connect(url)
@@ -44,7 +46,9 @@ app.post('/api/events', async (req, res) => {
       title: body.title,
       location: body.location,
       date: body.date,
-      time: body.time
+      expiryDate: body.expiryDate,
+      time: body.time,
+      link: body.link
     })
     console.log(`Event ${event.title} successfully created!`)
     res.json(event)

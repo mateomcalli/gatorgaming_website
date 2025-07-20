@@ -11,7 +11,7 @@ const EventsContent = () => {
 
   const [dateTime, setDateTime] = useState(new Date())
   const [changingMonth, setChangingMonth] = useState(new Date())
-  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] // 0-6
+  const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   const month = changingMonth.toLocaleString('default', { month: 'long' })
   const year = changingMonth.getFullYear()
 
@@ -60,19 +60,14 @@ const EventsContent = () => {
   })
 
   return (
-    <div className='relative pt-30 lg:pb-70 flex flex-col items-center w-screen min-h-screen'>
-      <div className='flex flex-col w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300 text-center z-2'>
-        <div className='relative'>
-          <p className='text-4xl pb-10 text-ggwhite font-display'>Calendar of Events</p>
-          <div className='flex gap-x-24 justify-center'>
-            <div className='flex flex-col items-center border-2 border-[#1a1a1a] rounded-2xl min-w-105 h-110'>
+    <div className='relative pt-30 lg:pb-70 flex justify-center items-center w-screen min-h-screen'>
+      <div className='flex flex-col w-screen lg:w-fit text-center z-2'>
+        <p className='text-4xl pb-10 text-ggwhite font-display'>Calendar of Events</p>
+        <div className='mr-3 md:mr-0 flex flex-col md:flex-row lg:gap-x-24 justify-center'>
+          <div className='md:pt-6 lg:pt-0'>
+            <div className='flex flex-col m-auto items-center border-2 border-[#1a1a1a] rounded-2xl min-w-105 w-105 h-105'>
               <div className='mt-5 flex w-full justify-between px-5 items-center'>
                 <motion.button
-                  initial={{ x: 0 }}
-                  whileHover={{ 
-                    x: [0, -3, 0,],
-                    transition: { duration: 0.5 }
-                  }}
                   whileTap={{
                     scale: 1.3,
                     transition: { duration: 0.1 }
@@ -84,11 +79,6 @@ const EventsContent = () => {
                 </motion.button>
                 <p className='text-3xl text-ggwhite font-display'>{month} {year}</p>
                 <motion.button
-                  initial={{ x: 0 }}
-                  whileHover={{ 
-                    x: [0, 3, 0,],
-                    transition: { duration: 0.5 }
-                  }}
                   whileTap={{
                     scale: 1.3,
                     transition: { duration: 0.1 }
@@ -106,8 +96,8 @@ const EventsContent = () => {
               </div>
               <PopulateCalendar eventDateStrings={eventDateStrings} changingMonth={changingMonth} year={year} dateTime={dateTime}/>
             </div>
-            <EventsList eventList={eventList}/>
           </div>
+          <EventsList eventList={eventList}/>
         </div>
       </div>
     </div>

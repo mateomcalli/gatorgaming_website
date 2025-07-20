@@ -13,6 +13,7 @@ const Admin = () => {
       location: '',
       date: '',
       time: '',
+      link: ''
     }
   )
 
@@ -50,18 +51,28 @@ const Admin = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      await axios.post(url, eventData)
+      const [year, month, day] = eventData.date.split('-').map(Number)
+      const expiryDate = new Date(year, month - 1, day + 1)
+      
+      const finalEventData = {
+        ...eventData,
+        expiryDate
+      }
+
+      await axios.post(url, finalEventData)
       successMessage()
       setEventData({
         title: '',
         location: '',
         date: '',
-        time: ''
+        time: '',
+        link: ''
       })
       formRef.current.reset()
       toggleRefresh(true)
     } catch (error) {
-
+      console.log(error)
+      alert('Failure to submit event. Error:', error)
     }
   }
 
@@ -83,7 +94,8 @@ const Admin = () => {
         <div className='w-100 h-fit px-3'>
           <p className='font-display text-ggorange pb-2'>posted events:</p>
           <div className='flex flex-col gap-3'>
-            {eventList.map(event => (
+            {eventList.length === 0 && <p className='font-display'>no events posted</p>}
+            {eventList.length !== 0 && eventList.map(event => (
               <div className='p-3 items-center justify-between rounded-xl flex bg-ggbg text-ggwhite drop-shadow-sm drop-shadow-ggorange font-display' key={event.id}>
                 <div className='flex-col'>
                   <p>{event.title}</p>
@@ -103,6 +115,7 @@ const Admin = () => {
             <input className='font-display focus:outline-none' name='location' placeholder="location" onChange={handleChange} required/>
             <input className='font-display focus:outline-none' type='date' name='date' onChange={handleChange} required/>
             <input type='time' name='time' onChange={handleChange} required/>
+            <input className='font-display focus:outline-none' placeholder='instagram link' name='link' onChange={handleChange} required/>
             <button type='submit' className={`w-fit px-2 self-center font-display cursor-pointer mt-3 rounded-4xl border-2 ${showSuccess ? 'border-green-800': 'border-ggorange'}`}>{showSuccess ? 'submitted!' : 'add event!'}</button>
           </form>
         </div>

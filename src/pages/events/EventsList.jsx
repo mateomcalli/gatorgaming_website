@@ -1,8 +1,12 @@
 import { IoIosPin } from "react-icons/io"
 import { TbClock } from "react-icons/tb"
 import { TfiArrowTopRight } from "react-icons/tfi"
+import { motion } from "framer-motion"
+import { useMediaQuery } from "react-responsive"
 
 const EventsList = ({ eventList }) => {
+  const specificMQ = useMediaQuery({ minWidth: 768, maxWidth: 1024 })
+
   const eventDateFormatter = (rawDate, rawTime) => {
     const isoString = `${rawDate}T${rawTime}:00`
     const eventDate = new Date(isoString)
@@ -19,16 +23,26 @@ const EventsList = ({ eventList }) => {
   }
 
   return (
-    <div className='flex flex-col items-start min-w-fit min-h-120'>
+    <div className='flex flex-col pt-5 lg:pt-0 items-start m-auto w-fit min-h-120'>
       <p className='text-[28px] pb-4 text-ggwhite font-display'>Upcoming Events</p>
-      {eventList.map(event => {
+      {eventList.length === 0 && <p className='font-display'>no upcoming events — stay tuned!</p>}
+      {eventList.length !== 0 && eventList.map(event => {
         const { month, dayNumber, year, time } = eventDateFormatter(event.date, event.time)
         return (
-          <div key={event.id} className='flex relative pb-8 gap-4 self-end'>
-            <a href='' className='hover:cursor-pointer'><TfiArrowTopRight size='32' className='absolute top-0 right-0 mt-1'/></a>
-            <p className='text-[40px] -mt-1 text-ggorange font-pixels'>{dayNumber}</p>
+          <div key={event.id} className='flex relative pb-8 gap-0 w-full lg:w-auto lg:gap-4 self-end'>
+            <a href={event.link} target='_blank' rel='noopener noreferrer'>
+              <motion.button 
+                href={event.link}
+                className='hover:cursor-pointer absolute top-0 right-0 mt-1'
+                whileHover={{ x: 6, y: -6 }}
+                transition={{ duration: 0.15 }}
+              >
+                <TfiArrowTopRight size='32'/>
+              </motion.button>
+            </a>
+            {!specificMQ && <p className='lg:visible text-[40px] -mt-1 text-ggorange pr-4 lg:pr-0 font-pixels'>{dayNumber}</p>}
             <div className='flex items-start flex-col text-ggwhite font-display' key={event.id}>
-              <p className='text-xl text-ggwhite font-display'>{month} {year}</p>
+              <p className='text-xl text-ggwhite font-display'>{specificMQ && dayNumber} {month} {year}</p>
               <p className='text-[18px] text-ggorange font-display'>{event.title}</p>
               <div className='flex'>
                 <IoIosPin size='20' className='text-ggorange mt-0.5'/>
