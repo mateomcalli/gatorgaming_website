@@ -13,7 +13,8 @@ const PopulateCalendar = ({ eventDateStrings, changingMonth, year, dateTime }) =
     i.setDate(i.getDate() + 1)
   }
 
-  const dateTimeString = dateTime.toISOString().split('T')[0]
+  const dateTimeString = dateTime.toLocaleString().split(',')[0]
+  console.log(dateTimeString)
   // toISOString returns UTC, fix that
 
   return (
@@ -22,13 +23,14 @@ const PopulateCalendar = ({ eventDateStrings, changingMonth, year, dateTime }) =
         <div key={`empty-${index}`} />
       ))}
       {daysInMonth.map(day => {
-        const dayString = day.toISOString().split('T')[0]
-        const isToday = dateTimeString === dayString
-        const hasEvent = eventDateStrings.includes(dayString)
+        const dayStringEST = day.toLocaleString().split(',')[0]
+        const dayStringUTC = day.toISOString().split('T')[0]
+        const isToday = dateTimeString === dayStringEST
+        const hasEvent = eventDateStrings.includes(dayStringUTC)
 
         return (
           <div
-            key={dayString}
+            key={dayStringEST}
             className={`
               font-display
               ${isToday ? 
