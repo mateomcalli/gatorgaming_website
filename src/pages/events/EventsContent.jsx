@@ -61,11 +61,11 @@ const EventsContent = () => {
 
   return (
     <div className='relative pt-30 lg:pb-70 flex justify-center items-center w-screen min-h-screen'>
-      <div className='flex flex-col w-screen lg:w-fit text-center z-2'>
-        <p className='text-4xl pb-10 text-ggwhite font-display'>Calendar of Events</p>
-        <div className='mr-3 md:mr-0 flex flex-col md:flex-row lg:gap-x-24 justify-center'>
-          <div className='md:pt-6 lg:pt-0'>
-            <div className='flex flex-col m-auto items-center border-2 border-[#1a1a1a] rounded-2xl min-w-105 w-105 h-105'>
+      <div className='flex flex-col w-fit text-center z-2'>
+        <p className='text-4xl pb-8 text-ggwhite font-display'>Calendar of Events</p>
+        <div className='flex justify-center flex-col mr-3 lg:mr-0 md:flex-row gap-x-16 lg:gap-x-24'>
+          <div className=''>
+            <div className='flex flex-col m-auto items-center border-2 border-[#1a1a1a] rounded-2xl flex-shrink-0 w-105 h-105'>
               <div className='mt-5 flex w-full justify-between px-5 items-center'>
                 <motion.button
                   whileTap={{

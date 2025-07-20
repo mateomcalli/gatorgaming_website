@@ -10,7 +10,7 @@ const eventSchema = new Schema({
   link: String
 })
 
-eventSchema.index({ expiryDate: 1 }, { expireAfterSeconds: 0 })
+eventSchema.index({ expiryDate: 1 }, { expireAfterSeconds: 0 }) // TTL index that refers to expiryDate as parameter
 const Event = model('event', eventSchema)
 
 export default Event
