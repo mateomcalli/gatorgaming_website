@@ -41,7 +41,7 @@ const App = () => {
           />
           <Route
             path='/events'
-            element={<EventsContent/>}
+            element={<EventsContent minLg={minLg}/>}
           />
           <Route
             path='/admin'

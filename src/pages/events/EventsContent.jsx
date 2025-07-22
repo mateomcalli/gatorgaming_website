@@ -5,7 +5,7 @@ import axios from 'axios'
 import EventsList from './EventsList'
 import PopulateCalendar from './PopulateCalendar'
 
-const EventsContent = () => {
+const EventsContent = ({ minLg }) => {
   const [eventList, setEventList] = useState([])
   const url = 'http://localhost:3000/api/events'
 
@@ -102,17 +102,20 @@ const EventsContent = () => {
           <EventsList eventList={eventList}/>
         </div>
       </div>
-      <div className='flex w-fit mr-3 gap-x-24'>
-        <div className='flex flex-col w-130 gap-y-8'>
-          <img className='aspect-auto w-130 rounded-3xl' src='/events/gatorlan2.jpg'/>
-          <p className='text-center font-display'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-        </div>
+      <div className='red flex w-fit md:w-4/5 lg:w-fit mr-3 lg:gap-x-1/5'>  
+        {minLg && 
+          <div className='flex flex-col w-130 gap-y-8'>
+            <img className='aspect-auto w-130 rounded-3xl' src='/events/gatorlan2.jpg'/>
+            <p className='text-center font-display'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+          </div>
+        }
         <div className='flex flex-col gap-y-20'>
-          <div>
+          <div className='text-center'>
             <p className='text-6xl text-ggorange font-semibold font-display'>GatorLAN <span className='italic text-ggwhite'>16</span></p>
             <p className='text-[24px] pl-1 text-ggwhite font-display'>September 13-16</p>
+            {!minLg && <p className='text-center font-display px-10 pt-8'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>}
           </div>
-          <div className='grid gap-y-1.5 grid-cols-2 grid-rows-4'>
+          <div className='w-100 ml-16 self-center grid gap-y-1.5 grid-cols-2 grid-rows-4'>
             {features.map(feature => (
               <div className='flex gap-2'>
                 <img className='w-6' src='events/gatorgaming-bullet.png'/>
