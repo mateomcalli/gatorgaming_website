@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import axios from 'axios'
 import EventsList from './EventsList'
 import PopulateCalendar from './PopulateCalendar'
+import EventsSeparator from '../../components/decorative/EventsSeparator'
 
 const EventsContent = ({ minLg }) => {
   const [eventList, setEventList] = useState([])
@@ -62,12 +63,13 @@ const EventsContent = ({ minLg }) => {
   const features = ['Tournaments', 'Prizes & Raffles', 'Side Events', 'Panels', 'Arts & Crafts', 'Board Games', 'Streaming', 'and MORE!']
   
   return (
-    <div className='relative pt-30 lg:pb-70 flex flex-col gap-y-32 justify-center items-center w-screen min-h-screen'>
+    <div className='relative pt-30 lg:pb-70 flex flex-col gap-y-24 justify-center items-center w-screen min-h-screen'>
+      <img className='absolute top-0 min-w-[1200px]' src='/events/events-top-blur.png'/>
       <div className='ml-4 flex flex-col w-fit text-center z-2'>
-        <p className='text-4xl pb-8 text-ggwhite font-display'>Calendar of Events</p>
-        <div className='flex justify-center flex-col md:flex-row gap-x-16 lg:gap-x-24'>
+        <p className='text-4xl mr-4 pb-8 text-ggwhite font-display'>Calendar of Events</p>
+        <div className='flex justify-center flex-col mr-0 sm:mr-8 lg:mr-0 md:flex-row gap-x-16 lg:gap-x-24'>
           <div className='mr-4 sm:mr-0'>
-            <div className='flex flex-col m-auto items-center border-2 border-[#1a1a1a] rounded-2xl flex-shrink-0 w-105 h-105'>
+            <div className='flex flex-col m-auto items-center border-2 border-[#1A1A1A] rounded-2xl flex-shrink-0 w-105 h-105'>
               <div className='mt-5 flex w-full justify-between px-5 items-center'>
                 <motion.button
                   whileTap={{
@@ -103,14 +105,16 @@ const EventsContent = ({ minLg }) => {
         </div>
       </div>
       {/* start of gatorLAN section */}
-      <div className='flex w-fit md:w-4/5 lg:w-fit ml-0 lg:ml-16'>  
+      <div className='flex relative z-1 w-fit md:w-4/5 lg:w-fit ml-0 lg:ml-16'>
+        <img className='absolute min-w-[900px] -top-20 -left-20 lg:left-70 lg:-top-45 z-0' src='/events/gatorlan-blur.png'/>
         {minLg && 
-          <div className='flex flex-col w-130 gap-y-8'>
+          <div className='flex flex-col w-130 gap-y-8 z-2'>
             <img className='aspect-auto w-130 rounded-3xl' src='/events/gatorlan2.jpg'/>
             <p className='text-center font-display'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
           </div>
         }
-        <div className='flex flex-col gap-y-12 lg:gap-y-20'>
+        <div className='flex flex-col gap-y-12 lg:gap-y-20 z-2'>
+          {!minLg && <EventsSeparator/>}  
           <div className='text-center'>
             <p className='text-6xl text-ggorange font-semibold font-display'>GatorLAN <span className='italic text-ggwhite'>16</span></p>
             <p className='text-[24px] pl-1 text-ggwhite font-display'>September 13-16</p>
@@ -141,12 +145,14 @@ const EventsContent = ({ minLg }) => {
         </div>
       </div>
       {/* start of extralife section */}
-      <div className='flex flex-col w-screen items-center lg:w-auto lg:flex-row lg:gap-x-16'>
-        <div className='w-110 flex flex-col gap-y-8 justify-center'>
-          <img className='w-100 ml-3 lg:w-120 lg:ml-0' src='events/extra-life-logo.png'/>
-          <p className='text-pretty text-center font-display px-5 lg:px-0'>Extra Life is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat conmodo labore.</p>
+      <div className='flex relative z-2 flex-col w-screen items-center lg:w-auto lg:flex-row lg:gap-x-16'>
+        {/* <img className='absolute -left-70 sm:left-[%] lg:-left-30 min-w-[800px]' src='/events/extra-life-blur.png'/> */}
+        <div className='w-110 flex flex-col gap-y-8 justify-center z-2'>
+          <img className='absolute right-20 top-10 lg:-top-10 lg:right-70 min-w-[800px]' src='/events/extra-life-blur.png'/>
+          <img className='w-100 ml-3 lg:w-120 lg:ml-0 z-2' src='events/extra-life-logo.png'/>
+          <p className='text-pretty text-center font-display px-5 lg:px-0 z-2'>Extra Life is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat conmodo labore.</p>
         </div>
-        <img className='w-100 h-70 ml-2 lg:w-115 lg:h-80 lg:ml-0 my-10 lg:my-20 rounded-3xl' src='/events/extralife.png'/>
+        <img className='w-100 h-70 ml-2 lg:w-115 lg:h-80 lg:ml-0 my-10 lg:my-20 rounded-3xl z-2' src='/events/extralife.png'/>
       </div>
     </div>
   )
