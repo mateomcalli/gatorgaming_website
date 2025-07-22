@@ -59,13 +59,14 @@ const EventsContent = () => {
     eventDateStrings.push(event.date)
   })
 
-  const features = ['Spectator Area', 'Prizes & Raffles', 'Side Events', 'Panels', 'Arts & Crafts', 'Board Games', 'Streaming', 'And MORE!']
+  const features = ['Spectator Area', 'Prizes & Raffles', 'Side Events', 'Panels', 'Arts & Crafts', 'Board Games', 'Streaming', 'and MORE!']
+  
   return (
     <div className='relative pt-30 lg:pb-70 flex flex-col gap-y-32 justify-center items-center w-screen min-h-screen'>
-      <div className='red flex flex-col w-fit text-center z-2'>
+      <div className='mr-3 flex flex-col w-fit text-center z-2'>
         <p className='text-4xl pb-8 text-ggwhite font-display'>Calendar of Events</p>
         <div className='flex justify-center flex-col ml-3 lg:mr-0 md:flex-row gap-x-16 lg:gap-x-24'>
-          <div className=''>
+          <div className='mr-4 sm:mr-0'>
             <div className='flex flex-col m-auto items-center border-2 border-[#1a1a1a] rounded-2xl flex-shrink-0 w-105 h-105'>
               <div className='mt-5 flex w-full justify-between px-5 items-center'>
                 <motion.button
@@ -101,27 +102,46 @@ const EventsContent = () => {
           <EventsList eventList={eventList}/>
         </div>
       </div>
-      <div className='flex w-fit gap-x-24'>
-        <div className='flex flex-col w-120 gap-y-8'>
-          <img className='aspect-auto w-120 rounded-3xl' src='/events/gatorlan1.png'/>
+      <div className='flex w-fit mr-3 gap-x-24'>
+        <div className='flex flex-col w-130 gap-y-8'>
+          <img className='aspect-auto w-130 rounded-3xl' src='/events/gatorlan2.jpg'/>
           <p className='text-center font-display'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
         </div>
-        <div className='red flex flex-col'>
+        <div className='flex flex-col gap-y-20'>
           <div>
             <p className='text-6xl text-ggorange font-semibold font-display'>GatorLAN <span className='italic text-ggwhite'>16</span></p>
             <p className='text-[24px] pl-1 text-ggwhite font-display'>September 13-16</p>
           </div>
-          <div className='flex'>
-            <img className='w-6' src='events/gatorgaming-bullet.png'/>
-            <p>Spectator Area</p>
-            <img className='w-6' src='events/gatorgaming-bullet.png'/>
-            <p>Spectator Area</p>
-            <img className='w-6' src='events/gatorgaming-bullet.png'/>
-            <p>Spectator Area</p>
-            <img className='w-6' src='events/gatorgaming-bullet.png'/>
-            <p>Spectator Area</p>
+          <div className='grid gap-y-1.5 grid-cols-2 grid-rows-4'>
+            {features.map(feature => (
+              <div className='flex gap-2'>
+                <img className='w-6' src='events/gatorgaming-bullet.png'/>
+                <p className='text-ggwhite font-display'>{feature}</p>
+              </div>
+            ))}
+          </div>
+          <div className='flex justify-around'>
+            <div className='flex'>
+              <div className='flex flex-col text-center'>
+                <p className='text-2xl font-pixels text-ggorange'>900+</p>
+                <p className='text-lg font-display text-ggwhite'>Average<br/>Registrations</p>
+              </div>
+            </div>
+            <div className='flex'>
+              <div className='flex flex-col text-center'>
+                <p className='text-2xl font-pixels text-ggorange'>30+</p>
+                <p className='text-lg font-display text-ggwhite'>Games<br/>Played</p>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <div className='flex mr-3 md:gap-x-16'>
+        <div className='mr-5 w-110 flex flex-col justify-center'>
+          <img className='w-120' src='events/extra-life-logo.png'/>
+          <p className='text-pretty text-center font-display pt-10'>Extra Life is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat conmodo labore.</p>
+        </div>
+        <img className='w-115 h-80 my-20 rounded-3xl' src='/events/extralife.png'/>
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ const EventsList = ({ eventList }) => {
   }
 
   return (
-    <div className='flex flex-col pt-5 lg:pt-0 items-start m-auto w-fit min-h-120'>
+    <div className='flex flex-col pt-5 lg:pt-0 items-start m-auto w-fit md:min-h-120'>
       <p className='text-[28px] pb-4 text-ggwhite font-display'>Upcoming Events</p>
       {eventList.length === 0 && <p className='font-display'>no upcoming events — stay tuned!</p>}
       {eventList.length !== 0 && eventList.map(event => {
