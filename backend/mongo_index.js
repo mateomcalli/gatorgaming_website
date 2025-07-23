@@ -13,6 +13,7 @@ app.use(cors({
 app.use(express.json()) // necessary to parse json data (req.body)
 
 const url = process.env.MONGO_URI
+const password = process.env.ADMIN_PW
 
 const generateId = async () => {
   const events = await Event.find()
@@ -77,6 +78,16 @@ app.delete('/api/events/:id', async (req, res) => {
     res.status(500).json({ error: 'there was a server issue deleting this event, please try again later' })
   }
 })
+
+// app.post('/api/login', async (req, res) => {
+//   try {
+//     const userEntry = req.params.userEntry
+//     if (userEntry !== password) {
+//       res.status(401).json({ error: 'incorrect password' })
+//     }
+//     console.log('hi')
+//   }
+// })
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
