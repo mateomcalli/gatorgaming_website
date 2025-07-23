@@ -7,6 +7,7 @@ import BlurOne from './bgblurs/BlurOne'
 import AboutContent from './pages/about/AboutContent'
 import TeamContent from './pages/team/TeamContent'
 import EventsContent from './pages/events/EventsContent'
+import Login from './pages/login/Login'
 import Admin from './pages/admin/Admin'
 
 const App = () => {
@@ -42,6 +43,10 @@ const App = () => {
           <Route
             path='/events'
             element={<EventsContent minLg={minLg}/>}
+          />
+          <Route
+            path='/login'
+            element={<Login/>}
           />
           <Route
             path='/admin'

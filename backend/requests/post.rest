@@ -4,7 +4,7 @@ Content-Type: application/json
 {
     "title": "REST Client POST",
     "location": "Reitz",
-    "date": "2025-08-08",
+    "date": "2025-07-22",
     "time": "14:30",
     "link": "https://www.instagram.com/p/DMEca8WMCFO/"
 }
