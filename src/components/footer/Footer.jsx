@@ -48,7 +48,7 @@ const Footer = ( {maxMd} ) => {
             </a>
           </div>
           <div className='flex items-center gap-5 w-fit h-fit pt-3 pl-2 pb-5 font-display'>
-            <a href='/admin'>
+            <a href='/login'>
             <p className='underline text-xs text-gray-300'>Admin Access</p>
             </a>
           </div>

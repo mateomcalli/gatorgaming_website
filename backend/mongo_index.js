@@ -4,6 +4,7 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import Event from './models/Events.js'
+import Session from './models/Sessions.js'
 
 const app = express()
 app.use(cors({
@@ -11,6 +12,7 @@ app.use(cors({
   credentials: true
 })) // necessary to send req from frontend
 app.use(express.json()) // necessary to parse json data (req.body)
+app.use(cookieParser())
 
 const url = process.env.MONGO_URI
 const password = process.env.ADMIN_PW
@@ -38,7 +40,7 @@ app.get('/api/events', async (req, res) => {
     const events = await Event.find({})
     res.json(events)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(500).json({ error: 'issue fetching events'})
   }
 })
@@ -58,7 +60,7 @@ app.post('/api/events', async (req, res) => {
     console.log(`Event ${event.title} successfully created!`)
     res.json(event)
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(500).json({ error: 'server issue with adding new event to the database'})
   }
 })
@@ -74,20 +76,54 @@ app.delete('/api/events/:id', async (req, res) => {
       res.json(match)
     }
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(500).json({ error: 'there was a server issue deleting this event, please try again later' })
   }
 })
 
-// app.post('/api/login', async (req, res) => {
-//   try {
-//     const userEntry = req.params.userEntry
-//     if (userEntry !== password) {
-//       res.status(401).json({ error: 'incorrect password' })
-//     }
-//     console.log('hi')
-//   }
-// })
+app.post('/api/login', async (req, res) => {
+  try {
+    const userEntry = req.body.password
+    if (userEntry !== password) {
+      return res.status(401).json({ error: 'incorrect password' })
+    }
+    const sessionId = 'admin-' + Date.now() + '-' + Math.random().toString().split('.')[1]
+    const currentDate = new Date()
+    const expiryDate = new Date(currentDate)
+    expiryDate.setHours(expiryDate.getHours() + 24)
+
+    console.log('Setting cookie with sessionId:', sessionId)
+    res.cookie('session', sessionId, { 
+      expires: expiryDate,
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax' // ONLY IF USING VERCEL/RENDER, if not set to strict
+    })
+
+    const session = await Session.create({
+      sessionId: sessionId,
+      expiryDate: expiryDate
+    })
+
+    res.json(session)
+  } catch (error) {
+      console.error(error)
+      res.status(500).json({ error: 'login server issue' })
+  }
+})
+
+app.get('/api/auth', async (req, res) => {
+  try {
+    const sessionCookie = req.cookies.session
+    const match = Session.findOne({ sessionCookie })
+    if (!sessionCookie || !match) {
+      return res.status(401).json({ error: 'invalid session, login again' })
+    }
+    // continue here
+  } catch (error) {
+    console.error(error)
+  }
+})
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {

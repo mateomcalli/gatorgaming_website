@@ -121,8 +121,8 @@ const EventsContent = ({ minLg }) => {
             {!minLg && <p className='text-center font-display md:px-20 px-10 pt-8'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>}
           </div>
           <div className='w-100 ml-16 self-center grid gap-y-1.5 grid-cols-2 grid-rows-4'>
-            {features.map(feature => (
-              <div className='flex gap-2'>
+            {features.map((feature, i) => (
+              <div key={i} className='flex gap-2'>
                 <img className='w-6' src='events/gatorgaming-bullet.png'/>
                 <p className='text-ggwhite font-display'>{feature}</p>
               </div>

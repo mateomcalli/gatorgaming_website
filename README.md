@@ -1,6 +1,6 @@
 TODO: 
 
-- Add GatorLAN stuff
+- Don't forget to change cookie same site attribute before prod
 
 
 
