@@ -96,7 +96,7 @@ app.post('/api/login', async (req, res) => {
     res.cookie('session', sessionId, { 
       expires: expiryDate,
       httpOnly: true,
-      secure: false,
+      secure: false, // set to true in deployment as well
       sameSite: 'lax' // ONLY IF USING VERCEL/RENDER, if not set to strict
     })
 
@@ -119,7 +119,8 @@ app.get('/api/auth', async (req, res) => {
     if (!sessionCookie || !match) {
       return res.status(401).json({ error: 'invalid session, login again' })
     }
-    // continue here
+    console.log(`authorized with id: ${sessionCookie}`)
+    res.json({ message: `authorized with id: ${sessionCookie}`})
   } catch (error) {
     console.error(error)
   }

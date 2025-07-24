@@ -2,11 +2,19 @@ import axios from 'axios'
 import { useState, useRef, useEffect } from 'react'
 
 const Login = () => {
+
   useEffect(() => {
-    const checkAuth = () => {
-      
+    const checkAuth = async () => {
+      try {
+        await axios.get('http://localhost:3000/api/auth', { withCredentials: true })
+        window.location.href = '/admin'
+      } catch (error) { 
+        console.log(error)
+      }
     }
-  })
+    checkAuth()
+  }, [])
+
   const [password, setPassword] = useState(null)
   const [failure, setFailure] = useState(false)
   const formRef = useRef(null)

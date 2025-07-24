@@ -3,6 +3,19 @@ import { useState, useRef, useEffect } from 'react'
 import { LuX } from "react-icons/lu";
 
 const Admin = () => {
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await axios.get('http://localhost:3000/api/auth', { withCredentials: true })
+      } catch (error) { 
+        console.error(error)
+        window.location.href = '/login'
+      }
+    }
+    checkAuth()
+  }, [])
+
   const formRef = useRef(null)
   const [showSuccess, setShowSuccess] = useState(false)
   const [eventList, setEventList] = useState([])
