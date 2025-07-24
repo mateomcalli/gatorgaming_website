@@ -33,7 +33,7 @@ const EventsList = ({ eventList }) => {
           eventList.map(event => {
             const { month, dayNumber, year, time } = eventDateFormatter(event.date, event.time)
             return (
-              <div key={event.id} className='flex relative pb-8 gap-0 w-full lg:w-auto lg:gap-4 self-end z-2'>
+              <div key={event.id} className='flex relative pb-8 gap-0 w-full lg:w-auto lg:gap-4 z-2'>
                 <motion.a
                   href={event.link}
                   target='_blank'

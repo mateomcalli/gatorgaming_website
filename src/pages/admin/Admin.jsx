@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState, useRef, useEffect } from 'react'
-import { LuX } from "react-icons/lu";
+import { LuX } from "react-icons/lu"
+import { motion } from 'framer-motion'
 
 const Admin = () => {
 
@@ -102,22 +103,25 @@ const Admin = () => {
   }
 
   return (
-    <div className='relative pt-30 lg:pb-70 flex flex-col items-center w-screen min-h-screen'>
+    <div className='relative pt-30 flex flex-col items-center w-screen h-screen'>
       <div className='flex gap-10'>
         <div className='w-100 h-fit px-3'>
-          <p className='font-display text-ggorange pb-2'>posted events:</p>
-          <div className='flex flex-col gap-3'>
+          <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Posted Events</p>
+          <div className='flex flex-col'>
             {eventList.length === 0 && <p className='font-display'>no events posted</p>}
             {eventList.length !== 0 && eventList.map(event => (
-              <div className='p-3 items-center justify-between rounded-xl flex bg-ggbg text-ggwhite drop-shadow-sm drop-shadow-ggorange font-display' key={event.id}>
+              <motion.div
+                className='p-3 items-center justify-between rounded-xl flex bg-ggbg text-ggwhite transition-colors drop-shadow-xl duration-200 hover:bg-[rgba(244,126,32,0.1)]'
+                key={event.id}
+              >
                 <div className='flex-col'>
-                  <p>{event.title}</p>
-                  <p>{event.location}</p>
-                  <p>{event.date}</p>
-                  <p>{event.time}</p>
+                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Name: </span>{event.title}</p>
+                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Location: </span>{event.location}</p>
+                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Date: </span>{event.date}</p>
+                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Time: </span>{event.time}</p>
                 </div>
                 <a onClick={() => handleDelete(event.id, event.title)} className='cursor-pointer'><LuX size='24'/></a>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

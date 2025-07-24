@@ -18,7 +18,7 @@ const AboutContent = ({ minXl, minLg, minMd }) => {
           {minLg && <AboutTopLines/>}
             <div className='pt-5 pb-8 justify-center lg:justify-between flex flex-col lg:flex-row lg:items-center gap-x-10 gap-y-10'>
               <div className='flex flex-col gap-y-5 lg:gap-y-3 lg:w-[32%] xl:w-[35%] lg:text-start lg:text-pretty text-center'>
-                <p className='px-5 md:px-0 pt-6 lg:pt-0 text-4xl text-ggwhite font-bold font-display'>We are Gator Gaming.</p>
+                <p className='px-5 md:px-0 pt-6 lg:pt-0 text-4xl text-ggwhite font-semibold font-display'>We are Gator Gaming.</p>
                 <p className='px-5 md:px-0 text-lg text-ggwhite font-display'>Gator Gaming is the premier hub for video game enthusiasts here at UF. Want to show off your smash bros skills? Want to discover new indie RPGs? Want to meet some amazingly cool people? We’ve got you covered.</p>
               </div>
             <Carousel/>

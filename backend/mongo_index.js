@@ -115,7 +115,7 @@ app.post('/api/login', async (req, res) => {
 app.get('/api/auth', async (req, res) => {
   try {
     const sessionCookie = req.cookies.session
-    const match = Session.findOne({ sessionCookie })
+    const match = await Session.findOne({ sessionId : sessionCookie })
     if (!sessionCookie || !match) {
       return res.status(401).json({ error: 'invalid session, login again' })
     }

@@ -9,7 +9,7 @@ const Hero = ({ minLg }) => {
           <p className='text-xl pb-3 sm:text-2xl text-ggwelcome'>
             Welcome to Gator Gaming!
           </p>
-          <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold text-ggwhite'>
+          <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight font-semibold text-ggwhite'>
             We're UF's student-led gaming club, committed to hosting community events that are completely free for all players.
           </h1>
           <p className='text-ggorange py-8 text-md sm:px-0 md:text-lg'>
