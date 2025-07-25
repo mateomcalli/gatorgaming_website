@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useState, useRef, useEffect } from 'react'
-import { LuX } from "react-icons/lu"
-import { motion } from 'framer-motion'
+import AdminEvent from './AdminEvent'
 
 const Admin = () => {
 
@@ -30,6 +29,7 @@ const Admin = () => {
       link: ''
     }
   )
+
 
   const url = 'http://localhost:3000/api/events'
 
@@ -90,18 +90,6 @@ const Admin = () => {
     }
   }
 
-  const handleDelete = async (id, title) => {
-    if (confirm(`Are you sure you want to delete this event: ${title}?`)) {
-      try {
-        await axios.delete(`http://localhost:3000/api/events/${id}`)
-        toggleRefresh(true)
-      } catch (error) {
-        console.log(error)
-        alert('Failed to delete the event. Error:', error)
-      }
-    } return
-  }
-
   return (
     <div className='relative pt-30 flex flex-col items-center w-screen h-screen'>
       <div className='flex gap-10'>
@@ -110,18 +98,14 @@ const Admin = () => {
           <div className='flex flex-col'>
             {eventList.length === 0 && <p className='font-display'>no events posted</p>}
             {eventList.length !== 0 && eventList.map(event => (
-              <motion.div
-                className='p-3 items-center justify-between rounded-xl flex bg-ggbg text-ggwhite transition-colors drop-shadow-xl duration-200 hover:bg-[rgba(244,126,32,0.1)]'
+              <AdminEvent
                 key={event.id}
-              >
-                <div className='flex-col'>
-                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Name: </span>{event.title}</p>
-                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Location: </span>{event.location}</p>
-                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Date: </span>{event.date}</p>
-                  <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Time: </span>{event.time}</p>
-                </div>
-                <a onClick={() => handleDelete(event.id, event.title)} className='cursor-pointer'><LuX size='24'/></a>
-              </motion.div>
+                id={event.id}
+                title={event.title} 
+                location={event.location}
+                date={event.date}
+                time={event.time}
+              />
             ))}
           </div>
         </div>
