@@ -65,3 +65,11 @@ html {
     display: none !important;
   }
 }
+
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #999;
+}
+
+input[type=time]:invalid::-webkit-datetime-edit {
+    color: #999;
+}

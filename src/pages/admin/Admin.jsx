@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState, useRef, useEffect } from 'react'
 import AdminEvent from './AdminEvent'
+import { motion } from 'framer-motion'
 
 const Admin = () => {
 
@@ -17,7 +18,6 @@ const Admin = () => {
   }, [])
 
   const formRef = useRef(null)
-  const [showSuccess, setShowSuccess] = useState(false)
   const [eventList, setEventList] = useState([])
   const [refresh, toggleRefresh] = useState(false)
   const [eventData, setEventData] = useState(
@@ -47,13 +47,6 @@ const Admin = () => {
     getEvents()
   }, [refresh])
 
-  const successMessage = () => {
-    setShowSuccess(true)
-    setTimeout(() => {
-      setShowSuccess(false)
-    }, '1500')
-  }
-
   const handleChange = (event) => {
     event.preventDefault()
     setEventData(previous => ({
@@ -74,7 +67,6 @@ const Admin = () => {
       }
 
       await axios.post(url, finalEventData)
-      successMessage()
       setEventData({
         title: '',
         location: '',
@@ -105,19 +97,29 @@ const Admin = () => {
                 location={event.location}
                 date={event.date}
                 time={event.time}
+                toggleRefresh={toggleRefresh}
               />
             ))}
           </div>
         </div>
-        <div className='w-60 h-fit px-3 pt-2 pb-5 mt-[31px] rounded-xl bg-ggbg drop-shadow-sm drop-shadow-ggorange'>
-          <p className='font-display text-ggorange pb-2'>add a new event:</p>
+        <div className='w-60 h-fit px-3 pt-2 mt-[40px] rounded-lg bg-[rgba(117,121,128,0.1)]'>
+          <p className='font-display text-ggorange pb-2'>Add a new event:</p>
           <form className='flex flex-col' ref={formRef} onSubmit={handleSubmit}>
-            <input className='font-display focus:outline-none' name='title' placeholder="title" onChange={handleChange} required/>
-            <input className='font-display focus:outline-none' name='location' placeholder="location" onChange={handleChange} required/>
+            <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>
+            <input className='font-display placeholder-[#999] focus:outline-none' name='location' placeholder="Location" onChange={handleChange} required/>
             <input className='font-display focus:outline-none' type='date' name='date' onChange={handleChange} required/>
             <input type='time' name='time' onChange={handleChange} required/>
-            <input className='font-display focus:outline-none' placeholder='instagram link' name='link' onChange={handleChange} required/>
-            <button type='submit' className={`w-fit px-2 self-center font-display cursor-pointer mt-3 rounded-4xl border-2 ${showSuccess ? 'border-green-800': 'border-ggorange'}`}>{showSuccess ? 'submitted!' : 'add event!'}</button>
+            <input className='font-display placeholder-[#999] focus:outline-none' placeholder='Instagram link' name='link' onChange={handleChange} required/>
+            <motion.button
+              whileHover={{
+                backgroundColor: 'rgb(244, 126, 32, 0.6)',
+                transition: { duration: 0.3 },
+              }}
+              className='font-display mt-2 mb-3 hover:cursor-pointer w-full self-center px-3 py-1 rounded-md'
+              type='submit'
+            >
+              Submit
+            </motion.button>
           </form>
         </div>
       </div>
