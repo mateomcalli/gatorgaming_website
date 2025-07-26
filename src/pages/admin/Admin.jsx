@@ -84,8 +84,8 @@ const Admin = () => {
 
   return (
     <div className='relative pt-30 flex flex-col items-center w-screen h-screen'>
-      <div className='flex gap-10'>
-        <div className='w-100 h-fit px-3'>
+      <div className='flex flex-col md:flex-row gap-10'>
+        <div className='w-100 h-fit md:px-3'>
           <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Posted Events</p>
           <div className='flex flex-col'>
             {eventList.length === 0 && <p className='font-display'>no events posted</p>}
@@ -102,7 +102,7 @@ const Admin = () => {
             ))}
           </div>
         </div>
-        <div className='w-60 h-fit px-3 pt-2 mt-[40px] rounded-lg bg-[rgba(117,121,128,0.1)]'>
+        <div className='md:w-60 h-fit px-3 pt-2 mt-[40px] rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
           <p className='font-display text-ggorange pb-2'>Add a new event:</p>
           <form className='flex flex-col' ref={formRef} onSubmit={handleSubmit}>
             <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>

@@ -63,7 +63,7 @@ const EventsContent = ({ minLg }) => {
   const features = ['Tournaments', 'Prizes & Raffles', 'Side Events', 'Panels', 'Arts & Crafts', 'Board Games', 'Streaming', 'and MORE!']
   
   return (
-    <div className='relative pt-30 lg:pb-70 flex flex-col gap-y-24 justify-center items-center w-screen min-h-screen'>
+    <div className='relative pt-30 lg:pb-50 flex flex-col gap-y-24 justify-center items-center w-screen min-h-screen'>
       <img className='absolute top-0 min-w-[1200px] pointer-events-none z-0' src='/events/events-top-blur.png'/>
       <div className='ml-4 flex flex-col w-fit text-center z-2'>
         <p className='text-4xl mr-4 pb-8 text-ggwhite font-display'>Calendar of Events</p>

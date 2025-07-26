@@ -22,7 +22,7 @@ const AdminEvent = ({ id, title, location, date, time, toggleRefresh }) => {
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className='p-3 items-center justify-between rounded-xl flex bg-ggbg text-ggwhite transition-colors drop-shadow-xl duration-200 hover:bg-[rgba(244,126,32,0.1)]'
+        className='p-3 items-center justify-between rounded-lg flex bg-ggbg text-ggwhite transition-colors drop-shadow-xl duration-200 hover:bg-[rgba(244,126,32,0.1)]'
       >
         <div className='flex-col'>
           <p className='font-mono text-ggorange'><span className='font-display text-ggwhite pr-1'>Name: </span>{title}</p>

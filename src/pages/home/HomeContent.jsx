@@ -118,7 +118,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
         </div>
       </div>
       {/* start of faq section */}
-      <div className='relative mb-50 lg:mb-0 w-screen lg:h-[80vh] xl:min-h-screen flex justify-center'>
+      <div className='relative mb-50 lg:mb-0 w-screen lg:h-[80vh] xl:h-[89vh] flex justify-center'>
         <FaqBlur/>
         <div className='xl:gap-35 pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
           <div className='px-10 md:px-5 w-full xl:w-1/2'>
