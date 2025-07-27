@@ -18,17 +18,21 @@ const Admin = () => {
   }, [])
 
   const formRef = useRef(null)
+  const lanInfoRef = useRef(null)
   const [eventList, setEventList] = useState([])
+  const [lanInfo, setLanInfo] = useState(null)
   const [refresh, toggleRefresh] = useState(false)
-  const [eventData, setEventData] = useState(
-    {
-      title: '',
-      location: '',
-      date: '',
-      time: '',
-      link: ''
-    }
-  )
+  const [eventData, setEventData] = useState({
+    title: '',
+    location: '',
+    date: '',
+    time: '',
+    link: ''
+  })
+  const [lanInfoData, setLanInfoData] = useState({
+    edition: '',
+    dateRange: ''
+  })
 
 
   const url = 'http://localhost:3000/api/events'
@@ -44,7 +48,21 @@ const Admin = () => {
         alert('There was an error loading the events list, more details in the browser console.')
       }
     }
+
+    const getLanInfo = async () => {
+      try {
+        toggleRefresh(false)
+        const item = await axios.get('http://localhost:3000/api/laninfo')
+        setLanInfo(item.data)
+        console.log(item.data)
+      } catch (error) {
+        console.log('Error:', error)
+        alert('There was an error loading gatorlan info, more details in the browser console.')
+      }
+    }
+
     getEvents()
+    getLanInfo()
   }, [refresh])
 
   const handleChange = (event) => {
@@ -55,7 +73,7 @@ const Admin = () => {
     }))
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmitEvent = async (event) => {
     event.preventDefault()
     try {
       const [year, month, day] = eventData.date.split('-').map(Number)
@@ -82,16 +100,25 @@ const Admin = () => {
     }
   }
 
+  const handleSubmitText = async (event) => {
+    event.preventDefault()
+    await axios.post('http://localhost:3000/api/lantext', lanInfoData)
+    setLanInfoData({
+      edition: '',
+      dateRange: ''
+    })
+  }
+
   return (
-    <div className='relative pt-30 flex flex-col items-center w-screen h-screen'>
-      <div className='flex flex-col md:flex-row gap-10'>
+    <div className='relative pt-30 flex flex-col gap-10 items-center w-screen h-screen'>
+      <div className='red flex flex-col md:flex-row gap-10'>
         <div className='w-100 h-fit md:px-3'>
           <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Posted Events</p>
           <div className='flex flex-col'>
             {eventList.length === 0 && <p className='font-display'>no events posted</p>}
             {eventList.length !== 0 && eventList.map(event => (
               <AdminEvent
-                key={event.id}
+                key={event._id}
                 id={event.id}
                 title={event.title} 
                 location={event.location}
@@ -104,7 +131,7 @@ const Admin = () => {
         </div>
         <div className='md:w-60 h-fit px-3 pt-2 mt-[40px] rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
           <p className='font-display text-ggorange pb-2'>Add a new event:</p>
-          <form className='flex flex-col' ref={formRef} onSubmit={handleSubmit}>
+          <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitEvent}>
             <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>
             <input className='font-display placeholder-[#999] focus:outline-none' name='location' placeholder="Location" onChange={handleChange} required/>
             <input className='font-display focus:outline-none' type='date' name='date' onChange={handleChange} required/>
@@ -122,6 +149,10 @@ const Admin = () => {
             </motion.button>
           </form>
         </div>
+      </div>
+      <div className='blue'>
+        <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>GatorLAN Information</p>
+        <p></p>
       </div>
     </div>
   )

@@ -5,6 +5,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import Event from './models/Events.js'
 import Session from './models/Sessions.js'
+import LanInfo from './models/LanInfo.js'
 
 const app = express()
 app.use(cors({
@@ -121,6 +122,29 @@ app.get('/api/auth', async (req, res) => {
     }
     console.log(`authorized with id: ${sessionCookie}`)
     res.json({ message: `authorized with id: ${sessionCookie}`})
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.get('/api/laninfo', async (req, res) => {
+  try {
+    const lanInfo = await LanInfo.findOne({})
+    res.json(lanInfo)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.post('/api/laninfo', async (req, res) => {
+  try {
+    const body = req.body
+    await LanInfo.deleteMany({})
+    const response = await LanInfo.create({
+      edition: body.edition,
+      dateRange: body.dateRange
+    })
+    res.json(response)
   } catch (error) {
     console.error(error)
   }

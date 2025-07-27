@@ -110,7 +110,7 @@ const EventsContent = ({ minLg }) => {
         {minLg && 
           <div className='flex flex-col w-130 gap-y-8 z-2'>
             <img className='aspect-auto w-130 rounded-3xl' src='/events/gatorlan2.jpg'/>
-            <p className='text-center font-display'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <p className='text-center font-display'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis ullamco laboris. Join our Discord for more information about this semester's edition!</p>
           </div>
         }
         <div className='flex flex-col gap-y-12 lg:gap-y-20 z-2'>
@@ -118,7 +118,7 @@ const EventsContent = ({ minLg }) => {
           <div className='text-center'>
             <p className='text-6xl text-ggorange font-semibold font-display'>GatorLAN <span className='italic text-ggwhite'>16</span></p>
             <p className='text-[24px] pl-1 text-ggwhite font-display'>September 13-16</p>
-            {!minLg && <p className='text-center font-display md:px-20 px-10 pt-8'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>}
+            {!minLg && <p className='text-center font-display md:px-20 px-10 pt-8'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis ullamco laboris. Join our Discord for more information about this semester's edition!</p>}
           </div>
           <div className='w-100 ml-16 self-center grid gap-y-1.5 grid-cols-2 grid-rows-4'>
             {features.map((feature, i) => (

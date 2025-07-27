@@ -35,7 +35,7 @@ const MobileNavbar = ({ setSelectedPage }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className='fixed right-0 mt-18 mr-6 w-50 h-80 rounded-xl border-1 border-[#2e2e2d] z-11 bg-ggbg/50 backdrop-blur-md'
+            className='select-none fixed right-0 mt-18 mr-6 w-50 h-80 rounded-xl border-1 border-[#2e2e2d] z-11 bg-ggbg/50 backdrop-blur-md'
           >
             <div className='h-full px-8 py-2 pt-1 text-nowrap grid grid-cols-2 grid-rows-6 font-display items-center text-ggwhite'>
               <a href="/" className="col-span-2 flex items-center gap-4.5 transition-opacity hover:opacity-80">
