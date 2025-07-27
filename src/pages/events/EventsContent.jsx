@@ -8,6 +8,7 @@ import EventsSeparator from '../../components/decorative/EventsSeparator'
 
 const EventsContent = ({ minLg }) => {
   const [eventList, setEventList] = useState([])
+  const [lanInfo, setLanInfo] = useState(null)
   const url = 'http://localhost:3000/api/events'
 
   const [dateTime, setDateTime] = useState(new Date())
@@ -34,6 +35,18 @@ const EventsContent = ({ minLg }) => {
         alert('There was an error loading the events list, more details in the browser console.')
       }
     }
+
+    const getLanInfo = async () => {
+      try {
+        const item = await axios.get('http://localhost:3000/api/laninfo')
+        setLanInfo(item.data)
+      } catch (error) {
+        console.log('Error:', error)
+        alert('There was an error loading gatorlan info, more details in the browser console.')
+      }
+    }
+
+    getLanInfo()
     getEvents()
   }, [])
 
@@ -116,8 +129,8 @@ const EventsContent = ({ minLg }) => {
         <div className='flex flex-col gap-y-12 lg:gap-y-20 z-2'>
           {!minLg && <EventsSeparator/>}  
           <div className='text-center'>
-            <p className='text-6xl text-ggorange font-semibold font-display'>GatorLAN <span className='italic text-ggwhite'>16</span></p>
-            <p className='text-[24px] pl-1 text-ggwhite font-display'>September 13-16</p>
+            <p className='text-6xl text-ggorange font-semibold font-display'>GatorLAN <span className='italic text-ggwhite'>{lanInfo?.edition}</span></p>
+            <p className='text-[24px] pl-1 text-ggwhite font-display'>{lanInfo?.dateRange}</p>
             {!minLg && <p className='text-center font-display md:px-20 px-10 pt-8'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis ullamco laboris. Join our Discord for more information about this semester's edition!</p>}
           </div>
           <div className='w-100 ml-16 self-center grid gap-y-1.5 grid-cols-2 grid-rows-4'>

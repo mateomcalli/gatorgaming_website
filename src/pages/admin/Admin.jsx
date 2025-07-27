@@ -34,7 +34,6 @@ const Admin = () => {
     dateRange: ''
   })
 
-
   const url = 'http://localhost:3000/api/events'
 
   useEffect(() => {
@@ -54,7 +53,6 @@ const Admin = () => {
         toggleRefresh(false)
         const item = await axios.get('http://localhost:3000/api/laninfo')
         setLanInfo(item.data)
-        console.log(item.data)
       } catch (error) {
         console.log('Error:', error)
         alert('There was an error loading gatorlan info, more details in the browser console.')
@@ -72,6 +70,15 @@ const Admin = () => {
       [event.target.name]: event.target.value
     }))
   }
+
+  const handleLTIChange = (event) => {
+  event.preventDefault()
+  setLanInfoData(previous => ({
+    ...previous,
+    [event.target.name]: event.target.value
+  }))
+}
+
 
   const handleSubmitEvent = async (event) => {
     event.preventDefault()
@@ -101,18 +108,25 @@ const Admin = () => {
   }
 
   const handleSubmitText = async (event) => {
-    event.preventDefault()
-    await axios.post('http://localhost:3000/api/lantext', lanInfoData)
-    setLanInfoData({
-      edition: '',
-      dateRange: ''
-    })
+    try {
+      event.preventDefault()
+      await axios.post('http://localhost:3000/api/laninfo', lanInfoData)
+      setLanInfoData({
+        edition: '',
+        dateRange: ''
+      })
+      lanInfoRef.current.reset()
+      toggleRefresh(true)
+    } catch (error) {
+      console.log(error)
+      alert('Failure to submit event. Error:', error)
+    }
   }
 
   return (
-    <div className='relative pt-30 flex flex-col gap-10 items-center w-screen h-screen'>
-      <div className='red flex flex-col md:flex-row gap-10'>
-        <div className='w-100 h-fit md:px-3'>
+    <div className='relative pt-30 flex flex-col gap-15 items-center w-screen h-screen'>
+      <div className='flex flex-col md:flex-row gap-4 md:gap-10'>
+        <div className='w-100 h-fit'>
           <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Posted Events</p>
           <div className='flex flex-col'>
             {eventList.length === 0 && <p className='font-display'>no events posted</p>}
@@ -129,7 +143,7 @@ const Admin = () => {
             ))}
           </div>
         </div>
-        <div className='md:w-60 h-fit px-3 pt-2 mt-[40px] rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
+        <div className='md:w-60 h-fit px-3 pt-2 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
           <p className='font-display text-ggorange pb-2'>Add a new event:</p>
           <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitEvent}>
             <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>
@@ -150,9 +164,29 @@ const Admin = () => {
           </form>
         </div>
       </div>
-      <div className='blue'>
-        <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>GatorLAN Information</p>
-        <p></p>
+      <div className=' w-100 md:w-170 flex flex-col md:flex-row gap-8 md:gap-13.5 justify-between'>
+        <div>
+          <p className='text-2xl font-display text-ggwhite pb-3'>GatorLAN Information</p>
+          <p className='text-md font-display text-ggwhite'>Currently displayed edition: <span className='text-ggorange font-mono pl-1'>{lanInfo?.edition}</span></p>
+          <p className='text-md font-display text-ggwhite'>Currently displayed date range: <span className='text-ggorange font-mono pl-1'>{lanInfo?.dateRange}</span></p>
+        </div>
+        <div>
+          <form className='flex flex-col p-2 pb-3 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]' onSubmit={handleSubmitText} ref={lanInfoRef}>
+            <p className='font-display text-ggorange pb-2 self-start pl-1 md:pl-0 md:self-center'>Change GatorLAN dates:</p>
+            <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='edition' placeholder="Edition" onChange={handleLTIChange} required/>
+            <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='dateRange' placeholder='Dates (ex. "May 1-4")' onChange={handleLTIChange} required/>
+            <motion.button
+              whileHover={{
+                backgroundColor: 'rgb(244, 126, 32, 0.6)',
+                transition: { duration: 0.3 },
+              }}
+              className='font-display mt-2 h-8 hover:cursor-pointer w-full self-center px-3 rounded-md'
+              type='submit'
+            >
+              Submit
+            </motion.button>
+          </form>
+        </div>
       </div>
     </div>
   )
