@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser'
 import Event from './models/Events.js'
 import Session from './models/Sessions.js'
 import LanInfo from './models/LanInfo.js'
+import Member from './models/Members.js'
 
 const app = express()
 app.use(cors({
@@ -147,6 +148,32 @@ app.post('/api/laninfo', async (req, res) => {
     res.json(response)
   } catch (error) {
     console.error(error)
+  }
+})
+
+app.get('/api/members', async (req, res) => {
+  try {
+    const members = await Member.find({})
+    res.json(members)
+  } catch (error) {
+    console.error(error)
+  }
+})
+
+app.post('/api/members', async (req, res) => {
+  try {
+    const body = req.body
+    const newMember = await Member.create({
+      name: body.name,
+      position: body.position,
+      hp: body.hp,
+      picture: body.picture,
+      favoriteGames: body.favoriteGames,
+      aboutMe: body.aboutMe
+    })
+    res.json(newMember)
+  } catch (error) {
+    console.log(error)
   }
 })
 

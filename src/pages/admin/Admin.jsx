@@ -124,8 +124,8 @@ const Admin = () => {
   }
 
   return (
-    <div className='relative pt-30 flex flex-col gap-15 items-center w-screen h-screen'>
-      <div className='flex flex-col md:flex-row gap-4 md:gap-10'>
+    <div className='relative pt-30 flex flex-col gap-15 items-center w-screen h-fit md:h-screen'>
+      <div className='red flex flex-col md:flex-row gap-4 md:gap-10'>
         <div className='w-100 h-fit'>
           <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Posted Events</p>
           <div className='flex flex-col'>
@@ -164,13 +164,13 @@ const Admin = () => {
           </form>
         </div>
       </div>
-      <div className=' w-100 md:w-170 flex flex-col md:flex-row gap-8 md:gap-13.5 justify-between'>
+      <div className='red w-100 md:w-170 flex flex-col md:flex-row gap-8 md:gap-13.5 justify-between'>
         <div>
           <p className='text-2xl font-display text-ggwhite pb-3'>GatorLAN Information</p>
           <p className='text-md font-display text-ggwhite'>Currently displayed edition: <span className='text-ggorange font-mono pl-1'>{lanInfo?.edition}</span></p>
           <p className='text-md font-display text-ggwhite'>Currently displayed date range: <span className='text-ggorange font-mono pl-1'>{lanInfo?.dateRange}</span></p>
         </div>
-        <div>
+        <div className=''>
           <form className='flex flex-col p-2 pb-3 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]' onSubmit={handleSubmitText} ref={lanInfoRef}>
             <p className='font-display text-ggorange pb-2 self-start pl-1 md:pl-0 md:self-center'>Change GatorLAN dates:</p>
             <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='edition' placeholder="Edition" onChange={handleLTIChange} required/>
@@ -181,6 +181,46 @@ const Admin = () => {
                 transition: { duration: 0.3 },
               }}
               className='font-display mt-2 h-8 hover:cursor-pointer w-full self-center px-3 rounded-md'
+              type='submit'
+            >
+              Submit
+            </motion.button>
+          </form>
+        </div>
+      </div>
+			{/* CHANGE WHAT IS BELOW HERE TO THE MEMBERS ADDING/DELETING PANEL, SAME UX AS EVENTS */}
+			<div className='red flex flex-col md:flex-row gap-4 md:gap-10'>
+        <div className='w-100 h-fit'>
+          <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Posted Events</p>
+          <div className='flex flex-col'>
+            {eventList.length === 0 && <p className='font-display'>no events posted</p>}
+            {eventList.length !== 0 && eventList.map(event => (
+              <AdminEvent
+                key={event._id}
+                id={event.id}
+                title={event.title} 
+                location={event.location}
+                date={event.date}
+                time={event.time}
+                toggleRefresh={toggleRefresh}
+              />
+            ))}
+          </div>
+        </div>
+        <div className='md:w-60 h-fit px-3 pt-2 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
+          <p className='font-display text-ggorange pb-2'>Add a new event:</p>
+          <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitEvent}>
+            <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>
+            <input className='font-display placeholder-[#999] focus:outline-none' name='location' placeholder="Location" onChange={handleChange} required/>
+            <input className='font-display focus:outline-none' type='date' name='date' onChange={handleChange} required/>
+            <input type='time' name='time' onChange={handleChange} required/>
+            <input className='font-display placeholder-[#999] focus:outline-none' placeholder='Instagram link' name='link' onChange={handleChange} required/>
+            <motion.button
+              whileHover={{
+                backgroundColor: 'rgb(244, 126, 32, 0.6)',
+                transition: { duration: 0.3 },
+              }}
+              className='font-display mt-2 mb-3 hover:cursor-pointer w-full self-center px-3 py-1 rounded-md'
               type='submit'
             >
               Submit

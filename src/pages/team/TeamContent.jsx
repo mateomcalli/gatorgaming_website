@@ -3,21 +3,22 @@ import SmallCard from "../../components/cards/SmallCard"
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 import { useDrag } from '@use-gesture/react'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import axios from "axios"
 
 
 const TeamContent = () => {
   const mainScrollRef = useRef(null)
   const subScrollRef = useRef(null)
+  const [members, setMembers] = useState([])
 
-  const members = [
-    {name: 'Amelia Reeves', position: 'Co-President', picture: ''},
-    {name: 'Matthew Grimaldi', position: 'Co-President', picture: ''},
-    {name: 'Wyatt Powell', position: 'Vice President', picture: ''},
-    {name: 'Kaiden Joy', position: 'Treasurer', picture: ''},
-    {name: 'Zack Philips', position: 'Secretary', picture: ''},
-    {name: 'Evelyn Perez', position: 'Outreach Lead', picture: ''}
-  ]
+  useEffect(() => {
+    const getMembers = async () => {
+      const response = await axios.get('http://localhost:3000/api/members')
+      setMembers(response.data)
+    }
+    getMembers()
+  }, [])
 
   const designers = [
     {name: 'Mateo McAllister', picture: '/people/mateo-m.png'},
@@ -54,13 +55,14 @@ const TeamContent = () => {
         <SimpleBar className='pt-8 h-124 w-screen lg:w-265 max-w-265' ref={mainScrollRef}>
           <div className='relative px-10 lg:px-5 flex gap-x-15 w-fit select-none cursor-grab active:cursor-grabbing' {...main()}>
             {members.map((member, index) => {
-              const [flipped, setFlipped] = useState(false)
               return (
                 <Card
                   name={member.name}
                   position={member.position}
-                  flipped={flipped}
-                  setFlipped={setFlipped}
+                  hp={member.hp}
+                  picture={member.picture}
+                  favoriteGames={member.favoriteGames}
+                  aboutMe={member.aboutMe}
                   key={index}
                 />
             )})}

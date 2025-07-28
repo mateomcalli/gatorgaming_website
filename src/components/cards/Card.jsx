@@ -3,7 +3,8 @@ import { motion } from "framer-motion"
 import CardFront from "./CardFront"
 import CardBack from "./CardBack"
 
-const Card = ({ name, position, flipped, setFlipped, picture }) => {
+const Card = ({ name, position, hp, picture, favoriteGames, aboutMe }) => {
+  const [flipped, setFlipped] = useState(false)
   const [hovered, setHovered] = useState(false)
 
   return (
@@ -18,8 +19,21 @@ const Card = ({ name, position, flipped, setFlipped, picture }) => {
         transition={{ duration: 0.3 }}
         className='relative w-full h-full transform-3d'
       >
-        <CardFront name={name} position={position} flipped={flipped} setFlipped={setFlipped} hovered={hovered}/>
-        <CardBack flipped={flipped} setFlipped={setFlipped} hovered={hovered}/>
+        <CardFront 
+          name={name}
+          position={position}
+          hp={hp} picture={picture}
+          flipped={flipped}
+          setFlipped={setFlipped}
+          hovered={hovered}
+        />
+        <CardBack
+          favoriteGames={favoriteGames}
+          aboutMe={aboutMe}
+          flipped={flipped}
+          setFlipped={setFlipped}
+          hovered={hovered}
+        />
        </motion.div>
     </div>
   )
