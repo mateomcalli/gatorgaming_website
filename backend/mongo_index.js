@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 app.get('/api/events', async (req, res) => {
   try {
     const events = await Event.find({})
-    res.json(events)
+    res.status(200).json(events)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'issue fetching events'})
@@ -60,7 +60,7 @@ app.post('/api/events', async (req, res) => {
       link: body.link
     })
     console.log(`Event ${event.title} successfully created!`)
-    res.json(event)
+    res.status(200).json(event)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'server issue with adding new event to the database'})
@@ -75,7 +75,7 @@ app.delete('/api/events/:id', async (req, res) => {
       res.status(404).json({ error: `event with id ${id} doesn't exist`})
     } else {
       console.log(`Event ${match.title} successfully deleted!`)
-      res.json(match)
+      res.status(200).json(match)
     }
   } catch (error) {
     console.error(error)
@@ -107,7 +107,7 @@ app.post('/api/login', async (req, res) => {
       expiryDate: expiryDate
     })
 
-    res.json(session)
+    res.status(200).json(session)
   } catch (error) {
       console.error(error)
       res.status(500).json({ error: 'login server issue' })
@@ -125,15 +125,17 @@ app.get('/api/auth', async (req, res) => {
     res.json({ message: `authorized with id: ${sessionCookie}`})
   } catch (error) {
     console.error(error)
+    res.status(500).json({ error: 'authentication server issue' })
   }
 })
 
 app.get('/api/laninfo', async (req, res) => {
   try {
     const lanInfo = await LanInfo.findOne({})
-    res.json(lanInfo)
+    res.status(200).json(lanInfo)
   } catch (error) {
     console.error(error)
+    res.status(500).json({ error: 'server issue while fetching gatorlan info' })
   }
 })
 
@@ -145,18 +147,20 @@ app.post('/api/laninfo', async (req, res) => {
       edition: body.edition,
       dateRange: body.dateRange
     })
-    res.json(response)
+    res.status(200).json(response)
   } catch (error) {
     console.error(error)
+    res.status(500).json({ error: 'server issue while saving gatorlan info' })
   }
 })
 
 app.get('/api/members', async (req, res) => {
   try {
     const members = await Member.find({})
-    res.json(members)
+    res.status(200).json(members)
   } catch (error) {
     console.error(error)
+    res.status(500).json({ error: 'server issue with getting members' })
   }
 })
 
@@ -171,9 +175,25 @@ app.post('/api/members', async (req, res) => {
       favoriteGames: body.favoriteGames,
       aboutMe: body.aboutMe
     })
-    res.json(newMember)
+    res.status(200).json(newMember)
   } catch (error) {
     console.log(error)
+    res.status(500).json({ error: 'server issue trying to add a new member' })
+  }
+})
+
+app.delete('/api/members/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    const deletedEvent = await Member.findOneAndDelete({ _id: id })
+    if (!deletedEvent) {
+      return res.status(404).json({ error: `member with id ${id} does not exist!`})
+    } else {
+      res.status(200).json(deletedEvent)
+    }
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'server issue with deleting member' })
   }
 })
 

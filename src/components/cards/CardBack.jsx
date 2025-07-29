@@ -6,7 +6,7 @@ const CardBack = ({ favoriteGames, aboutMe, flipped, setFlipped, hovered }) => {
         <p className='text-lg text-ggwhite font-display'>{favoriteGames}</p>
       </div>
       <div className='text-wrap flex flex-col gap-y-2 p-5 h-fit w-full'>
-        <p className='text-xl text-ggorange font-display'>What I do:</p>
+        <p className='text-xl text-ggorange font-display'>About me:</p>
         <p className='text-lg text-ggwhite font-display'>{aboutMe}</p>
       </div>
       <img onClick={() => setFlipped(!flipped)} className={`${hovered ? 'visible' : 'hidden'} absolute cursor-pointer -right-[19px] -bottom-[16px]`} src='/team/bent-corner3.png'/>

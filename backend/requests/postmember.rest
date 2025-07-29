@@ -2,7 +2,7 @@ POST http://localhost:3000/api/members
 Content-Type: application/json
 
 {
-    "name": "Sample",
+    "name": "",
     "position": "Developer",
     "hp": "200",
     "picture": "https://storage.googleapis.com/gg-member-photos/mateo-m.png",
