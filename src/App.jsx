@@ -45,6 +45,10 @@ const App = () => {
             element={<EventsContent minLg={minLg}/>}
           />
           <Route
+            path='/gallery'
+            element={<Gallery/>}
+          />
+          <Route
             path='/login'
             element={<Login/>}
           />

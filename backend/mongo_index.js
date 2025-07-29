@@ -30,13 +30,6 @@ mongoose.connect(url)
   .then(() => console.log('Connected to MongoDB!'))
   .catch(error => console.log('Error connecting to MongoDB:', error.message))
 
-app.get('/', (req, res) => {
-  res.send(`
-    <h1>Gator Gaming Backend API</h1>
-    <p>Use command '/api/events' to view all events, or filter by id with '/api/events/id'</p>
-  `)
-})
-
 app.get('/api/events', async (req, res) => {
   try {
     const events = await Event.find({})
