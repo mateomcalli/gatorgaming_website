@@ -9,6 +9,7 @@ import TeamContent from './pages/team/TeamContent'
 import EventsContent from './pages/events/EventsContent'
 import Login from './pages/login/Login'
 import Admin from './pages/admin/Admin'
+import Gallery from './pages/gallery/Gallery'
 
 const App = () => {
   const maxSm = useMediaQuery({ maxWidth: 767 })
