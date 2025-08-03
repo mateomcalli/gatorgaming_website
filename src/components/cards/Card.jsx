@@ -22,7 +22,8 @@ const Card = ({ name, position, hp, picture, favoriteGames, aboutMe }) => {
         <CardFront 
           name={name}
           position={position}
-          hp={hp} picture={picture}
+          hp={hp}
+          picture={picture}
           flipped={flipped}
           setFlipped={setFlipped}
           hovered={hovered}

@@ -1,4 +1,4 @@
-const CardFront = ({ name, position, hp, flipped, setFlipped, hovered }) => {
+const CardFront = ({ name, position, hp, picture, flipped, setFlipped, hovered }) => {
   return (
     <div className='absolute text-nowrap flex-shrink-0 flex flex-col rounded-xl w-full h-full border-solid border-8 border-ggorange bg-black'>
       <div className='flex pb-1 justify-between pt-[3px] pl-[10px]'>
@@ -9,7 +9,7 @@ const CardFront = ({ name, position, hp, flipped, setFlipped, hovered }) => {
           <img className='pointer-events-none border-1 rounded-full border-ggwhite w-6.5' src='gatorgaming-logo.png'/>
         </div>
       </div>
-      <img className='pointer-events-none mx-[10px] border-1 border-[#9F9F9F]' src='/people/mateo-m.png'/>
+      <img className='pointer-events-none mx-[10px] border-1 border-[#9F9F9F]' src={picture}/>
       <div className='flex mx-[6px] gap-x-2'>
         <img className='pointer-events-none pt-4 min-w-22 object-contain h-auto' src='/team/card-ability.png'/>
         <p className='pt-4 text-wrap text-ggorange text-lg font-display'>{position}</p>
