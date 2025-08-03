@@ -7,6 +7,7 @@ import Event from './models/Events.js'
 import Session from './models/Sessions.js'
 import LanInfo from './models/LanInfo.js'
 import Member from './models/Members.js'
+import Album from './models/Album.js'
 
 const app = express()
 app.use(cors({
@@ -187,6 +188,30 @@ app.delete('/api/members/:id', async (req, res) => {
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'server issue with deleting member' })
+  }
+})
+
+app.get('/api/gallery', async (req, res) => {
+  try {
+    const albums = await Album.find({})
+    res.status(200).json(albums)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'server issue with getting gallery albums' })
+  }
+})
+
+app.post('/api/gallery', async (req, res) => { // NOT WORKING YET, need to handle files properly with middleware
+  try {
+    const body = req.body
+    const newAlbum = await Album.create({
+      title: body.title,
+      coverImage: body.coverImage,
+      images: body.images
+    })
+    res.status(200).json(newAlbum)
+  } catch (error) {
+    res.status(500).json({ error: 'server issue with adding a new album' })
   }
 })
 

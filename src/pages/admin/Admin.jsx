@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import EventsManager from './EventsManager'
 import MembersManager from './MembersManager'
 import LanInfoManager from './LanInfoManager'
+import GalleryManager from './GalleryManager'
 
 const Admin = () => {
   useEffect(() => {
@@ -24,6 +25,7 @@ const Admin = () => {
       <EventsManager refresh={refresh} toggleRefresh={toggleRefresh}/>
       <MembersManager refresh={refresh} toggleRefresh={toggleRefresh}/>
       <LanInfoManager refresh={refresh} toggleRefresh={toggleRefresh}/>
+      <GalleryManager refresh={refresh} toggleRefresh={toggleRefresh}/>
     </div>
   )
 }

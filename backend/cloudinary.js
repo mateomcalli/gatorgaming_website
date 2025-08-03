@@ -16,9 +16,22 @@ const listResources = async () => { // lists first ten resources
   }
 }
 
-const uploadImage = async () => {
+const uploadPersonImage = async () => { // returns a useable cloudinary link of a transformed image meant to fit on the team page.
   try {
-    
+    const uploadResponse = await cloudinary.uploader.upload('../public/people/test_guy.png')
+    const transformedImage = cloudinary.url(uploadResponse.public_id, {
+      transformation: [
+        {
+          quality: 'auto:best', 
+          gravity: 'face:center', 
+          width: '206', 
+          height: '135',
+          crop: 'fill'
+        }
+      ],
+      format: 'jpg'
+    })
+    return transformedImage
   } catch (error) {
     console.error('Error:', error)
   }

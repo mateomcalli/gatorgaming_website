@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/gallery
+Content-Type: application/json
+
+{
+  "title": "GatorLAN Sample",
+  "coverImage": "",
+  "images": []
+}
