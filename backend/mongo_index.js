@@ -3,110 +3,29 @@ import mongoose from 'mongoose'
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import Event from './models/Events.js'
 import Session from './models/Sessions.js'
-import LanInfo from './models/LanInfo.js'
-import Member from './models/Members.js'
-import Album from './models/Album.js'
+import loginRoutes from './routes/login.js'
+import eventsRoutes from './routes/events.js'
+import membersRoutes from './routes/members.js'
+import lanInfoRoutes from './routes/laninfo.js'
+import galleryRoutes from './routes/gallery.js'
 
 const app = express()
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true
-})) // necessary to send req from frontend
+app.use(cors({ origin: 'http://localhost:5173', credentials: true })) // necessary to send req from frontend
 app.use(express.json()) // necessary to parse json data (req.body)
 app.use(cookieParser())
 
 const url = process.env.MONGO_URI
-const password = process.env.ADMIN_PW
-
-const generateId = async () => {
-  const events = await Event.find()
-  const ids = events.map(event => Number(event.id))
-  const maxId = ids.length > 0 ? Math.max(...ids) : 0
-  return String(maxId + 1)
-}
 
 mongoose.connect(url)
   .then(() => console.log('Connected to MongoDB!'))
   .catch(error => console.log('Error connecting to MongoDB:', error.message))
 
-app.get('/api/events', async (req, res) => {
-  try {
-    const events = await Event.find({})
-    res.status(200).json(events)
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'issue fetching events'})
-  }
-})
-
-app.post('/api/events', async (req, res) => {
-  try {
-    const body = req.body
-    const event = await Event.create({
-      id: await generateId(),
-      title: body.title,
-      location: body.location,
-      date: body.date,
-      expiryDate: body.expiryDate,
-      time: body.time,
-      link: body.link
-    })
-    console.log(`Event ${event.title} successfully created!`)
-    res.status(200).json(event)
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'server issue with adding new event to the database'})
-  }
-})
-
-app.delete('/api/events/:id', async (req, res) => {
-  try {
-    const id = req.params.id
-    const match = await Event.findOneAndDelete({ id: id })
-    if (!match) {
-      res.status(404).json({ error: `event with id ${id} doesn't exist`})
-    } else {
-      console.log(`Event ${match.title} successfully deleted!`)
-      res.status(200).json(match)
-    }
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'there was a server issue deleting this event, please try again later' })
-  }
-})
-
-app.post('/api/login', async (req, res) => {
-  try {
-    const userEntry = req.body.password
-    if (userEntry !== password) {
-      return res.status(401).json({ error: 'incorrect password' })
-    }
-    const sessionId = 'admin-' + Date.now() + '-' + Math.random().toString().split('.')[1]
-    const currentDate = new Date()
-    const expiryDate = new Date(currentDate)
-    expiryDate.setHours(expiryDate.getHours() + 24)
-
-    console.log('Setting cookie with sessionId:', sessionId)
-    res.cookie('session', sessionId, { 
-      expires: expiryDate,
-      httpOnly: true,
-      secure: false, // set to true in deployment as well
-      sameSite: 'lax' // ONLY IF USING VERCEL/RENDER, if not set to strict
-    })
-
-    const session = await Session.create({
-      sessionId: sessionId,
-      expiryDate: expiryDate
-    })
-
-    res.status(200).json(session)
-  } catch (error) {
-      console.error(error)
-      res.status(500).json({ error: 'login server issue' })
-  }
-})
+app.use('/api/login', loginRoutes)
+app.use('/api/events', eventsRoutes)
+app.use('/api/members', membersRoutes)
+app.use('/api/laninfo', lanInfoRoutes)
+app.use('/api/gallery', galleryRoutes)
 
 app.get('/api/auth', async (req, res) => {
   try {
@@ -123,97 +42,6 @@ app.get('/api/auth', async (req, res) => {
   }
 })
 
-app.get('/api/laninfo', async (req, res) => {
-  try {
-    const lanInfo = await LanInfo.findOne({})
-    res.status(200).json(lanInfo)
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'server issue while fetching gatorlan info' })
-  }
-})
-
-app.post('/api/laninfo', async (req, res) => {
-  try {
-    const body = req.body
-    await LanInfo.deleteMany({})
-    const response = await LanInfo.create({
-      edition: body.edition,
-      dateRange: body.dateRange
-    })
-    res.status(200).json(response)
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'server issue while saving gatorlan info' })
-  }
-})
-
-app.get('/api/members', async (req, res) => {
-  try {
-    const members = await Member.find({})
-    res.status(200).json(members)
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'server issue with getting members' })
-  }
-})
-
-app.post('/api/members', async (req, res) => {
-  try {
-    const body = req.body
-    const newMember = await Member.create({
-      name: body.name,
-      position: body.position,
-      hp: body.hp,
-      picture: body.picture,
-      favoriteGames: body.favoriteGames,
-      aboutMe: body.aboutMe
-    })
-    res.status(200).json(newMember)
-  } catch (error) {
-    console.log(error)
-    res.status(500).json({ error: 'server issue trying to add a new member' })
-  }
-})
-
-app.delete('/api/members/:id', async (req, res) => {
-  try {
-    const id = req.params.id
-    const deletedEvent = await Member.findOneAndDelete({ _id: id })
-    if (!deletedEvent) {
-      return res.status(404).json({ error: `member with id ${id} does not exist!`})
-    } else {
-      res.status(200).json(deletedEvent)
-    }
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'server issue with deleting member' })
-  }
-})
-
-app.get('/api/gallery', async (req, res) => {
-  try {
-    const albums = await Album.find({})
-    res.status(200).json(albums)
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'server issue with getting gallery albums' })
-  }
-})
-
-app.post('/api/gallery', async (req, res) => { // NOT WORKING YET, need to handle files properly with middleware
-  try {
-    const body = req.body
-    const newAlbum = await Album.create({
-      title: body.title,
-      coverImage: body.coverImage,
-      images: body.images
-    })
-    res.status(200).json(newAlbum)
-  } catch (error) {
-    res.status(500).json({ error: 'server issue with adding a new album' })
-  }
-})
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import Album from './Album'
+import { GrFormUpload } from "react-icons/gr";
 
 const GalleryManager = ({ refresh, toggleRefresh }) => {
   const formRef = useRef(null)
@@ -30,7 +31,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
   const handleChange = (event) => {
     setAlbumData(prev => ({
       ...prev,
-      [event.target.name]: event.target.name === 'images' || 'coverName' ? event.target.files : event.target.value 
+      [event.target.name]: (event.target.name === 'images' || event.target.name === 'coverImage') ? event.target.files : event.target.value 
     }))
   }
 
@@ -76,6 +77,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
               dateAdded={album.dateAdded}
               coverImage={album.coverImage}
               images={album.images}
+              toggleRefresh={toggleRefresh}
             />
           ))}
         </div>
@@ -85,27 +87,47 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
         <p className='font-display text-ggorange pb-2'>Add a new album:</p>
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitAlbum}>
           <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>
-          <label className='cursor-pointer w-fit h-fit font-display'>
-            Cover Image
-            <input 
-              type='file'
-              className='hidden'
-              name='coverImage'
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label className='cursor-pointer w-fit h-fit font-display'>
-            Images
-            <input 
-              type='file'
-              className='hidden'
-              name='images'
-              onChange={handleChange}
-              multiple
-              required
-            />
-          </label>
+          <div className='flex w-fit gap-2'>
+            <p className='font-display text-[#999]'>Upload Cover Image:</p>
+            <motion.label
+              className='rounded-md cursor-pointer w-fit h-fit font-display'
+              whileHover={{
+                backgroundColor: 'rgb(244, 126, 32, 0.2)',
+                transition: { duration: 0.3 },
+              }}
+            >
+              <GrFormUpload size='26'/>
+              <input 
+                type='file'
+                accept='image/*'
+                className='hidden'
+                name='coverImage'
+                onChange={handleChange}
+                required
+              />
+            </motion.label>
+          </div>
+          <div className='flex w-fit gap-2'>
+            <p className='font-display text-[#999]'>Upload Images:</p>
+            <motion.label
+              className='rounded-md cursor-pointer w-fit h-fit font-display'
+              whileHover={{
+                backgroundColor: 'rgb(244, 126, 32, 0.2)',
+                transition: { duration: 0.3 },
+              }}
+            >
+              <GrFormUpload size='26'/>
+              <input 
+                type='file'
+                accept='image/*'
+                className='hidden'
+                name='images'
+                onChange={handleChange}
+                multiple
+                required
+              />
+            </motion.label>
+          </div>
           <motion.button
             whileHover={{
               backgroundColor: 'rgb(244, 126, 32, 0.6)',
