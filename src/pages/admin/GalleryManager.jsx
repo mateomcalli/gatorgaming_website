@@ -49,7 +49,6 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
       await axios.post('http://localhost:3000/api/gallery', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
-      toggleRefresh(true)
       formRef.current.reset()
       setAlbumData({
         title: '',
@@ -57,6 +56,9 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
         coverImage: '',
         images: []
       })
+      setTimeout(() => {
+        toggleRefresh(true)
+      }, '10000')
     } catch (error) {
       console.error('Upload failed:', error)
       alert('There was an error uploading the album.')
@@ -64,11 +66,11 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
   }
 
   return (
-    <div className='red flex flex-col md:flex-row gap-4 md:gap-10'>
+    <div className='flex flex-col md:flex-row gap-4 md:gap-10'>
       <div className='w-100 h-fit'>
         <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Albums in gallery:</p>
         <div className='flex flex-col'>
-          {albumsList.length === 0 && <p className='font-display'>No albums posted!</p>}
+          {albumsList.length === 0 && <p className='pl-3 font-display'>No albums posted!</p>}
           {albumsList.length !== 0 && albumsList.map(album => (
             <Album
               key={album._id}
@@ -90,7 +92,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
           <div className='flex w-fit gap-2'>
             <p className='font-display text-[#999]'>Upload Cover Image:</p>
             <motion.label
-              className='rounded-md cursor-pointer w-fit h-fit font-display'
+              className= {albumData.images.length === 1 ? 'text-green-700 rounded-md cursor-pointer w-fit h-fit font-display' : 'rounded-md cursor-pointer w-fit h-fit font-display' } //not working
               whileHover={{
                 backgroundColor: 'rgb(244, 126, 32, 0.2)',
                 transition: { duration: 0.3 },

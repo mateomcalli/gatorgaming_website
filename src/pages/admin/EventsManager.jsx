@@ -68,7 +68,7 @@ const EventsManager = ({ refresh, toggleRefresh }) => {
       <div className='w-100 h-fit'>
         <p className='text-2xl font-display text-ggwhite pl-3 pb-2'>Posted Events:</p>
         <div className='flex flex-col'>
-          {eventList.length === 0 && <p className='font-display'>No events posted!</p>}
+          {eventList.length === 0 && <p className='pl-3 font-display'>No events posted!</p>}
           {eventList.length !== 0 && eventList.map(event => (
             <Event
               key={event._id}

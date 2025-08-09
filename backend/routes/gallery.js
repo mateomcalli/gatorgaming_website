@@ -82,12 +82,14 @@ router.post('/', upload.fields([{ name: 'coverImage', maxCount: 1 }, {name: 'ima
   }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:title', async (req, res) => {
   try {
-    const id = req.params.id
-    const response = await Album.findOneAndDelete({ _id: id })
+    const title = req.params.title
+    await cloudinary.api.delete_resources_by_prefix(`${title}/`)
+    await cloudinary.api.delete_folder(title)
+    const response = await Album.findOneAndDelete({ title: title })
     if (!response) {
-      return res.status(404).json({ error: `album with id ${id} does not exist in the database!` })
+      return res.status(404).json({ error: `album "${title}" does not exist in the database!` })
     }
     res.status(200).json(response)
   } catch (error) {
