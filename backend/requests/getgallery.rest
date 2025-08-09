@@ -1,0 +1,1 @@
+GET http://localhost:3000/api/gallery/68978c9dc0114b9ac09abad9

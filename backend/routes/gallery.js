@@ -45,6 +45,20 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/:id', async (req, res) => {
+  try {
+    const _id = req.params.id
+    const match = await Album.findOne({ _id: _id })
+    if (!match) {
+      res.status(404).json({ error: `no album with id ${_id} found in the database` })
+    }
+    res.status(200).json(match)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'encountered server issue trying to get album' })
+  }
+})
+
 router.post('/', upload.fields([{ name: 'coverImage', maxCount: 1 }, {name: 'images', maxCount: 30 }]), async (req, res) => {
   try {
     const { title } = req.body

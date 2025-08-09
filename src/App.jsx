@@ -49,6 +49,10 @@ const App = () => {
             path='/gallery'
             element={<Gallery/>}
           />
+          {/* <Route
+            path='/gallery/:title'
+            element={<AlbumPage/>}
+          /> */}
           <Route
             path='/login'
             element={<Login/>}
