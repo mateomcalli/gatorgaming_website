@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import Album from './Album'
-import { GrFormUpload } from "react-icons/gr";
+import { GrFormUpload } from "react-icons/gr"
 
 const GalleryManager = ({ refresh, toggleRefresh }) => {
   const formRef = useRef(null)
@@ -92,9 +92,9 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
           <div className='flex w-fit gap-2'>
             <p className='font-display text-[#999]'>Upload Cover Image:</p>
             <motion.label
-              className= {albumData.images.length === 1 
+              className={albumData.coverImage.length === 1 
                 ? 'text-green-700 rounded-md cursor-pointer w-fit h-fit font-display' 
-                : 'rounded-md cursor-pointer w-fit h-fit font-display'} // not working
+                : 'rounded-md cursor-pointer w-fit h-fit font-display'}
               whileHover={{
                 backgroundColor: 'rgb(244, 126, 32, 0.2)',
                 transition: { duration: 0.3 },
@@ -114,7 +114,9 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
           <div className='flex w-fit gap-2'>
             <p className='font-display text-[#999]'>Upload Images:</p>
             <motion.label
-              className='rounded-md cursor-pointer w-fit h-fit font-display'
+              className={albumData.images.length >= 1 
+                ? 'text-green-700 rounded-md cursor-pointer w-fit h-fit font-display' 
+                : 'rounded-md cursor-pointer w-fit h-fit font-display'}
               whileHover={{
                 backgroundColor: 'rgb(244, 126, 32, 0.2)',
                 transition: { duration: 0.3 },

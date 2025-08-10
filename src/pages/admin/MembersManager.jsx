@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import Member from './Member'
+import { GrFormUpload } from "react-icons/gr"
 
 const MembersManager = ({ refresh, toggleRefresh }) => {
   const formRef = useRef(null)
@@ -81,10 +82,31 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmit}>
           <input className='font-display placeholder-[#999] focus:outline-none' name='name' placeholder='Name' onChange={handleChange} required />
           <input className='font-display placeholder-[#999] focus:outline-none' name='position' placeholder='Position' onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='hp' placeholder='HP' onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' type='file' name='picture' placeholder='Photo' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='hp' placeholder='HP (no real utility, dw)' onChange={handleChange} required />
           <input className='font-display placeholder-[#999] focus:outline-none' name='favoriteGames' placeholder='Favorite Game(s)' onChange={handleChange} required />
           <input className='font-display placeholder-[#999] focus:outline-none' maxLength='140' name='aboutMe' placeholder='About Me (<140 characters)' onChange={handleChange} required />
+          <div className='flex w-fit gap-2'>
+            <p className='font-display text-[#999]'>Photo of member:</p>
+            <motion.label
+              className={membersData.picture.length === 1 
+                ? 'text-green-700 rounded-md cursor-pointer w-fit h-fit font-display' 
+                : 'rounded-md cursor-pointer w-fit h-fit font-display'}
+              whileHover={{
+                backgroundColor: 'rgb(244, 126, 32, 0.2)',
+                transition: { duration: 0.3 },
+              }}
+            >
+              <GrFormUpload size='26'/>
+              <input 
+                type='file'
+                accept='image/*'
+                className='hidden'
+                name='picture'
+                onChange={handleChange}
+                required
+              />
+            </motion.label>
+          </div>
           <motion.button
             whileHover={{
               backgroundColor: 'rgb(244, 126, 32, 0.6)',
