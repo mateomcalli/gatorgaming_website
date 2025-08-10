@@ -1,7 +1,37 @@
 import express from 'express'
+import 'dotenv/config'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import multer from 'multer'
 import Member from '../models/Members.js'
+import { v2 as cloudinary } from 'cloudinary'
 
 const router = express.Router()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const uploadsFolder = path.join(__dirname, 'temp_member_uploads')
+
+if (!fs.existsSync(uploadsFolder)) {
+  fs.mkdirSync(uploadsFolder, { recursive: true })
+}
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadsFolder)
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+})
+const upload = multer({ storage })
+
+cloudinary.config({
+  cloud_name: 'dmd5rgmyz',
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 router.get('/', async (req, res) => {
   try {
@@ -13,14 +43,20 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', upload.single('picture'), async (req, res) => {
   try {
     const body = req.body
+    const pictureFilePath = req.file.path
+    const response = await cloudinary.uploader.upload(pictureFilePath, {
+      folder: 'People'
+    })
+    const pictureLink = response.secure_url
+
     const newMember = await Member.create({
       name: body.name,
       position: body.position,
       hp: body.hp,
-      picture: body.picture,
+      picture: pictureLink,
       favoriteGames: body.favoriteGames,
       aboutMe: body.aboutMe
     })

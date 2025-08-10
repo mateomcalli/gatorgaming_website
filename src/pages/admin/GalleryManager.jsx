@@ -92,7 +92,9 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
           <div className='flex w-fit gap-2'>
             <p className='font-display text-[#999]'>Upload Cover Image:</p>
             <motion.label
-              className= {albumData.images.length === 1 ? 'text-green-700 rounded-md cursor-pointer w-fit h-fit font-display' : 'rounded-md cursor-pointer w-fit h-fit font-display' } //not working
+              className= {albumData.images.length === 1 
+                ? 'text-green-700 rounded-md cursor-pointer w-fit h-fit font-display' 
+                : 'rounded-md cursor-pointer w-fit h-fit font-display'} // not working
               whileHover={{
                 backgroundColor: 'rgb(244, 126, 32, 0.2)',
                 transition: { duration: 0.3 },

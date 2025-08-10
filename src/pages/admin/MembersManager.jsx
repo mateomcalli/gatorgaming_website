@@ -34,7 +34,7 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
     event.preventDefault()
     setMembersData(prev => ({
       ...prev,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.name === 'picture' ? event.target.files : event.target.value
     }))
   }
 
@@ -79,12 +79,12 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
       <div className='md:w-60 h-fit px-3 pt-2 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
         <p className='font-display text-ggorange pb-2'>Add a new member:</p>
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmit}>
-          <input className='font-display placeholder-[#999] focus:outline-none' name='name' placeholder="Name" onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='position' placeholder="Position" onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='hp' placeholder="HP" onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='picture' placeholder="Photo (Google Cloud link)" onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='favoriteGames' placeholder="Favorite Game(s)" onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' maxLength='140' name='aboutMe' placeholder="About Me (<140 characters)" onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='name' placeholder='Name' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='position' placeholder='Position' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='hp' placeholder='HP' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' type='file' name='picture' placeholder='Photo' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='favoriteGames' placeholder='Favorite Game(s)' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' maxLength='140' name='aboutMe' placeholder='About Me (<140 characters)' onChange={handleChange} required />
           <motion.button
             whileHover={{
               backgroundColor: 'rgb(244, 126, 32, 0.6)',

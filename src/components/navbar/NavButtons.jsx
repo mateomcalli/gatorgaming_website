@@ -17,8 +17,8 @@ const NavButtons = () => {
           to={item.path}
           className={({ isActive }) =>
             isActive 
-            ? 'text-ggorange px-5 py-0.5 border-1 border-ggorange rounded-2xl'
-            : 'text-ggwhite px-5 py-0.5 border-1 border-ggwhite rounded-2xl fade-bg-orange hover:text-white'
+            ? 'text-ggorange px-5 py-0.5 border-1 border-ggorange rounded-2xl select-none'
+            : 'text-ggwhite px-5 py-0.5 border-1 border-ggwhite rounded-2xl fade-bg-orange hover:text-white select-none'
           }>
           <button className='cursor-pointer'>
             {item.name}

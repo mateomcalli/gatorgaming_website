@@ -6,8 +6,7 @@ const Navbar = () => {
     <nav className='font-display fixed grid grid-cols-3 items-center w-screen top-0 bg-[linear-gradient(180deg,_#0A0E15_40%,_rgba(10,_14,_21,_0)_100%)] z-10 h-20 px-4 sm:px-6 md:px-8 lg:px-10'>
       <div className='flex-shrink-0'>
         <img
-          // onClick={() => setSelectedPage('Home')}
-          className='w-16'
+          className='w-16 pointer-events-none select-none'
           src='https://i.imgur.com/n2RSSOQ.png'
         ></img>
       </div>

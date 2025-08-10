@@ -4,7 +4,7 @@ const memberSchema = new Schema ({
   name: String,
   position: String,
   hp: Number,
-  picture: String, // should be a google cloud photo link
+  picture: String,
   favoriteGames: String,
   aboutMe: String
 })

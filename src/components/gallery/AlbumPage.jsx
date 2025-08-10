@@ -17,10 +17,10 @@ const AlbumPage = ({ _id }) => {
   }, [])
 
   return (
-    <div className='red flex flex-col w-full'>
+    <div className='gap-5 items-stretch grid grid-cols-2 lg:grid-cols-3 sm:w-fit px-5 md:px-0 md:w-180 lg:w-220 xl:w-250'>
       {(images.length !== 0) && 
         images.map(image => (
-          <img src={image}/>
+          <img className='object-cover pointer-events-none' src={image}/>
         ))
       }
     </div>
