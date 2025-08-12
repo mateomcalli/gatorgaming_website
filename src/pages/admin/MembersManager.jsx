@@ -40,9 +40,21 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
   }
 
   const handleSubmit = async (event) => {
-    try {
       event.preventDefault()
-      await axios.post('http://localhost:3000/api/members', membersData)
+      const formData = new FormData()
+
+      formData.append('name', membersData.name)
+      formData.append('position', membersData.position)
+      formData.append('hp', membersData.hp)
+      formData.append('favoriteGames', membersData.favoriteGames)
+      formData.append('aboutMe', membersData.aboutMe)
+      formData.append('picture', membersData.picture[0])
+
+    try {
+      await axios.post('http://localhost:3000/api/members', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      })
+
       setMembersData({
         name: '',
         position: '',

@@ -48,7 +48,10 @@ router.post('/', upload.single('picture'), async (req, res) => {
     const body = req.body
     const pictureFilePath = req.file.path
     const response = await cloudinary.uploader.upload(pictureFilePath, {
-      folder: 'People'
+      folder: 'People',
+      transformation: [
+        {gravity: 'auto'}
+      ] // write up more, gravity and face centering, (not working rn)
     })
     const pictureLink = response.secure_url
 

@@ -49,6 +49,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
       await axios.post('http://localhost:3000/api/gallery', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
+      
       formRef.current.reset()
       setAlbumData({
         title: '',

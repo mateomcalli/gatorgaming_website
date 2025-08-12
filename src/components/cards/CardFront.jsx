@@ -9,7 +9,9 @@ const CardFront = ({ name, position, hp, picture, flipped, setFlipped, hovered }
           <img className='pointer-events-none border-1 rounded-full border-ggwhite w-6.5' src='gatorgaming-logo.png'/>
         </div>
       </div>
-      <img className='pointer-events-none mx-[10px] border-1 border-[#9F9F9F]' src={picture}/>
+      <div className='mx-[10px] w-[265px] h-[155px] border-1 border-[#9F9F9F]'>
+        <img className='w-full h-full pointer-events-none object-cover' src={picture}/>
+      </div>
       <div className='flex mx-[6px] gap-x-2'>
         <img className='pointer-events-none pt-4 min-w-22 object-contain h-auto' src='/team/card-ability.png'/>
         <p className='pt-4 text-wrap text-ggorange text-lg font-display'>{position}</p>

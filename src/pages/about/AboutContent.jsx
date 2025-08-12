@@ -15,8 +15,8 @@ const AboutContent = ({ minXl, minLg, minMd }) => {
       <div className='relative pt-20 lg:pb-70 flex flex-col items-center justify-center w-screen min-h-screen'>
         <AboutBlurOne/>
         <div className='mb-10 min-h-fit pt-0 relative w-screen md:w-180 lg:w-230 xl:w-250 2xl:w-300'>
-          {minLg && <AboutTopLines/>}
-            <div className='pt-5 pb-8 justify-center lg:justify-between flex flex-col lg:flex-row lg:items-center gap-x-10 gap-y-10'>
+          {/* {minLg && <AboutTopLines/>} (old asset, could re add but i feel like it causes too much visual clutter) */}
+            <div className='pt-10 pb-8 justify-center lg:justify-between flex flex-col lg:flex-row lg:items-center gap-x-10 gap-y-10'>
               <div className='flex flex-col gap-y-5 lg:gap-y-3 lg:w-[32%] xl:w-[35%] lg:text-start lg:text-pretty text-center'>
                 <p className='px-5 md:px-0 pt-6 lg:pt-0 text-4xl text-ggwhite font-semibold font-display'>We are Gator Gaming.</p>
                 <p className='px-5 md:px-0 text-lg text-ggwhite font-display'>Gator Gaming is the premier hub for video game enthusiasts here at UF. Want to show off your smash bros skills? Want to discover new indie RPGs? Want to meet some amazingly cool people? We’ve got you covered.</p>

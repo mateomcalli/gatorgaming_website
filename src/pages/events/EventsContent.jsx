@@ -5,6 +5,7 @@ import axios from 'axios'
 import EventsList from './EventsList'
 import PopulateCalendar from './PopulateCalendar'
 import EventsSeparator from '../../components/decorative/EventsSeparator'
+import EventSeparatorLines from '../../components/decorative/EventSeparatorLines'
 
 const EventsContent = ({ minLg }) => {
   const [eventList, setEventList] = useState([])
@@ -157,6 +158,7 @@ const EventsContent = ({ minLg }) => {
           </div>
         </div>
       </div>
+      {minLg && <EventSeparatorLines/>}
       {/* start of extralife section */}
       <div className='flex relative z-2 flex-col w-screen items-center lg:w-auto lg:flex-row lg:gap-x-16'>
         <div className='w-110 flex flex-col gap-y-8 justify-center z-2'>
