@@ -63,8 +63,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
             <p className='text-md xl:text-lg text-ggwhite font-display'>We’re a passionate gaming community dedicated to uniting players of all skill levels—whether you’re here to dominate tournaments, squad up with friends, or just have a good time. Join us and level up your gaming experience!</p>
             <div className='flex gap-5 pt-8 font-display'>
               <a
-                href='https://discord.com/invite/s99axhqQac'
-                target='_blank'
+                href='/events/'
                 rel='noopener noreferrer'
                 className='z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken'
               >Events
@@ -120,8 +119,8 @@ const HomeContent = ( {maxSm, minXl} ) => {
       {/* start of faq section */}
       <div className='relative mb-50 lg:mb-0 w-screen lg:h-[80vh] xl:h-[89vh] flex justify-center'>
         <FaqBlur/>
-        <div className='xl:gap-35 pt-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
-          <div className='px-10 md:px-5 w-full xl:w-1/2'>
+        <div className='xl:gap-35 h-fit gap-10 w-full md:w-180 lg:w-215 xl:w-250 2xl:w-332 flex text-center z-2'>
+          <div className='px-10 pt-35 md:px-5 w-full xl:w-1/2'>
             <p className='pb-8 text-2xl sm:text-3xl lg:text-4xl font-display z-2 text-ggwhite font-bold'>FAQ</p>
               {faq.map((question) => (
                 <div className='pb-3' key={question.i}>
@@ -166,7 +165,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
               ))}
           </div>
           {minXl &&
-          <div className='w-fit'>
+          <div className='w-fit pt-28'>
             <img 
               className='rounded-3xl aspect-auto z-2'
               src='home/faq-image.png'

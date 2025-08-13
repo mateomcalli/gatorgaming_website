@@ -32,6 +32,7 @@ const EventsList = ({ eventList }) => {
         {eventList.length !== 0 && 
           eventList.map(event => {
             const { month, dayNumber, year, time } = eventDateFormatter(event.date, event.time)
+            const largerText = event.title.length <= 16 
             return (
               <div key={event.id} className='flex relative pb-8 gap-0 w-full lg:w-auto lg:gap-4 z-2'>
                 <motion.a
@@ -51,7 +52,7 @@ const EventsList = ({ eventList }) => {
                 }
                 <div className='relative z-2 flex items-start flex-col text-ggwhite font-display' key={event.id}>
                   <p className='text-xl text-ggwhite font-display'>{specificMQ && dayNumber} {month} {year}</p>
-                  <p className='text-[18px] text-ggorange font-display'>{event.title}</p>
+                  <p className={largerText ? `text-[20px] text-ggorange font-display` : `text-[18px] text-ggorange font-display`}>{event.title}</p>
                   <div className='flex'>
                     <IoIosPin size='20' className='text-ggorange mt-0.5'/>
                     <p className='text-wrap max-w-30 text-ggwhite font-display ml-0.5 mr-2'>{event.location}</p>

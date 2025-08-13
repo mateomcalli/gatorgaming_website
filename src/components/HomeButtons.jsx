@@ -1,4 +1,5 @@
-import { FaArrowRightLong } from 'react-icons/fa6';
+import { FaArrowRightLong } from "react-icons/fa6"
+import { SiLinktree } from "react-icons/si"
 
 const HomeButtons = () => {
   return (
@@ -15,10 +16,12 @@ const HomeButtons = () => {
       </a>
       <a
         href='https://linktr.ee/gatorgaminguf'
-        target="_blank"
         rel="noopener noreferrer"
-        className='z-3 h-10 w-fit px-5 flex items-center justify-around rounded-3xl border-1 border-ggwhite text-ggwhite fade-bg-orange'
-      >Learn more
+        className="z-3 flex justify-between w-fit px-5 h-10 items-center border-1 border-ggwhite text-ggwhite rounded-3xl darken"
+      >Learn More
+        <div className="flex items-center justify-center rounded-full h-8 w-8 transform translate-x-3">
+          <SiLinktree size='20'/>
+        </div>
       </a>
     </div>
   )

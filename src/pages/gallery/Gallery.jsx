@@ -30,31 +30,42 @@ const Gallery = () => {
     <div className='relative lg:pb-50 flex flex-col items-center w-screen min-h-screen'>
       <AnimatePresence mode='wait'>
         {!albumOpen && (
-          <motion.div
-            key='gallery-list'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className='pt-30 px-8 sm:px-0 gap-y-8 h-fit relative w-full sm:w-auto lg:w-240'
-          >
-            <p className='pb-5 text-4xl font-display text-ggwhite'>Gator Gaming</p>
-            {emptyBool && <p>No albums posted in gallery.</p>}
-            {!emptyBool &&
-              <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-                {albumsList.map(album => (
-                  <AlbumThumbnail
-                    key={album._id}
-                    _id={album._id}
-                    title={album.title}
-                    coverImage={album.coverImage}
-                    setAlbumOpen={setAlbumOpen}
-                    setAlbumName={setAlbumName}
-                  />
-                ))}
-              </div>
-            }
-          </motion.div>
+          <>
+            <motion.div
+              className='absolute min-w-[750px] -mt-40 right-[-200px] xl:right-[-100px]'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <img src='/gallery-blur1.png'/>
+            </motion.div>
+            <motion.div
+              key='gallery-list'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className='pt-30 px-8 sm:px-0 gap-y-8 h-fit relative w-full sm:w-auto lg:w-240'
+            >
+              <p className='pb-8 text-4xl font-display text-ggwhite'>Gator Gaming <span className='text-ggorange font-semibold'>Through the Years</span></p>
+              {emptyBool && <p>No albums posted in gallery.</p>}
+              {!emptyBool &&
+                <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
+                  {albumsList.map(album => (
+                    <AlbumThumbnail
+                      key={album._id}
+                      _id={album._id}
+                      title={album.title}
+                      coverImage={album.coverImage}
+                      setAlbumOpen={setAlbumOpen}
+                      setAlbumName={setAlbumName}
+                    />
+                  ))}
+                </div>
+              }
+            </motion.div>
+          </>
         )}
 
         {albumOpen && (

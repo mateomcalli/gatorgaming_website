@@ -86,7 +86,7 @@ const EventsManager = ({ refresh, toggleRefresh }) => {
       <div className='md:w-60 h-fit px-3 pt-2 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
         <p className='font-display text-ggorange pb-2'>Add a new event:</p>
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitEvent}>
-          <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" maxLength='30' onChange={handleChange} required />
           <input className='font-display placeholder-[#999] focus:outline-none' name='location' placeholder="Location" onChange={handleChange} required />
           <input className='font-display focus:outline-none' type='date' name='date' onChange={handleChange} required />
           <input type='time' name='time' onChange={handleChange} required />
