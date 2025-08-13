@@ -3,7 +3,7 @@ import { SiLinktree } from "react-icons/si"
 
 const HomeButtons = () => {
   return (
-    <div className='flex gap-5'>
+    <div className='flex justify-between gap-5'>
       <a
         href="https://discord.com/invite/s99axhqQac"
         target="_blank"

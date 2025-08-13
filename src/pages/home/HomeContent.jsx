@@ -51,7 +51,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
     <>
       <div className='relative justify-center flex z-2'>
         <div className='md:grid md:grid-cols-2 md:grid-rows-[1fr_1fr] md:gap-x-15 lg:gap-y-10 md:w-180 lg:w-215 xl:w-250 2xl:w-332'>
-          <div className='w-3/5 md:w-auto m-auto lg:m-0 place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
+          <div className='w-[85%] md:w-auto m-auto lg:m-0 place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
             <img 
               className='aspect-auto z-2'
               src='home/home-players.png'
