@@ -67,7 +67,10 @@ router.post('/', upload.fields([{ name: 'coverImage', maxCount: 1 }, {name: 'ima
     const response = await cloudinary.uploader.upload(coverImagePath, {
       folder: title,
       public_id: 'Cover Image',
-      overwrite: true
+      overwrite: true,
+      quality: 'auto:good',
+      fetch_format: 'auto',
+      flags: 'progressive'
     })
     const coverImageUrl = response.secure_url
 

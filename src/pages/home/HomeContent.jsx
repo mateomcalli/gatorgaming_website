@@ -51,7 +51,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
     <>
       <div className='relative justify-center flex z-2'>
         <div className='md:grid md:grid-cols-2 md:grid-rows-[1fr_1fr] md:gap-x-15 lg:gap-y-10 md:w-180 lg:w-215 xl:w-250 2xl:w-332'>
-          <div className='w-3/5 md:w-auto place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
+          <div className='w-3/5 md:w-auto m-auto lg:m-0 place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
             <img 
               className='aspect-auto z-2'
               src='home/home-players.png'
@@ -59,7 +59,7 @@ const HomeContent = ( {maxSm, minXl} ) => {
           </div>
           <div className='w-3/4 md:w-auto m-auto text-center md:text-left items-center md:items-start xl:pl-10 md:justify-center flex flex-col'>
             {!maxSm && <p className='text-lg xl:text-xl pb-3 text-ggwhite font-display scroll-m-30' id='about-start'>Who are we?</p>}
-            <p className='pt-4 md:pt-0 text-2xl xl:text-3xl pb-2 font-semibold text-ggwhite font-display'>We Always Make Epic Plays</p>
+            <p className='pt-8 md:pt-0 text-2xl xl:text-3xl pb-2 font-semibold text-ggwhite font-display'>We Always Make Epic Plays</p>
             <p className='text-md xl:text-lg text-ggwhite font-display'>We’re a passionate gaming community dedicated to uniting players of all skill levels—whether you’re here to dominate tournaments, squad up with friends, or just have a good time. Join us and level up your gaming experience!</p>
             <div className='flex gap-5 pt-8 font-display'>
               <a

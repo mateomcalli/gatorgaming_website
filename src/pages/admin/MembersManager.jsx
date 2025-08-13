@@ -15,10 +15,12 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
     favoriteGames: '',
     aboutMe: ''
   })
+  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     const getMembers = async () => {
       try {
+        setSubmitting(false)
         toggleRefresh(false)
         const members = await axios.get('http://localhost:3000/api/members')
         setMembers(members.data)
@@ -41,6 +43,8 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
 
   const handleSubmit = async (event) => {
       event.preventDefault()
+      setSubmitting(true)
+
       const formData = new FormData()
 
       formData.append('name', membersData.name)
@@ -93,9 +97,9 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
         <p className='font-display text-ggorange pb-2'>Add a new member:</p>
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmit}>
           <input className='font-display placeholder-[#999] focus:outline-none' name='name' placeholder='Name' onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='position' placeholder='Position' onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='hp' placeholder='HP (no real utility, dw)' onChange={handleChange} required />
-          <input className='font-display placeholder-[#999] focus:outline-none' name='favoriteGames' placeholder='Favorite Game(s)' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='position' placeholder='Position' maxLength='16' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='hp' placeholder='HP (no real utility, dw)' type='number' max='999' onChange={handleChange} required />
+          <input className='font-display placeholder-[#999] focus:outline-none' name='favoriteGames' placeholder='Favorite Game(s)' maxLength='50' onChange={handleChange} required />
           <input className='font-display placeholder-[#999] focus:outline-none' maxLength='140' name='aboutMe' placeholder='About Me (<140 characters)' onChange={handleChange} required />
           <div className='flex w-fit gap-2'>
             <p className='font-display text-[#999]'>Photo of member:</p>
@@ -111,7 +115,7 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
               <GrFormUpload size='26'/>
               <input 
                 type='file'
-                accept='image/*'
+                accept='.png,.jpeg,.jpg,.webp'
                 className='hidden'
                 name='picture'
                 onChange={handleChange}
@@ -127,7 +131,7 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
             className='font-display mt-2 mb-3 hover:cursor-pointer w-full self-center px-3 py-1 rounded-md'
             type='submit'
           >
-            Submit
+            {submitting ? 'Submitting, please wait...' : 'Submit'}
           </motion.button>
         </form>
       </div>

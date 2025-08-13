@@ -23,9 +23,9 @@ const Admin = () => {
   return (
     <div className='relative py-30 flex flex-col gap-15 items-center w-screen h-fit'>
       <EventsManager refresh={refresh} toggleRefresh={toggleRefresh}/>
-      <MembersManager refresh={refresh} toggleRefresh={toggleRefresh}/>
-      <LanInfoManager refresh={refresh} toggleRefresh={toggleRefresh}/>
       <GalleryManager refresh={refresh} toggleRefresh={toggleRefresh}/>
+      <LanInfoManager refresh={refresh} toggleRefresh={toggleRefresh}/>
+      <MembersManager refresh={refresh} toggleRefresh={toggleRefresh}/>
     </div>
   )
 }

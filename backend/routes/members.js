@@ -55,6 +55,10 @@ router.post('/', upload.single('picture'), async (req, res) => {
     })
     const pictureLink = response.secure_url
 
+    for (const file of fs.readdirSync(uploadsFolder)) {
+      fs.unlinkSync(path.join(uploadsFolder, file))
+    }
+
     const newMember = await Member.create({
       name: body.name,
       position: body.position,
@@ -63,6 +67,7 @@ router.post('/', upload.single('picture'), async (req, res) => {
       favoriteGames: body.favoriteGames,
       aboutMe: body.aboutMe
     })
+
     res.status(200).json(newMember)
   } catch (error) {
     console.log(error)
@@ -73,11 +78,11 @@ router.post('/', upload.single('picture'), async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const id = req.params.id
-    const deletedEvent = await Member.findOneAndDelete({ _id: id })
-    if (!deletedEvent) {
+    const deletedMember = await Member.findOneAndDelete({ _id: id }) // missing cloudinary delete logic
+    if (!deletedMember) {
       return res.status(404).json({ error: `member with id ${id} does not exist in the database!` })
     } else {
-      res.status(200).json(deletedEvent)
+      res.status(200).json(deletedMember)
     }
   } catch (error) {
     console.error(error)

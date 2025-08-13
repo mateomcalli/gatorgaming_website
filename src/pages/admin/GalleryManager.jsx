@@ -13,10 +13,12 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
     coverImage: '',
     images: []
   })
+  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     const getAlbums = async () => {
       try {
+        setSubmitting(false)
         toggleRefresh(false)
         const list = await axios.get('http://localhost:3000/api/gallery')
         setAlbumsList(list.data)
@@ -38,6 +40,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
   const handleSubmitAlbum = async (event) => {
     event.preventDefault()
 
+    setSubmitting(true)
     const formData = new FormData()
     formData.append('title', albumData.title)
     formData.append('coverImage', albumData.coverImage[0]) // should be fine
@@ -57,12 +60,10 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
         coverImage: '',
         images: []
       })
-      setTimeout(() => {
-        toggleRefresh(true)
-      }, '10000')
+      toggleRefresh(true)
     } catch (error) {
       console.error('Upload failed:', error)
-      alert('There was an error uploading the album.')
+      alert('Unknown error uploading album. Your file types may be unsupported (try JPG or PNG), your images may have loaded incorrectly or there could have been a server error. Please refresh the page and try again.')
     }
   }
 
@@ -104,7 +105,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
               <GrFormUpload size='26'/>
               <input 
                 type='file'
-                accept='image/*'
+                accept='.png,.jpeg,.jpg,.webp'
                 className='hidden'
                 name='coverImage'
                 onChange={handleChange}
@@ -126,7 +127,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
               <GrFormUpload size='26'/>
               <input 
                 type='file'
-                accept='image/*'
+                accept='.png,.jpeg,.jpg,.webp'
                 className='hidden'
                 name='images'
                 onChange={handleChange}
@@ -143,7 +144,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
             className='font-display mt-2 mb-3 hover:cursor-pointer w-full self-center px-3 py-1 rounded-md'
             type='submit'
           >
-            Submit
+            {submitting ? 'Submitting, please wait...' : 'Submit'}
           </motion.button>
         </form>
       </div>
