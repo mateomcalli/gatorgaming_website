@@ -21,7 +21,7 @@ const AlbumPage = ({ _id }) => {
 
   return (
     <>
-      <div className='red gap-5 items-stretch grid grid-cols-2 lg:grid-cols-3 sm:w-fit px-5 md:px-0 md:w-180 lg:w-220 xl:w-250'>
+      <div className='gap-5 items-stretch grid grid-cols-2 lg:grid-cols-3 sm:w-fit px-5 md:px-0 md:w-180 lg:w-220 xl:w-250'>
         {(images.length !== 0) && 
           images.map(image => (
             <ClickableImage image={image} setSelectedImage={setSelectedImage}/>
@@ -30,19 +30,26 @@ const AlbumPage = ({ _id }) => {
       </div>
 
       <AnimatePresence>
-        {selectedImage &&
-          <motion.button
-            onClick={() => setSelectedImage(null)}
-            className='red fixed w-screen h-screen bg-black/70 z-5'
-          >
-            <motion.img 
-              className='fixed top-1/2 left-1/2 max-w-[80vw] max-h-[80vh] -translate-x-1/2 -translate-y-1/2 z-50 object-contain' 
-              src={selectedImage}
-              layoutId={selectedImage}
+        {selectedImage && (
+          <>
+            <motion.div
+              key='overlay'
+              className='fixed inset-0 bg-black/70 z-10'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
             />
-          </motion.button>
-        }
+            <motion.img
+              key='selectedImage'
+              className='fixed top-1/2 left-1/2 max-w-[70vw] max-h-[70vh] -translate-x-1/2 -translate-y-1/2 z-10 object-contain'
+              layoutId={selectedImage}
+              src={selectedImage}
+            />
+          </>
+        )}
       </AnimatePresence>
+
     </>
   )
 }
