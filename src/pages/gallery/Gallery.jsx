@@ -76,7 +76,7 @@ const Gallery = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className='pt-30 sticky top-0 bg-ggbg flex gap-x-4 px-5 md:px-0'>
+            <div className='pt-30 sticky top-0 bg-ggbg flex gap-x-4 px-5 md:px-0 z-1'>
               <motion.button className='cursor-pointer pb-5 fade-orange' whileTap={{ x: -4 }} onClick={() => setAlbumOpen(false)}>
                 <IoIosArrowBack size='32' />
               </motion.button>

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import ClickableImage from './ClickableImage'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const AlbumPage = ({ _id }) => {
   const [images, setImages] = useState([])
+  const [selectedImage, setSelectedImage] = useState(null)
 
   useEffect(() => {
     const getImages = async () => {
@@ -16,18 +19,31 @@ const AlbumPage = ({ _id }) => {
     getImages()
   }, [])
 
-  const optimizeURLs = (url, width, height) => {
-    return url.replace('/upload/', `/upload/f_auto/q_auto/w_${width}/`)
-  }
-
   return (
-    <div className='gap-5 items-stretch grid grid-cols-2 lg:grid-cols-3 sm:w-fit px-5 md:px-0 md:w-180 lg:w-220 xl:w-250'>
-      {(images.length !== 0) && 
-        images.map(image => (
-          <img className='object-cover' src={optimizeURLs(image, 700)} loading='lazy'/>
-        ))
-      }
-    </div>
+    <>
+      <div className='red gap-5 items-stretch grid grid-cols-2 lg:grid-cols-3 sm:w-fit px-5 md:px-0 md:w-180 lg:w-220 xl:w-250'>
+        {(images.length !== 0) && 
+          images.map(image => (
+            <ClickableImage image={image} setSelectedImage={setSelectedImage}/>
+          ))
+        }
+      </div>
+
+      <AnimatePresence>
+        {selectedImage &&
+          <motion.button
+            onClick={() => setSelectedImage(null)}
+            className='red fixed w-screen h-screen bg-black/70 z-5'
+          >
+            <motion.img 
+              className='fixed top-1/2 left-1/2 max-w-[80vw] max-h-[80vh] -translate-x-1/2 -translate-y-1/2 z-50 object-contain' 
+              src={selectedImage}
+              layoutId={selectedImage}
+            />
+          </motion.button>
+        }
+      </AnimatePresence>
+    </>
   )
 }
 
