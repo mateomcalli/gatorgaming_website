@@ -5,11 +5,12 @@ import { LuX } from "react-icons/lu"
 
 const Album = ({ id, title, dateAdded, toggleRefresh }) => {
   const [hovered, setHovered] = useState(false)
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
   const handleDelete = async (id, title) => {
     if (confirm(`Are you sure you want to delete this album: ${title}?`)) {
       try {
-        await axios.delete(`http://localhost:3000/api/gallery/${title}`)
+        await axios.delete(`${BASE_URL}/api/gallery/${title}`)
         toggleRefresh(prev => !prev)
       } catch (error) {
         console.log(error)

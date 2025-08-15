@@ -17,12 +17,14 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
   })
   const [submitting, setSubmitting] = useState(false)
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   useEffect(() => {
     const getMembers = async () => {
       try {
         setSubmitting(false)
         toggleRefresh(false)
-        const members = await axios.get('http://localhost:3000/api/members')
+        const members = await axios.get(`${BASE_URL}/api/members`)
         setMembers(members.data)
       } catch (error) {
         console.error('Error:', error)
@@ -55,7 +57,7 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
       formData.append('picture', membersData.picture[0])
 
     try {
-      await axios.post('http://localhost:3000/api/members', formData, {
+      await axios.post(`${BASE_URL}/api/members`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
 

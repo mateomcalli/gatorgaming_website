@@ -6,10 +6,13 @@ import { LuX } from "react-icons/lu"
 const Member = ({ id, name, position, hp, favoriteGames, toggleRefresh }) => {
   const [hovered, setHovered] = useState(false)
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   const handleDelete = async (id, name) => {
     if (confirm(`Are you sure you want to remove this member: ${name}?`)) {
       try {
-        await axios.delete(`http://localhost:3000/api/members/${id}`)
+        const sanitizedName = name.toLowerCase().replace(/ /g, '_')
+        await axios.delete(`${BASE_URL}/api/members/${sanitizedName}/${id}/`)
         toggleRefresh(prev => !prev)
       } catch (error) {
         console.log(error)

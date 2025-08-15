@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const ClickableImage = ({ image, setSelectedImage }) => {
 
   const optimizeURLs = (url, width, height) => {
-    return url.replace('/upload/', `/upload/f_auto/q_auto/w_${width}/`)
+    return url.replace('/upload/', `/upload/f_auto/q_auto/c_fill/dpr_auto/w_${width}/`)
   }
   
 

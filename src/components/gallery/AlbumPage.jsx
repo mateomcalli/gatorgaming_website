@@ -7,10 +7,12 @@ const AlbumPage = ({ _id }) => {
   const [images, setImages] = useState([])
   const [selectedImage, setSelectedImage] = useState(null)
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   useEffect(() => {
     const getImages = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/gallery/${_id}`)
+        const response = await axios.get(`${BASE_URL}/api/gallery/${_id}`)
         setImages(response.data.images)
       } catch (error) {
         console.error('Issue with getting images from database: ', error)

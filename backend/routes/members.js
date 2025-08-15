@@ -46,12 +46,15 @@ router.get('/', async (req, res) => {
 router.post('/', upload.single('picture'), async (req, res) => {
   try {
     const body = req.body
+    const sanitizedName = body.name.toLowerCase().replace(/ /g, '_')
     const pictureFilePath = req.file.path
     const response = await cloudinary.uploader.upload(pictureFilePath, {
       folder: 'People',
+      public_id: `${sanitizedName}`,
+      overwrite: true,
       transformation: [
-        {gravity: 'auto'}
-      ] // write up more, gravity and face centering, (not working rn)
+        { gravity: 'auto' }
+      ]
     })
     const pictureLink = response.secure_url
 
@@ -75,15 +78,16 @@ router.post('/', upload.single('picture'), async (req, res) => {
   }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:name/:id', async (req, res) => {
   try {
     const id = req.params.id
-    const deletedMember = await Member.findOneAndDelete({ _id: id }) // missing cloudinary delete logic
+    const name = req.params.name
+    await cloudinary.uploader.destroy(`People/${name}`)
+    const deletedMember = await Member.findOneAndDelete({ _id: id })
     if (!deletedMember) {
       return res.status(404).json({ error: `member with id ${id} does not exist in the database!` })
-    } else {
-      res.status(200).json(deletedMember)
     }
+    res.status(200).json(deletedMember)
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'encountered server issue with deleting member' })

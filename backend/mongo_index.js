@@ -11,7 +11,8 @@ import lanInfoRoutes from './routes/laninfo.js'
 import galleryRoutes from './routes/gallery.js'
 
 const app = express()
-app.use(cors({ origin: 'http://localhost:5173', credentials: true })) // necessary to send req from frontend
+const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173'
+app.use(cors({ origin: allowedOrigin, credentials: true })) // necessary to send req from frontend
 app.use(express.json()) // necessary to parse json data (req.body)
 app.use(cookieParser())
 
@@ -26,6 +27,10 @@ app.use('/api/events', eventsRoutes)
 app.use('/api/members', membersRoutes)
 app.use('/api/laninfo', lanInfoRoutes)
 app.use('/api/gallery', galleryRoutes)
+
+app.get('/', (req, res) => {
+  res.send('<p>Gator Gaming Backend API</p>')
+})
 
 app.get('/api/auth', async (req, res) => {
   try {

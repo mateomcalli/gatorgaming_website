@@ -68,9 +68,14 @@ router.post('/', upload.fields([{ name: 'coverImage', maxCount: 1 }, {name: 'ima
       folder: title,
       public_id: 'Cover Image',
       overwrite: true,
-      quality: 'auto:good',
-      fetch_format: 'auto',
-      flags: 'progressive'
+      transformation: {
+        quality: 'auto:good',
+        fetch_format: 'auto',
+        flags: 'progressive',
+        width: 2000,
+        height: 2000,
+        crop: 'limit'
+      }
     })
     const coverImageUrl = response.secure_url
 

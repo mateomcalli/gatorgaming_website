@@ -6,10 +6,12 @@ import LanInfoManager from './LanInfoManager'
 import GalleryManager from './GalleryManager'
 
 const Admin = () => {
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get('http://localhost:3000/api/auth', { withCredentials: true })
+        await axios.get(`${BASE_URL}/api/auth`, { withCredentials: true })
       } catch (error) { 
         console.error(error)
         window.location.href = '/login'
