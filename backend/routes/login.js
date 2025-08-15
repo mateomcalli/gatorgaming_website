@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     res.cookie('session', sessionId, { 
       expires: expiryDate,
       httpOnly: true,
-      secure: false, // set to true in deployment as well
+      secure: true, // set to true in deployment as well
       sameSite: 'lax' // ONLY IF USING VERCEL/RENDER, if not set to strict
     })
 

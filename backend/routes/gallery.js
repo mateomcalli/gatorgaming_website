@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import multer from 'multer'
-// import 'dotenv/config' for production
+import 'dotenv/config'
 import { v2 as cloudinary } from 'cloudinary'
 import Album from '../models/Album.js'
 
