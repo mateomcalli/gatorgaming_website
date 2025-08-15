@@ -83,7 +83,7 @@ router.delete('/:name/:id', async (req, res) => {
     const id = req.params.id
     const name = req.params.name
     await cloudinary.uploader.destroy(`People/${name}`)
-    const deletedMember = await Member.findOneAndDelete({ _id: id }) // missing cloudinary delete logic
+    const deletedMember = await Member.findOneAndDelete({ _id: id })
     if (!deletedMember) {
       return res.status(404).json({ error: `member with id ${id} does not exist in the database!` })
     }
