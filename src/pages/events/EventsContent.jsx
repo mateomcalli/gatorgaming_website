@@ -10,7 +10,7 @@ import EventSeparatorLines from '../../components/decorative/EventSeparatorLines
 const EventsContent = ({ minLg }) => {
   const [eventList, setEventList] = useState([])
   const [lanInfo, setLanInfo] = useState(null)
-  const url = 'http://localhost:3000/api/events'
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
   const [dateTime, setDateTime] = useState(new Date())
   const [changingMonth, setChangingMonth] = useState(new Date())
@@ -29,7 +29,7 @@ const EventsContent = ({ minLg }) => {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const list = await axios.get(url)
+        const list = await axios.get(`${BASE_URL}/api/events`)
         setEventList(list.data)
       } catch (error) {
         console.log('Error:', error)
@@ -39,7 +39,7 @@ const EventsContent = ({ minLg }) => {
 
     const getLanInfo = async () => {
       try {
-        const item = await axios.get('http://localhost:3000/api/laninfo')
+        const item = await axios.get(`${BASE_URL}/api/laninfo`)
         setLanInfo(item.data)
       } catch (error) {
         console.log('Error:', error)

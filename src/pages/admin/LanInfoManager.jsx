@@ -10,11 +10,13 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
     dateRange: ''
   })
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   useEffect(() => {
     const getLanInfo = async () => {
       try {
         toggleRefresh(false)
-        const item = await axios.get('http://localhost:3000/api/laninfo')
+        const item = await axios.get(`${BASE_URL}/api/laninfo`)
         setLanInfo(item.data)
       } catch (error) {
         console.error('Error:', error)
@@ -36,7 +38,7 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      await axios.post('http://localhost:3000/api/laninfo', lanInfoData)
+      await axios.post(`${BASE_URL}/api/laninfo`, lanInfoData)
       setLanInfoData({ edition: '', dateRange: '' })
       formRef.current.reset()
       toggleRefresh(true)

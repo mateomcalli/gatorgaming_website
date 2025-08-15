@@ -6,10 +6,12 @@ import { LuX } from "react-icons/lu"
 const Event = ({ id, title, location, date, time, toggleRefresh }) => {
   const [hovered, setHovered] = useState(false)
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   const handleDelete = async (id, title) => {
     if (confirm(`Are you sure you want to delete this event: ${title}?`)) {
       try {
-        await axios.delete(`http://localhost:3000/api/events/${id}`)
+        await axios.delete(`${BASE_URL}/api/events/${id}`)
         toggleRefresh(prev => !prev)
       } catch (error) {
         console.log(error)

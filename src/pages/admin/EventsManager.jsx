@@ -14,11 +14,13 @@ const EventsManager = ({ refresh, toggleRefresh }) => {
     link: ''
   })
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   useEffect(() => {
     const getEvents = async () => {
       try {
         toggleRefresh(false)
-        const list = await axios.get('http://localhost:3000/api/events')
+        const list = await axios.get(`${BASE_URL}/api/events`)
         setEventList(list.data)
       } catch (error) {
         console.error('Error:', error)
@@ -47,7 +49,7 @@ const EventsManager = ({ refresh, toggleRefresh }) => {
         expiryDate
       }
 
-      await axios.post('http://localhost:3000/api/events', finalEventData)
+      await axios.post(`${BASE_URL}/api/events`, finalEventData)
       setEventData({
         title: '',
         location: '',

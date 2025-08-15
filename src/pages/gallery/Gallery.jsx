@@ -11,10 +11,12 @@ const Gallery = () => {
   const [albumOpen, setAlbumOpen] = useState(false)
   const [albumName, setAlbumName] = useState(null)
   
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   useEffect(() => {
     const getAlbums = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/gallery')
+        const response = await axios.get(`${BASE_URL}/api/gallery`)
         if (response.data.length === 0) {
           setEmptyBool(true)
         }

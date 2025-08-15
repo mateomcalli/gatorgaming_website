@@ -3,11 +3,12 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const Login = () => {
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get('http://localhost:3000/api/auth', { withCredentials: true })
+        await axios.get(`${BASE_URL}/api/auth`, { withCredentials: true })
         window.location.href = '/admin'
       } catch (error) { 
         console.log(error)
@@ -19,8 +20,6 @@ const Login = () => {
   const [password, setPassword] = useState(null)
   const [failure, setFailure] = useState(false)
   const formRef = useRef(null)
-
-  const url = 'http://localhost:3000/api/login'
 
   const handleChange = (event) => {
     event.preventDefault()
@@ -37,7 +36,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      await axios.post(url, { password }, { withCredentials: true }) // must send an object to post
+      await axios.post(`${BASE_URL}/api/login`, { password }, { withCredentials: true }) // must send an object to post
       window.location.href = '/admin'
     } catch (error) {
       handleFailure()

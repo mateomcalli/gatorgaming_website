@@ -12,9 +12,11 @@ const TeamContent = () => {
   const subScrollRef = useRef(null)
   const [members, setMembers] = useState([])
 
+  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+
   useEffect(() => {
     const getMembers = async () => {
-      const response = await axios.get('http://localhost:3000/api/members')
+      const response = await axios.get(`${BASE_URL}/api/members`)
       setMembers(response.data)
     }
     getMembers()
