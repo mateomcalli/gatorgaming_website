@@ -1,5 +1,5 @@
 import express from 'express'
-import 'dotenv/config'
+// import 'dotenv/config' for production
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
