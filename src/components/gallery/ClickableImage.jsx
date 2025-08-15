@@ -15,7 +15,11 @@ const ClickableImage = ({ image, setSelectedImage }) => {
         layoutId={image}
         className='w-full h-full p-0'
       >
-        <img className='cursor-pointer h-full w-full object-cover' src={optimizeURLs(image, 700)} loading='lazy'/>
+        <img
+          className='cursor-pointer h-full w-full object-cover'
+          src={optimizeURLs(image, 700)}
+          loading='lazy'
+        />
       </motion.button>
     </div>
   )

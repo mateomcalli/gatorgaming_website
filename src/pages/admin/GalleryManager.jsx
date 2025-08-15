@@ -3,6 +3,9 @@ import axios from 'axios'
 import { motion } from 'framer-motion'
 import Album from './Album'
 import { GrFormUpload } from "react-icons/gr"
+import { HiOutlineInformationCircle } from "react-icons/hi"
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
 
 const GalleryManager = ({ refresh, toggleRefresh }) => {
   const formRef = useRef(null)
@@ -88,7 +91,12 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
       </div>
 
       <div className='md:w-60 h-fit px-3 pt-2 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
-        <p className='font-display text-ggorange pb-2'>Add a new album:</p>
+        <div className='flex items-center gap-x-3'>
+          <p className='font-display text-ggorange pb-2'>Add a new album:</p>
+          <Tippy content={<span>Note that for images, only the following file extensions are accepted: .JPG, .JPEG, .PNG, .WEBP. Also, while uploading please leave your tab open and do not refresh the page. Uploads may take quite a while, especially with a lot of images.</span>}>
+            <HiOutlineInformationCircle className='mb-1.5' size='20'/>
+          </Tippy>
+        </div>
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitAlbum}>
           <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>
           <div className='flex w-fit gap-2'>
