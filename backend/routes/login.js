@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
       expires: expiryDate,
       httpOnly: true,
       secure: true, // set to true in deployment as well
-      sameSite: 'lax' // ONLY IF USING VERCEL/RENDER, if not set to strict
+      sameSite: 'none' // ONLY IF USING VERCEL/RENDER, if not set to strict
     })
 
     const session = await Session.create({
