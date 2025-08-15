@@ -11,7 +11,7 @@ import lanInfoRoutes from './routes/laninfo.js'
 import galleryRoutes from './routes/gallery.js'
 
 const app = express()
-app.use(cors({ origin: 'https://gatorgaming-website-5snbxaqn3-mateos-projects-2747e579.vercel.app/', credentials: true })) // necessary to send req from frontend
+app.use(cors({ origin: 'https://gatorgaming-website-5snbxaqn3-mateos-projects-2747e579.vercel.app', credentials: true })) // necessary to send req from frontend
 app.use(express.json()) // necessary to parse json data (req.body)
 app.use(cookieParser())
 
