@@ -26,7 +26,7 @@ const CardFront = ({ name, position, hp, picture, flipped, setFlipped, hovered }
         <p className='text-ggorange text-lg font-display text-nowrap'>{position}</p>
       </div>
       <img className='pointer-events-none w-40 opacity-25 self-center -mt-0' src='gatorgaming-logo.png'/>
-      <img onClick={() => setFlipped(!flipped)} className={`${hovered ? 'visible' : 'hidden'} absolute cursor-pointer -right-[19px] -bottom-[16px]`} src='/team/bent-corner3.png'/>
+      <img onClick={() => setFlipped(!flipped)} className={`${hovered ? 'visible' : 'hidden'} absolute cursor-pointer -right-[19px] -bottom-[16px]`} draggable={false} src='/team/bent-corner3.png'/>
     </div>
   )
 }

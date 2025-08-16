@@ -23,12 +23,12 @@ const TeamContent = () => {
   }, [])
 
   const designers = [
-    {name: 'Mateo McAllister', picture: '/people/mateo-m.png'},
-    {name: 'Joyin Ang', picture: '/people/joyin-a.png'},
     {name: 'Colin Mendoza', picture: '/people/colin-m.png'},
-    {name: 'Rhythm Kumar', picture: '/people/rhythm-k.png'},
+    {name: 'Joyin Ang', picture: '/people/joyin-a.png'},
     {name: 'Lucas McAllister', picture: '/people/lucas-m.png'},
+    {name: 'Mateo McAllister', picture: '/people/mateo-m.png'},
     {name: 'Nicolas Boulton', picture: '/people/nico-b.png'},
+    {name: 'Rhythm Kumar', picture: '/people/rhythm-k.png'},
     {name: 'Steven Lautenbach', picture: '/people/steven-l.png'}
   ]
 
@@ -54,7 +54,7 @@ const TeamContent = () => {
     <div className='relative pt-30 lg:pb-70 flex flex-col items-center w-screen min-h-screen'>
       <p className='relative text-4xl text-ggwhite font-display pb-2'>Meet our officers!</p>
       <div className='relative'>
-        <SimpleBar className='pt-8 h-124 w-screen lg:w-265 max-w-265' ref={mainScrollRef}>
+        <SimpleBar autoHide={false} scrollbarMaxSize={700} className='pt-8 h-124 w-screen lg:w-265 max-w-265' ref={mainScrollRef}>
           <div className='relative px-10 lg:px-5 flex gap-x-15 w-fit select-none cursor-grab active:cursor-grabbing' {...main()}>
             {members.map((member, index) => {
               return (
@@ -75,7 +75,7 @@ const TeamContent = () => {
       </div>
       <div className='relative flex flex-col items-center mt-20'>
         <p className='relative text-2xl italic text-ggwhite font-display pb-8'>designers:</p>
-        <SimpleBar className='w-screen lg:w-300 lg:ml-35 xl:ml-0 h-106' ref={subScrollRef}>
+        <SimpleBar autoHide={false} scrollbarMaxSize={500} className='w-screen lg:w-300 lg:ml-35 xl:ml-0 h-106' ref={subScrollRef}>
           <div className='relative px-10 lg:px-5 flex gap-x-8 w-fit select-none cursor-grab active:cursor-grabbing' {...sub()}>
             {designers.map((designer, index) => (
               <SmallCard name={designer.name} picture={designer.picture} key={index}/>
