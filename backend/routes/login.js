@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
       expires: expiryDate,
       httpOnly: true,
       secure: true, // set to true in deployment as well
-      sameSite: 'none' // ONLY IF USING VERCEL/RENDER, if not set to strict
+      sameSite: 'strict' // set to strict now because of gatorgaminguf.com domain, render is configured on this domain
     })
 
     const session = await Session.create({
