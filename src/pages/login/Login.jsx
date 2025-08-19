@@ -36,12 +36,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      await axios.post(`${BASE_URL}/api/login`, { password }, {
-        headers: {
-          'api-key': import.meta.env.VITE_API_KEY
-        },
-        withCredentials: true
-      })
+      await axios.post(`${BASE_URL}/api/login`, { password }, { withCredentials: true })
       window.location.href = '/admin'
     } catch (error) {
       handleFailure()

@@ -11,11 +11,7 @@ const Event = ({ id, title, location, date, time, toggleRefresh }) => {
   const handleDelete = async (id, title) => {
     if (confirm(`Are you sure you want to delete this event: ${title}?`)) {
       try {
-        await axios.delete(`${BASE_URL}/api/events/${id}`, {
-          headers: {
-            'api-key': import.meta.env.VITE_API_KEY
-          }
-        })
+        await axios.delete(`${BASE_URL}/api/events/${id}`)
         toggleRefresh(prev => !prev)
       } catch (error) {
         console.log(error)

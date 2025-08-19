@@ -11,12 +11,7 @@ const Admin = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await axios.get(`${BASE_URL}/api/auth`, {
-          headers: {
-            'api-key': import.meta.env.VITE_API_KEY
-          },
-          withCredentials: true
-        })
+        await axios.get(`${BASE_URL}/api/auth`, { withCredentials: true })
       } catch (error) { 
         console.error(error)
         window.location.href = '/login'

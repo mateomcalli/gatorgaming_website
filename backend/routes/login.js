@@ -6,8 +6,6 @@ const password = process.env.ADMIN_PW
 
 router.post('/', async (req, res) => {
   try {
-    console.log('req.body:', req.body)
-    console.log('req.headers["api-key"]:', req.headers['api-key'])
     const userEntry = req.body.password
     if (userEntry !== password) {
       return res.status(401).json({ error: 'incorrect password' })

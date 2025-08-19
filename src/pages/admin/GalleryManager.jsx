@@ -54,12 +54,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
     }
 
     try {
-      await axios.post(`${BASE_URL}/api/gallery`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          'api-key': import.meta.env.VITE_API_KEY
-        }
-      })
+      await axios.post(`${BASE_URL}/api/gallery`, formData)
       
       formRef.current.reset()
       setAlbumData({

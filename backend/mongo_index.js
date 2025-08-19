@@ -22,20 +22,26 @@ mongoose.connect(url)
   .then(() => console.log('Connected to MongoDB!'))
   .catch(error => console.log('Error connecting to MongoDB:', error.message))
 
-const checkApiKey = (req, res, next) => {
-  if (req.method === 'GET') return next()
-  const key = req.headers['api-key']
-  if (!key || key !== process.env.API_KEY) {
-    return res.status(401).json({ error: 'api key not detected!' })
+const checkCookie = async (req, res, next) => {
+  try {
+    if (req.method === 'GET') return next()
+      const cookie = req.cookies?.session
+      const match = await Session.findOne({ sessionId : cookie })
+      if (!cookie || !match) {
+        return res.status(401).json({ error: 'session cookie not detected!' })
+      }
+      return next()
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'server issue while trying to authenticate cookies' })
   }
-  next()
 }
 
-app.use('/api/login', checkApiKey, loginRoutes)
-app.use('/api/events', checkApiKey, eventsRoutes)
-app.use('/api/members', checkApiKey, membersRoutes)
-app.use('/api/laninfo', checkApiKey, lanInfoRoutes)
-app.use('/api/gallery', checkApiKey, galleryRoutes)
+app.use('/api/login', loginRoutes)
+app.use('/api/events', checkCookie, eventsRoutes)
+app.use('/api/members', checkCookie, membersRoutes)
+app.use('/api/laninfo', checkCookie, lanInfoRoutes)
+app.use('/api/gallery', checkCookie, galleryRoutes)
 
 app.get('/', (req, res) => {
   res.send('<p>Gator Gaming Backend API</p>')
