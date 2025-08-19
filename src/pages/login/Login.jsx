@@ -36,7 +36,12 @@ const Login = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      await axios.post(`${BASE_URL}/api/login`, { password }, { withCredentials: true }) // must send an object to post
+      await axios.post(`${BASE_URL}/api/login`, password, {
+        headers: {
+          'api-key': process.env.API_KEY
+        },
+        withCredentials: true
+      })
       window.location.href = '/admin'
     } catch (error) {
       handleFailure()

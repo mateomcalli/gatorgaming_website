@@ -10,7 +10,11 @@ const Album = ({ id, title, dateAdded, toggleRefresh }) => {
   const handleDelete = async (id, title) => {
     if (confirm(`Are you sure you want to delete this album: ${title}?`)) {
       try {
-        await axios.delete(`${BASE_URL}/api/gallery/${title}`)
+        await axios.delete(`${BASE_URL}/api/gallery/${title}`, {
+          headers: {
+            'api-key': process.env.API_KEY
+          }
+        })
         toggleRefresh(prev => !prev)
       } catch (error) {
         console.log(error)

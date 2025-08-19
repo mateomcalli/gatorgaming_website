@@ -58,7 +58,10 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
 
     try {
       await axios.post(`${BASE_URL}/api/members`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'api-key': process.env.API_KEY
+        }
       })
 
       setMembersData({

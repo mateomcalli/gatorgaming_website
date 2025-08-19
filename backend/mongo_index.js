@@ -22,11 +22,20 @@ mongoose.connect(url)
   .then(() => console.log('Connected to MongoDB!'))
   .catch(error => console.log('Error connecting to MongoDB:', error.message))
 
-app.use('/api/login', loginRoutes)
-app.use('/api/events', eventsRoutes)
-app.use('/api/members', membersRoutes)
-app.use('/api/laninfo', lanInfoRoutes)
-app.use('/api/gallery', galleryRoutes)
+const checkApiKey = (req, res, next) => {
+  if (req.method === 'GET') return next()
+  const key = req.headers['api-key']
+  if (!key || key !== process.env.API_KEY) {
+    res.status(401).json({ error: 'api key not detected!' })
+  }
+  next()
+}
+
+app.use('/api/login', checkApiKey, loginRoutes)
+app.use('/api/events', checkApiKey, eventsRoutes)
+app.use('/api/members', checkApiKey, membersRoutes)
+app.use('/api/laninfo', checkApiKey, lanInfoRoutes)
+app.use('/api/gallery', checkApiKey, galleryRoutes)
 
 app.get('/', (req, res) => {
   res.send('<p>Gator Gaming Backend API</p>')
