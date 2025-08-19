@@ -51,7 +51,7 @@ const EventsManager = ({ refresh, toggleRefresh }) => {
 
       await axios.post(`${BASE_URL}/api/events`, finalEventData, {
         headers: {
-          'api-key': process.env.API_KEY
+          'api-key': import.meta.env.VITE_API_KEY
         }
       })
       setEventData({

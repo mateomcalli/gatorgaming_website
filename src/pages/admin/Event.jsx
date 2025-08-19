@@ -13,7 +13,7 @@ const Event = ({ id, title, location, date, time, toggleRefresh }) => {
       try {
         await axios.delete(`${BASE_URL}/api/events/${id}`, {
           headers: {
-            'api-key': process.env.API_KEY
+            'api-key': import.meta.env.VITE_API_KEY
           }
         })
         toggleRefresh(prev => !prev)

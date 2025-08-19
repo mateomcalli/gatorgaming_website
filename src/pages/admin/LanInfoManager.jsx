@@ -40,7 +40,7 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
       event.preventDefault()
       await axios.post(`${BASE_URL}/api/laninfo`, lanInfoData, {
         headers: {
-          'api-key': process.env.API_KEY
+          'api-key': import.meta.env.VITE_API_KEY
         }
       })
       setLanInfoData({ edition: '', dateRange: '' })

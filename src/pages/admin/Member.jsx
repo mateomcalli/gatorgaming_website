@@ -14,7 +14,7 @@ const Member = ({ id, name, position, hp, favoriteGames, toggleRefresh }) => {
         const sanitizedName = name.toLowerCase().replace(/ /g, '_')
         await axios.delete(`${BASE_URL}/api/members/${sanitizedName}/${id}/`, {
           headers: {
-            'api-key': process.env.API_KEY
+            'api-key': import.meta.env.VITE_API_KEY
           }
         })
         toggleRefresh(prev => !prev)

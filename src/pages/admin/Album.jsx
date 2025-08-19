@@ -12,7 +12,7 @@ const Album = ({ id, title, dateAdded, toggleRefresh }) => {
       try {
         await axios.delete(`${BASE_URL}/api/gallery/${title}`, {
           headers: {
-            'api-key': process.env.API_KEY
+            'api-key': import.meta.env.VITE_API_KEY
           }
         })
         toggleRefresh(prev => !prev)

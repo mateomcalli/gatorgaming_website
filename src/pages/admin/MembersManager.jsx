@@ -60,7 +60,7 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
       await axios.post(`${BASE_URL}/api/members`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'api-key': process.env.API_KEY
+          'api-key': import.meta.env.VITE_API_KEY
         }
       })
 

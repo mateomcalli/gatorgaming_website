@@ -13,7 +13,7 @@ const Admin = () => {
       try {
         await axios.get(`${BASE_URL}/api/auth`, {
           headers: {
-            'api-key': process.env.API_KEY
+            'api-key': import.meta.env.VITE_API_KEY
           },
           withCredentials: true
         })
