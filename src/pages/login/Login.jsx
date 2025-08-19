@@ -36,7 +36,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      await axios.post(`${BASE_URL}/api/login`, password, {
+      await axios.post(`${BASE_URL}/api/login`, { password }, {
         headers: {
           'api-key': import.meta.env.VITE_API_KEY
         },

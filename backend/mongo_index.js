@@ -25,8 +25,8 @@ mongoose.connect(url)
 const checkApiKey = (req, res, next) => {
   if (req.method === 'GET') return next()
   const key = req.headers['api-key']
-  if (!key || key !== API_KEY) {
-    res.status(401).json({ error: 'api key not detected!' })
+  if (!key || key !== process.env.API_KEY) {
+    return res.status(401).json({ error: 'api key not detected!' })
   }
   next()
 }
