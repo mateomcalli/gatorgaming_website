@@ -49,7 +49,7 @@ const EventsManager = ({ refresh, toggleRefresh }) => {
         expiryDate
       }
 
-      await axios.post(`${BASE_URL}/api/events`, finalEventData)
+      await axios.post(`${BASE_URL}/api/events`, finalEventData, { withCredentials: true })
       setEventData({
         title: '',
         location: '',

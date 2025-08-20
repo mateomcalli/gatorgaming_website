@@ -57,7 +57,7 @@ const MembersManager = ({ refresh, toggleRefresh }) => {
       formData.append('picture', membersData.picture[0])
 
     try {
-      await axios.post(`${BASE_URL}/api/members`, formData)
+      await axios.post(`${BASE_URL}/api/members`, formData, { withCredentials: true })
 
       setMembersData({
         name: '',

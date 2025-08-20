@@ -11,7 +11,7 @@ const Event = ({ id, title, location, date, time, toggleRefresh }) => {
   const handleDelete = async (id, title) => {
     if (confirm(`Are you sure you want to delete this event: ${title}?`)) {
       try {
-        await axios.delete(`${BASE_URL}/api/events/${id}`)
+        await axios.delete(`${BASE_URL}/api/events/${id}`, { withCredentials: true })
         toggleRefresh(prev => !prev)
       } catch (error) {
         console.log(error)

@@ -12,7 +12,7 @@ const Member = ({ id, name, position, hp, favoriteGames, toggleRefresh }) => {
     if (confirm(`Are you sure you want to remove this member: ${name}?`)) {
       try {
         const sanitizedName = name.toLowerCase().replace(/ /g, '_')
-        await axios.delete(`${BASE_URL}/api/members/${sanitizedName}/${id}/`)
+        await axios.delete(`${BASE_URL}/api/members/${sanitizedName}/${id}/`, { withCredentials: true })
         toggleRefresh(prev => !prev)
       } catch (error) {
         console.log(error)

@@ -54,7 +54,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
     }
 
     try {
-      await axios.post(`${BASE_URL}/api/gallery`, formData)
+      await axios.post(`${BASE_URL}/api/gallery`, formData, { withCredentials: true })
       
       formRef.current.reset()
       setAlbumData({
