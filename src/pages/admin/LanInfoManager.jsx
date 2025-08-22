@@ -38,11 +38,7 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      await axios.post(`${BASE_URL}/api/laninfo`, lanInfoData, {
-        headers: {
-          'api-key': process.env.API_KEY
-        }
-      })
+      await axios.post(`${BASE_URL}/api/laninfo`, lanInfoData, { withCredentials: true })
       setLanInfoData({ edition: '', dateRange: '' })
       formRef.current.reset()
       toggleRefresh(true)
