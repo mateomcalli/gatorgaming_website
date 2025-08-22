@@ -5,7 +5,7 @@ const HomeButtons = () => {
   return (
     <div className='flex justify-between gap-5'>
       <a
-        href="https://discord.com/invite/s99axhqQac"
+        href="https://discord.gg/dUpVeHdZwK"
         target="_blank"
         rel="noopener noreferrer"
         className="z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken"

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import OrangeButton from '../../components/OrangeButton'
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 const AffiliatedClubs = ({ minLg }) => {
   const clubs = [
@@ -8,18 +8,21 @@ const AffiliatedClubs = ({ minLg }) => {
       name: 'GatorVR',
       image: 'about/gatorvr.png',
       text: 'GatorVR is the University of Florida’s virtual reality club! Attend game nights & special events for the chance to participate in off-campus tournaments!',
+      link: 'https://discord.com/invite/zASAmf94Ry',
       id: 0
     },
     {
       name: 'U.R.G.E',
       image: 'about/urge.png',
       text: 'U.R.G.E, or the University Rhythm Game Enthusiasts, are the official UF club for rhythm games. Join us for weekly open play and playtesting new games!',
+      link: 'https://discord.com/invite/EAsq3PnXxP',
       id: 1
     },
     {
       name: 'GatorJam',
       image: 'about/gatorjam.png',
       text: 'UF’s official student-run Minecraft server! Build iconic locations like The Swamp, play with other students, and explore the world with 100+ members!',
+      link: 'https://discord.com/invite/FauYBvjkEV',
       id: 2
     }
   ]
@@ -50,7 +53,16 @@ const AffiliatedClubs = ({ minLg }) => {
                       <div className='absolute top-0 left-0 w-65 h-65 xl:w-75 xl:h-75 rounded-3xl bg-ggbg z-1'>
                         <div className='p-4 flex flex-col justify-start xl:justify-center items-center rounded-3xl gap-y-5 h-full w-full'>
                           <p className='text-lg text-ggwhite font-display'>{club.text}</p>
-                          <OrangeButton text='Discord'/>
+                          <a
+                            href={club.link}
+                            rel="noopener noreferrer"
+                            target='_blank'
+                            className="z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken"
+                          >Discord
+                            <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4">
+                              <FaArrowRightLong className="text-lg" />
+                            </div>
+                          </a>
                         </div>
                       </div>
                     </div>

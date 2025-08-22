@@ -42,14 +42,14 @@ const AboutContent = ({ minXl, minLg, minMd }) => {
             <div className='flex flex-col text-center justify-center items-center gap-y-3'>
               <p className='text-3xl text-ggwhite font-display'>Everyone is here!</p>
               <p className='text-base text-ggwhite font-display pb-4'>Whether you are interested in casual gaming or looking for a new challenge, we strive to. Here at Gator Gaming, we just want to have fun playing video-games (and we know you do too). Our team is dedicated to creating a collaborative environment that promotes quality gaming, integrity, diversity, and a sense of community.</p>
-              <OrangeButton text='Team'/>
+              <OrangeButton text='Team' href='/team'/>
             </div>
           </div>
           <div className='items-center flex gap-x-15'>
             <div className='flex flex-col text-center justify-center items-center gap-y-3'>
               <p className='text-3xl text-ggwhite font-display'>Let's-A-Go</p>
               <p className='text-base text-ggwhite font-display pb-4'>Gator Gaming hosts weekly events for members to come together and share their love of gaming! From roller skating outings to family-feud competition to te traditional double-elimination bracket, there’s an event for everyone. </p>
-              <OrangeButton text='Events'/>
+              <OrangeButton text='Events' href='/events'/>
             </div>
             {minLg && <img className='lg:w-100 lg:h-60 xl:w-100 xl:h-70 2xl:w-120 2xl:h-80 rounded-4xl' src='/about/about-img2.png'/>}
           </div>

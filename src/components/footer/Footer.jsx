@@ -2,7 +2,7 @@ import { LuX } from 'react-icons/lu'
 import { FaDiscord, FaInstagram } from 'react-icons/fa'
 import { SiLinktree } from "react-icons/si";
 
-const Footer = ( {maxMd} ) => {
+const Footer = ({ maxMd }) => {
   return (
     <div className='mt-20 relative w-screen h-fit flex justify-center md:mt-70 lg:mt-0 xl:-mt-10 2xl:mt-0'>
       {!maxMd && <img className='absolute inset-0 w-full h-full object-cover pointer-events-none overflow-hidden z-0 sm:z-0' src='footer-blur4.png'/>}
