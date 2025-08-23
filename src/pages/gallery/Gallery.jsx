@@ -1,32 +1,12 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import AlbumPage from '../../components/gallery/AlbumPage'
 import AlbumThumbnail from '../../components/gallery/AlbumThumbnail'
 import { AnimatePresence, motion } from 'framer-motion'
 import { IoIosArrowBack } from 'react-icons/io'
 
-const Gallery = () => {
-  const [albumsList, setAlbumsList] = useState([])
-  const [emptyBool, setEmptyBool] = useState(false)
+const Gallery = ({ albumsList, emptyBool }) => {
   const [albumOpen, setAlbumOpen] = useState(false)
   const [albumName, setAlbumName] = useState(null)
-  
-  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
-
-  useEffect(() => {
-    const getAlbums = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/api/gallery`)
-        if (response.data.length === 0) {
-          setEmptyBool(true)
-        }
-        setAlbumsList(response.data)
-      } catch (error) {
-        console.error('Database error when getting albums: ', error)
-      }
-    }
-    getAlbums()
-  }, [])
 
   return (
     <div className='relative lg:pb-50 flex flex-col items-center w-screen min-h-screen'>

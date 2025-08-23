@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react'
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
 import { motion } from 'framer-motion'
-import axios from 'axios'
 import EventsList from './EventsList'
 import PopulateCalendar from './PopulateCalendar'
 import EventsSeparator from '../../components/decorative/EventsSeparator'
 import EventSeparatorLines from '../../components/decorative/EventSeparatorLines'
 
-const EventsContent = ({ minLg }) => {
-  const [eventList, setEventList] = useState([])
-  const [lanInfo, setLanInfo] = useState(null)
-  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
-
+const EventsContent = ({ minLg, lanInfo, eventList }) => {
   const [dateTime, setDateTime] = useState(new Date())
   const [changingMonth, setChangingMonth] = useState(new Date())
   const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -24,31 +19,6 @@ const EventsContent = ({ minLg }) => {
     }, 1000)
     
     return () => clearInterval(timeHook)
-  }, [])
-
-  useEffect(() => {
-    const getEvents = async () => {
-      try {
-        const list = await axios.get(`${BASE_URL}/api/events`)
-        setEventList(list.data)
-      } catch (error) {
-        console.log('Error:', error)
-        alert('There was an error loading the events list, more details in the browser console.')
-      }
-    }
-
-    const getLanInfo = async () => {
-      try {
-        const item = await axios.get(`${BASE_URL}/api/laninfo`)
-        setLanInfo(item.data)
-      } catch (error) {
-        console.log('Error:', error)
-        alert('There was an error loading gatorlan info, more details in the browser console.')
-      }
-    }
-
-    getLanInfo()
-    getEvents()
   }, [])
 
   const handleLeft = () => {

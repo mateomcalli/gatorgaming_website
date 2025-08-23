@@ -3,24 +3,12 @@ import SmallCard from "../../components/cards/SmallCard"
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 import { useDrag } from '@use-gesture/react'
-import { useRef, useState, useEffect } from 'react'
-import axios from "axios"
+import { useRef } from 'react'
 
 
-const TeamContent = () => {
+const TeamContent = ({ members }) => {
   const mainScrollRef = useRef(null)
   const subScrollRef = useRef(null)
-  const [members, setMembers] = useState([])
-
-  const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
-
-  useEffect(() => {
-    const getMembers = async () => {
-      const response = await axios.get(`${BASE_URL}/api/members`)
-      setMembers(response.data)
-    }
-    getMembers()
-  }, [])
 
   const designers = [
     {name: 'Colin Mendoza', picture: '/people/colin-m.png'},
