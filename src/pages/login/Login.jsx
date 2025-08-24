@@ -53,7 +53,7 @@ const Login = () => {
           <p className='text-center font-display text-ggwhite text-3xl'>Admin Checkpoint:</p>
           <input 
             className={`${failure ? 'red' : ''} pl-2 bg-gray-600 rounded-md w-full h-8 focus:outline-none`}
-            type="text"
+            type="password"
             placeholder={failure ? 'incorrect, try again!' : 'admin password'}
             onChange={handleChange}
           />
