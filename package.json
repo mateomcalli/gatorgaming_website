@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.5",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@tailwindcss/vite": "^4.1.7",
     "@tippyjs/react": "^4.2.6",
     "@use-gesture/react": "^10.3.1",

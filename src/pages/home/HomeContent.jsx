@@ -5,7 +5,7 @@ import FaqBlur from '../../bgblurs/FaqBlur';
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { FaPlus } from 'react-icons/fa6';
 
-const HomeContent = ( {maxSm, minXl} ) => {
+const HomeContent = ({ maxSm, minXl }) => {
   const [faqSelection, setFaqSelection] = useState(null)
 
   const faq = [

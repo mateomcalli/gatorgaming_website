@@ -1,5 +1,6 @@
 import Card from "../../components/cards/Card"
 import SmallCard from "../../components/cards/SmallCard"
+import { motion } from 'framer-motion'
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 import { useDrag } from '@use-gesture/react'
@@ -43,7 +44,15 @@ const TeamContent = ({ members }) => {
       <p className='relative text-4xl text-ggwhite font-display pb-2'>Meet our officers!</p>
       <div className='relative'>
         <SimpleBar autoHide={false} scrollbarMaxSize={700} className='pt-8 h-124 w-screen lg:w-265 max-w-265' ref={mainScrollRef}>
-          <div className='relative px-10 lg:px-5 flex gap-x-15 w-fit select-none cursor-grab active:cursor-grabbing' {...main()}>
+          <motion.div 
+            initial={{ x: 0 }}
+            animate={{ x: [0, -130, 0] }}
+            transition={{
+              duration: 1
+            }}
+            className='relative px-10 lg:px-5 flex gap-x-15 w-fit select-none cursor-grab active:cursor-grabbing'
+            {...main()}
+          >
             {members.map((member, index) => {
               return (
                 <Card
@@ -56,7 +65,7 @@ const TeamContent = ({ members }) => {
                   key={index}
                 />
             )})}
-          </div>
+          </motion.div>
         </SimpleBar>
         <div className='absolute left-0 top-8 h-105 w-6 bg-[linear-gradient(90deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'></div>
         <div className='absolute right-0 top-8 h-105 w-10 bg-[linear-gradient(270deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'></div>
