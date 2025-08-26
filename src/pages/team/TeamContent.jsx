@@ -63,7 +63,7 @@ const TeamContent = ({ members }) => {
         <div className='absolute left-0 top-8 h-105 w-6 bg-[linear-gradient(90deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'></div>
         <div className='absolute right-0 top-8 h-105 w-10 bg-[linear-gradient(270deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'></div>
       </div>
-      <div className='flex flex-col relative mt-20 w-screen lg:w-300'>
+      <div className='flex flex-col relative mt-20 w-screen lg:w-300 cursor-grab active:cursor-grabbing'>
         <p className='text-2xl text-ggwhite font-display pb-10 self-center'>GUD Website Team:</p>
         <Splide 
           extensions={{ AutoScroll }}
@@ -72,13 +72,18 @@ const TeamContent = ({ members }) => {
             pagination: false,
             updateOnMove: false,
             fixedWidth: '150px',
+            drag: 'free',
+            snap: false,
             gap: '150px',
             type: 'loop',
+            padding: {left: '48px'},
+            flickPower: 0.000001,
             autoScroll: {
               pauseOnHover: true,
-              speed: 2
+              speed: 1
             }
-        }}>
+          }}
+        >
           {designers.map(designer => (
             <SplideSlide>
               <SmallCard name={designer.name} picture={designer.picture} role={designer.role}/>
