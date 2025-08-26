@@ -76,7 +76,7 @@ const TeamContent = ({ members }) => {
             type: 'loop',
             autoScroll: {
               pauseOnHover: true,
-              speed: 3
+              speed: 2
             }
         }}>
           {designers.map(designer => (
