@@ -3,22 +3,24 @@ import SmallCard from "../../components/cards/SmallCard"
 import { motion } from 'framer-motion'
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import '@splidejs/react-splide/css';
 import { useDrag } from '@use-gesture/react'
 import { useRef } from 'react'
 
 
 const TeamContent = ({ members }) => {
   const mainScrollRef = useRef(null)
-  const subScrollRef = useRef(null)
 
   const designers = [
-    {name: 'Colin Mendoza', picture: '/people/colin-m.png'},
-    {name: 'Joyin Ang', picture: '/people/joyin-a.png'},
-    {name: 'Lucas McAllister', picture: '/people/lucas-m.png'},
-    {name: 'Mateo McAllister', picture: '/people/mateo-m.png'},
-    {name: 'Nicolas Boulton', picture: '/people/nico-b.png'},
-    {name: 'Rhythm Kumar', picture: '/people/rhythm-k.png'},
-    {name: 'Steven Lautenbach', picture: '/people/steven-l.png'}
+    {name: 'Colin Mendoza', picture: '/people/colin-m.png', role: 'Project Manager'},
+    {name: 'Joyin Ang', picture: '/people/joyin-a.png', role: 'Web Designer'},
+    {name: 'Lucas McAllister', picture: '/people/lucas-m.png', role: 'Web Designer'},
+    {name: 'Mateo McAllister', picture: '/people/mateo-m.png', role: 'Web Designer Site Developer'},
+    {name: 'Nicolas Boulton', picture: '/people/nico-b.png', role: 'Web Designer'},
+    {name: 'Rhythm Kumar', picture: '/people/rhythm-k.png', role: 'Web Designer'},
+    {name: 'Steven Lautenbach', picture: '/people/steven-l.png', role: 'Web Designer'}
   ]
 
   const main = useDrag(({ delta: [dx] }) => {
@@ -26,15 +28,6 @@ const TeamContent = ({ members }) => {
       const mainScrollElement = mainScrollRef.current.getScrollElement()
       if (mainScrollElement) {
         mainScrollElement.scrollLeft -= dx
-      }
-    }
-  })
-
-  const sub = useDrag(({ delta: [dx] }) => {
-    if (subScrollRef.current) {
-      const subScrollElement = subScrollRef.current.getScrollElement()
-      if (subScrollElement) {
-        subScrollElement.scrollLeft -= dx
       }
     }
   })
@@ -70,7 +63,35 @@ const TeamContent = ({ members }) => {
         <div className='absolute left-0 top-8 h-105 w-6 bg-[linear-gradient(90deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'></div>
         <div className='absolute right-0 top-8 h-105 w-10 bg-[linear-gradient(270deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'></div>
       </div>
-      <div className='relative flex flex-col items-center mt-20'>
+      <div className='flex flex-col relative mt-20 w-screen lg:w-300'>
+        <p className='text-2xl text-ggwhite font-display pb-10 self-center'>GUD Website Team:</p>
+        <Splide 
+          extensions={{ AutoScroll }}
+          options={{
+            arrows: false,
+            pagination: false,
+            updateOnMove: false,
+            fixedWidth: '150px',
+            gap: '150px',
+            type: 'loop',
+            autoScroll: {
+              pauseOnHover: true,
+              speed: 3
+            }
+        }}>
+          {designers.map(designer => (
+            <SplideSlide>
+              <SmallCard name={designer.name} picture={designer.picture} role={designer.role}/>
+            </SplideSlide>
+          ))}
+        </Splide>
+        <div className='absolute left-0 top-18 h-95 w-10 bg-[linear-gradient(90deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'/>
+        <div className='absolute right-0 top-18 h-95 w-10 bg-[linear-gradient(270deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'/>
+      </div>
+
+      {/* designers sect */}
+      
+      {/* <div className='relative flex flex-col items-center mt-20'>
         <p className='relative text-2xl italic text-ggwhite font-display pb-8'>designers:</p>
         <SimpleBar autoHide={false} scrollbarMaxSize={500} className='w-screen lg:w-300 lg:ml-35 xl:ml-0 h-106' ref={subScrollRef}>
           <div className='relative px-10 lg:px-5 flex gap-x-8 w-fit select-none cursor-grab active:cursor-grabbing' {...sub()}>
@@ -81,11 +102,14 @@ const TeamContent = ({ members }) => {
         </SimpleBar>
         <div className='absolute left-0 top-16 h-95 w-6 bg-[linear-gradient(90deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'/>
         <div className='absolute right-0 top-16 h-95 w-10 bg-[linear-gradient(270deg,rgba(10,14,21,1)_0%,rgba(0,0,0,0)_100%)] pointer-events-none z-2'/>
-      </div>
-      <div className='relative flex flex-col items-center mt-20'>
+      </div> */}
+
+      {/* dev sect */}
+
+      {/* <div className='relative flex flex-col items-center mt-20'>
         <p className='relative text-2xl italic text-ggwhite font-display pb-8'>developer:</p>
           <SmallCard name={'Mateo McAllister'} picture={'/people/mateo-m.png'}/>
-      </div>
+      </div> */}
     </div>
   )
 }
