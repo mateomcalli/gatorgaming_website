@@ -111,7 +111,7 @@ router.delete('/:title', async (req, res) => {
     await cloudinary.api.delete_folder(title)
     const response = await Album.findOneAndDelete({ title: title })
     if (!response) {
-      return res.status(404).json({ error: `album "${title}" does not exist in the database!` })
+      return res.status(404).json({ error: `album '${title}' does not exist in the database!` })
     }
     res.status(200).json(response)
   } catch (error) {

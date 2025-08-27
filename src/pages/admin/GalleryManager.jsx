@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import Album from './Album'
-import { GrFormUpload } from "react-icons/gr"
-import { HiOutlineInformationCircle } from "react-icons/hi"
+import { GrFormUpload } from 'react-icons/gr'
+import { HiOutlineInformationCircle } from 'react-icons/hi'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 
@@ -98,7 +98,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
           </Tippy>
         </div>
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitAlbum}>
-          <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder="Title" onChange={handleChange} required/>
+          <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder='Title' onChange={handleChange} required/>
           <div className='flex w-fit gap-2'>
             <p className='font-display text-[#999]'>Upload Cover Image:</p>
             <motion.label

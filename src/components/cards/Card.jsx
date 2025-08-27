@@ -1,7 +1,7 @@
-import { useState } from "react"
-import { motion } from "framer-motion"
-import CardFront from "./CardFront"
-import CardBack from "./CardBack"
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import CardFront from './CardFront'
+import CardBack from './CardBack'
 
 const Card = ({ name, position, hp, picture, favoriteGames, aboutMe }) => {
   const [flipped, setFlipped] = useState(false)

@@ -1,8 +1,8 @@
-import { IoIosPin } from "react-icons/io"
-import { TbClock } from "react-icons/tb"
-import { TfiArrowTopRight } from "react-icons/tfi"
-import { motion } from "framer-motion"
-import { useMediaQuery } from "react-responsive"
+import { IoIosPin } from 'react-icons/io'
+import { TbClock } from 'react-icons/tb'
+import { TfiArrowTopRight } from 'react-icons/tfi'
+import { motion } from 'framer-motion'
+import { useMediaQuery } from 'react-responsive'
 
 const EventsList = ({ eventList }) => {
   const specificMQ = useMediaQuery({ minWidth: 768, maxWidth: 1024 })

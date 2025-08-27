@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import axios from 'axios'
-import { LuX } from "react-icons/lu"
+import { LuX } from 'react-icons/lu'
 
 const Member = ({ id, name, position, hp, favoriteGames, toggleRefresh }) => {
   const [hovered, setHovered] = useState(false)

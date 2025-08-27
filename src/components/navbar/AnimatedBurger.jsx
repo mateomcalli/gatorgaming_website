@@ -22,11 +22,11 @@ const AnimatedBurger = ({ isNavOpen }) => {
             bounce: 0,
             duration: 0.4
           }}
-          d="M8 12h20"
-          stroke="#d9d9d9"
-          strokeWidth="3"
-          strokeLinecap="round"
-          style={{ originX: "50%", originY: "50%" }}
+          d='M8 12h20'
+          stroke='#d9d9d9'
+          strokeWidth='3'
+          strokeLinecap='round'
+          style={{ originX: '50%', originY: '50%' }}
         />
         <motion.path
           variants={line2Variants}
@@ -36,11 +36,11 @@ const AnimatedBurger = ({ isNavOpen }) => {
             bounce: 0,
             duration: 0.4
           }}
-          d="M8 22h20"
-          stroke="#d9d9d9"
-          strokeWidth="3"
-          strokeLinecap="round"
-          style={{ originX: "50%", originY: "50%" }}
+          d='M8 22h20'
+          stroke='#d9d9d9'
+          strokeWidth='3'
+          strokeLinecap='round'
+          style={{ originX: '50%', originY: '50%' }}
         />
       </svg>
     </div>

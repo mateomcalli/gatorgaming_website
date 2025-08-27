@@ -68,8 +68,8 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
           ref={formRef}
         >
           <p className='font-display text-ggorange pb-2 self-start pl-1 md:pl-0 md:self-center'>Change GatorLAN dates:</p>
-          <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='edition' placeholder="Edition" onChange={handleChange} required />
-          <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='dateRange' placeholder='Dates (ex. "May 1-4")' onChange={handleChange} required />
+          <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='edition' placeholder='Edition' onChange={handleChange} required />
+          <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='dateRange' placeholder="Dates (ex. 'May 1-4')" onChange={handleChange} required />
           <motion.button
             whileHover={{
               backgroundColor: 'rgb(244, 126, 32, 0.6)',

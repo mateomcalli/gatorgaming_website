@@ -1,6 +1,6 @@
 import { LuX } from 'react-icons/lu'
 import { FaDiscord, FaInstagram } from 'react-icons/fa'
-import { SiLinktree } from "react-icons/si";
+import { SiLinktree } from 'react-icons/si';
 
 const Footer = ({ maxMd }) => {
   return (
@@ -29,12 +29,12 @@ const Footer = ({ maxMd }) => {
         <div className='flex justify-between z-2'>
           <div className='flex items-center gap-5 w-fit h-fit pt-3 pl-2 font-display'>
             <FaDiscord size='30'/>
-            <a href='https://discord.com/invite/s99axhqQac' target='_blank' rel="noopener noreferrer">
+            <a href='https://discord.com/invite/s99axhqQac' target='_blank' rel='noopener noreferrer'>
               <p className='underline text-xs text-gray-300'>Discord</p>
             </a>
           </div>
-          <div className='flex items-center gap-5 w-fit h-fit pt-3 pr-2 font-display'>
-            <a href='https://linktr.ee/gatoruserdesign' target='_blank' rel="noopener noreferrer">
+          <div className='flex items-center gap-3 w-fit h-fit pt-3 font-display'>
+            <a href='https://linktr.ee/gatoruserdesign' target='_blank' rel='noopener noreferrer'>
               <p className='underline text-xs text-gray-300'>Linktree</p>
             </a>
             <SiLinktree size='28'/>
@@ -43,7 +43,7 @@ const Footer = ({ maxMd }) => {
         <div className='flex justify-between z-2'>
           <div className='flex items-center gap-5 w-fit h-fit pt-3 pl-2 pb-5 font-display'>
             <FaInstagram size='30'/>
-            <a href='https://www.instagram.com/gatorgaminguf/' target='_blank' rel="noopener noreferrer">
+            <a href='https://www.instagram.com/gatorgaminguf/' target='_blank' rel='noopener noreferrer'>
             <p className='underline text-xs text-gray-300'>Instagram</p>
             </a>
           </div>

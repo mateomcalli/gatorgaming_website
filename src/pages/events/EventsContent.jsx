@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io"
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import { motion } from 'framer-motion'
 import EventsList from './EventsList'
 import PopulateCalendar from './PopulateCalendar'

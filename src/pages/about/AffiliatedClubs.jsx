@@ -55,12 +55,12 @@ const AffiliatedClubs = ({ minLg }) => {
                           <p className='text-lg text-ggwhite font-display'>{club.text}</p>
                           <a
                             href={club.link}
-                            rel="noopener noreferrer"
+                            rel='noopener noreferrer'
                             target='_blank'
-                            className="z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken"
+                            className='z-3 flex justify-between w-fit px-5 h-10 items-center bg-ggorange text-ggwhite rounded-3xl darken'
                           >Discord
-                            <div className="flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4">
-                              <FaArrowRightLong className="text-lg" />
+                            <div className='flex items-center justify-center rounded-full bg-ggbg h-8 w-8 transform translate-x-4'>
+                              <FaArrowRightLong className='text-lg' />
                             </div>
                           </a>
                         </div>

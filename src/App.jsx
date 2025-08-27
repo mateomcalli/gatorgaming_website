@@ -95,7 +95,7 @@ const App = () => {
           />
           <Route
             path='/about'
-            element={<AboutContent minXl={minXl} minMd={minMd} minLg={minLg}/>}
+            element={<AboutContent minMd={minMd} minLg={minLg}/>}
           />
           <Route
             path='/team'
@@ -107,7 +107,7 @@ const App = () => {
           />
           <Route
             path='/gallery'
-            element={<Gallery albumsList={albumsList}/>}
+            element={<Gallery albumsList={albumsList} emptyBool={emptyBool}/>}
           />
           <Route
             path='/login'

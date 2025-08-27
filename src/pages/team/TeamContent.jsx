@@ -1,10 +1,10 @@
-import Card from "../../components/cards/Card"
-import SmallCard from "../../components/cards/SmallCard"
+import Card from '../../components/cards/Card'
+import SmallCard from '../../components/cards/SmallCard'
 import { motion } from 'framer-motion'
 import SimpleBar from 'simplebar-react'
 import 'simplebar-react/dist/simplebar.min.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/react-splide/css';
 import { useDrag } from '@use-gesture/react'
 import { useRef } from 'react'

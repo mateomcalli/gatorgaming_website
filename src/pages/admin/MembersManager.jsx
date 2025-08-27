@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import Member from './Member'
-import { GrFormUpload } from "react-icons/gr"
+import { GrFormUpload } from 'react-icons/gr'
 
 const MembersManager = ({ refresh, toggleRefresh }) => {
   const formRef = useRef(null)
