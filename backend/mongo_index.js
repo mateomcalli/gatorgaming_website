@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
+import { rateLimit } from 'express-rate-limit'
 import Session from './models/Sessions.js'
 import loginRoutes from './routes/login.js'
 import eventsRoutes from './routes/events.js'
@@ -15,6 +16,16 @@ const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173'
 app.use(cors({ origin: allowedOrigin, credentials: true })) // necessary to send req from frontend
 app.use(express.json()) // necessary to parse json data (req.body)
 app.use(cookieParser())
+
+const limiter = rateLimit({
+	windowMs: 15 * 60 * 1000,
+	limit: 100,
+	standardHeaders: 'draft-8',
+	legacyHeaders: false,
+	ipv6Subnet: 52,
+})
+
+app.use(limiter)
 
 const url = process.env.MONGO_URI
 
