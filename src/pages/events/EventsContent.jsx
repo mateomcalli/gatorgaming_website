@@ -136,7 +136,7 @@ const EventsContent = ({ minLg, lanInfo, eventList }) => {
           <img className='w-100 self-center pr-6 lg:w-120 lg:ml-0 z-2' src='events/extra-life-logo.png'/>
           <p className='text-pretty text-center font-display px-8 lg:px-0 z-2'>Extra Life is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat conmodo labore.</p>
         </div>
-        <img className='w-90 h-65 sm:w-100 sm:h-70 ml-2 lg:w-115 lg:h-80 lg:ml-0 my-10 lg:my-20 rounded-3xl z-2' src='/events/extralife.png'/>
+        <img className='w-90 h-65 sm:w-100 sm:h-70 ml-2 lg:w-115 lg:h-80 lg:ml-0 my-10 lg:my-20 rounded-3xl z-2' src='/events/extralife.webp'/>
       </div>
     </div>
   )

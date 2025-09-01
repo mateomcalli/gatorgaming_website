@@ -8,11 +8,11 @@ const Carousel = () => {
   const [direction, setDirection] = useState(0)
 
   const images = [
-    {url: '/about/about-carousel1.png', id: 0},
-    {url: '/about/about-carousel2.png', id: 1},
-    {url: '/about/about-carousel3.png', id: 2},
-    {url: '/about/about-carousel4.png', id: 3},
-    {url: '/about/about-carousel5.png', id: 4}
+    {url: '/about/about-carousel1.webp', id: 0},
+    {url: '/about/about-carousel2.webp', id: 1},
+    {url: '/about/about-carousel3.webp', id: 2},
+    {url: '/about/about-carousel4.webp', id: 3},
+    {url: '/about/about-carousel5.webp', id: 4}
   ]
 
   const handleRight = () => {

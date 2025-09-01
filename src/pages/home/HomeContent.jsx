@@ -54,7 +54,7 @@ const HomeContent = ({ maxSm, minXl }) => {
           <div className='w-[85%] md:w-auto m-auto lg:m-0 place-self-center xl:mt-4 xl:place-self-stretch flex flex-col gap-8 h-fit'>
             <img 
               className='aspect-auto z-2'
-              src='home/home-players.png'
+              src='home/home-players.webp'
             />
           </div>
           <div className='w-3/4 md:w-auto m-auto text-center md:text-left items-center md:items-start xl:pl-10 md:justify-center flex flex-col'>
@@ -168,7 +168,7 @@ const HomeContent = ({ maxSm, minXl }) => {
           <div className='w-fit pt-28'>
             <img 
               className='rounded-3xl aspect-auto z-2'
-              src='home/faq-image.png'
+              src='home/faq-image.webp'
             />
           </div>
           }

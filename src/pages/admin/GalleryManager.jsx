@@ -93,7 +93,7 @@ const GalleryManager = ({ refresh, toggleRefresh }) => {
       <div className='md:w-60 h-fit px-3 pt-2 rounded-lg drop-shadow-xl bg-[rgba(117,121,128,0.1)]'>
         <div className='flex items-center gap-x-3'>
           <p className='font-display text-ggorange pb-2'>Add a new album:</p>
-          <Tippy content={<span>Note that for images, only the following file extensions are accepted: .JPG, .JPEG, .PNG, .WEBP. Also, while uploading please leave your tab open and do not refresh the page. Uploads may take quite a while, especially with a lot of images.</span>}>
+          <Tippy content={<span>Note that for images, only the following file extensions are accepted: .JPG, .JPEG, .PNG, .WEBP, and WEBP is preferred for much better performance. Also, while uploading please leave your tab open and do not refresh the page. Uploads may take quite a while, especially with a lot of images.</span>}>
             <HiOutlineInformationCircle className='mb-1.5' size='20'/>
           </Tippy>
         </div>

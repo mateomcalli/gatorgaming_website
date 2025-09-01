@@ -14,12 +14,12 @@ const TeamContent = ({ members }) => {
   const mainScrollRef = useRef(null)
 
   const designers = [
-    {name: 'Colin Mendoza', picture: '/people/colin-m.png', role: 'Project Manager'},
-    {name: 'Joyin Ang', picture: '/people/joyin-a.png', role: 'Web Designer'},
+    {name: 'Colin Mendoza', picture: '/people/colin-m.webp', role: 'Project Manager'},
+    {name: 'Joyin Ang', picture: '/people/joyin-a.webp', role: 'Web Designer'},
     {name: 'Lucas McAllister', picture: '/people/lucas-m.png', role: 'Web Designer'},
     {name: 'Mateo McAllister', picture: '/people/mateo-m.png', role: 'Web Designer Site Developer'},
-    {name: 'Nicolas Boulton', picture: '/people/nico-b.png', role: 'Web Designer'},
-    {name: 'Rhythm Kumar', picture: '/people/rhythm-k.png', role: 'Web Designer'},
+    {name: 'Nicolas Boulton', picture: '/people/nico-b.webp', role: 'Web Designer'},
+    {name: 'Rhythm Kumar', picture: '/people/rhythm-k.webp', role: 'Web Designer'},
     {name: 'Steven Lautenbach', picture: '/people/steven-l.png', role: 'Web Designer'}
   ]
 
@@ -41,7 +41,8 @@ const TeamContent = ({ members }) => {
             initial={{ x: 0 }}
             animate={{ x: [0, -130, 0] }}
             transition={{
-              duration: 1
+              duration: 1,
+              delay: 0.5
             }}
             className='relative px-10 lg:px-5 flex gap-x-15 w-fit select-none cursor-grab active:cursor-grabbing'
             {...main()}

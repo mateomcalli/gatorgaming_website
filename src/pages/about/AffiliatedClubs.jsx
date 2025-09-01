@@ -6,21 +6,21 @@ const AffiliatedClubs = ({ minLg }) => {
   const clubs = [
     {
       name: 'GatorVR',
-      image: 'about/gatorvr.png',
+      image: 'about/gatorvr.webp',
       text: 'GatorVR is the University of Florida’s virtual reality club! Attend game nights & special events for the chance to participate in off-campus tournaments!',
       link: 'https://discord.com/invite/zASAmf94Ry',
       id: 0
     },
     {
       name: 'U.R.G.E',
-      image: 'about/urge.png',
+      image: 'about/urge.webp',
       text: 'U.R.G.E, or the University Rhythm Game Enthusiasts, are the official UF club for rhythm games. Join us for weekly open play and playtesting new games!',
       link: 'https://discord.com/invite/EAsq3PnXxP',
       id: 1
     },
     {
       name: 'GatorJam',
-      image: 'about/gatorjam.png',
+      image: 'about/gatorjam.webp',
       text: 'UF’s official student-run Minecraft server! Build iconic locations like The Swamp, play with other students, and explore the world with 100+ members!',
       link: 'https://discord.com/invite/FauYBvjkEV',
       id: 2
