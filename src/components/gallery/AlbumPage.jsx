@@ -47,6 +47,7 @@ const AlbumPage = ({ _id }) => {
               className='fixed top-1/2 left-1/2 max-w-[70vw] max-h-[70vh] -translate-x-1/2 -translate-y-1/2 z-10 object-contain'
               layoutId={selectedImage}
               src={selectedImage}
+              alt='Gallery image'
             />
           </>
         )}

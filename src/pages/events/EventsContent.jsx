@@ -48,7 +48,7 @@ const EventsContent = ({ minLg, lanInfo, eventList }) => {
   
   return (
     <div className='overflow-x-hidden relative pt-30 lg:pb-50 flex flex-col gap-y-24 justify-center items-center w-screen min-h-screen'>
-      <img className='absolute top-0 min-w-[1200px] pointer-events-none z-0' src='/events/events-top-blur.png'/>
+      <img className='absolute top-0 min-w-[1200px] pointer-events-none z-0' src='/events/events-top-blur.png' alt='Blurry background asset'/>
       <div className='ml-4 flex flex-col w-fit text-center z-2'>
         <p className='text-4xl mr-4 pb-8 text-ggwhite font-display'>Calendar of Events</p>
         <div className='flex justify-center flex-col mr-0 sm:mr-8 lg:mr-0 md:flex-row gap-x-16 lg:gap-x-24'>
@@ -90,10 +90,10 @@ const EventsContent = ({ minLg, lanInfo, eventList }) => {
       </div>
       {/* start of gatorLAN section */}
       <div className='flex relative z-1 w-fit md:w-4/5 lg:w-fit ml-0 lg:ml-16'>
-        <img className='absolute min-w-[900px] -top-20 -left-20 lg:left-70 lg:-top-45 pointer-events-none z-0' src='/events/gatorlan-blur.png'/>
+        <img className='absolute min-w-[900px] -top-20 -left-20 lg:left-70 lg:-top-45 pointer-events-none z-0' src='/events/gatorlan-blur.png' alt='Blurry background asset'/>
         {minLg && 
           <div className='flex flex-col w-130 gap-y-8 z-2'>
-            <img className='aspect-auto w-130 rounded-3xl' src='/events/gatorlan2.jpg'/>
+            <img className='aspect-auto w-130 rounded-3xl' src='/events/gatorlan2.jpg' alt='GatorLAN photo'/>
             <p className='text-center font-display'>GatorLAN is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis ullamco laboris. Join our Discord for more information about this semester's edition!</p>
           </div>
         }
@@ -107,7 +107,7 @@ const EventsContent = ({ minLg, lanInfo, eventList }) => {
           <div className='w-100 ml-16 self-center grid gap-y-1.5 grid-cols-2 grid-rows-4'>
             {features.map((feature, i) => (
               <div key={i} className='flex gap-2'>
-                <img className='w-6' src='events/gatorgaming-bullet.png'/>
+                <img className='w-6' src='events/gatorgaming-bullet.png' alt='Small Gator Gaming logo'/>
                 <p className='text-ggwhite font-display'>{feature}</p>
               </div>
             ))}
@@ -132,11 +132,11 @@ const EventsContent = ({ minLg, lanInfo, eventList }) => {
       {/* start of extralife section */}
       <div className='flex relative z-2 flex-col w-screen items-center lg:w-auto lg:flex-row lg:gap-x-16'>
         <div className='w-110 flex flex-col gap-y-8 justify-center z-2'>
-          <img className='absolute right-20 top-10 lg:-top-10 lg:right-70 min-w-[800px] pointer-events-none z-0' src='/events/extra-life-blur.png'/>
-          <img className='w-100 self-center pr-6 lg:w-120 lg:ml-0 z-2' src='events/extra-life-logo.png'/>
+          <img className='absolute right-20 top-10 lg:-top-10 lg:right-70 min-w-[800px] pointer-events-none z-0' src='/events/extra-life-blur.png' alt='Blurry background asset'/>
+          <img className='w-100 self-center pr-6 lg:w-120 lg:ml-0 z-2' src='events/extra-life-logo.png' alt='Extra Life logo'/>
           <p className='text-pretty text-center font-display px-8 lg:px-0 z-2'>Extra Life is lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat conmodo labore.</p>
         </div>
-        <img className='w-90 h-65 sm:w-100 sm:h-70 ml-2 lg:w-115 lg:h-80 lg:ml-0 my-10 lg:my-20 rounded-3xl z-2' src='/events/extralife.webp'/>
+        <img className='w-90 h-65 sm:w-100 sm:h-70 ml-2 lg:w-115 lg:h-80 lg:ml-0 my-10 lg:my-20 rounded-3xl z-2' src='/events/extralife.webp' alt='Extra Life photo'/>
       </div>
     </div>
   )
