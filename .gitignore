@@ -3,7 +3,6 @@ dist/
 .env
 .DS_Store
 credentials.json
-sitemap.xml
 
 logs
 *.log
