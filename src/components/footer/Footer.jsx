@@ -5,7 +5,7 @@ import { SiLinktree } from 'react-icons/si';
 const Footer = ({ maxMd }) => {
   return (
     <div className='mt-20 relative w-screen h-fit flex justify-center md:mt-70 lg:mt-0 xl:-mt-10 2xl:mt-0'>
-      {!maxMd && <img className='absolute inset-0 w-full h-full object-cover pointer-events-none overflow-hidden z-0 sm:z-0' src='footer-blur4.png' alt='Blurry background asset'/>}
+      {!maxMd && <img className='absolute inset-0 w-full h-full object-cover pointer-events-none overflow-hidden z-0 sm:z-0' src='/other/footer-blur4.png' alt='Blurry background asset'/>}
       <div className='relative px-8 w-full md:w-169 lg:w-205 xl:w-240 2xl:w-300 flex flex-col z-2'>
         <div className='flex h-fit w-full items-center gap-5 z-2'>
           <LuX size='40'/>
@@ -14,12 +14,12 @@ const Footer = ({ maxMd }) => {
         </div>
         <div className='flex justify-between z-2'>
           <img
-            src='gatorgaming-logo.png'
+            src='/other/gatorgaming-logo.png'
             className='w-28'
             alt='Gator Gaming logo'
           />
           <img
-            src='gud-logo.png'
+            src='/other/gud-logo.png'
             className='mt-2 w-21 h-21'
             alt='Gator User Design logo'
           />

@@ -16,7 +16,7 @@ const CardFront = ({ name, position, hp, picture, flipped, setFlipped, hovered }
         <div className='flex gap-x-1 pr-1'>
           <p className='text-[10px] pt-[10px] font-display'>HP</p>
           <p className='font-display text-[18px]'>{hp}</p>
-          <img className='pointer-events-none border-1 rounded-full border-ggwhite w-6.5' src='gatorgaming-logo.png' alt='Gator Gaming logo'/>
+          <img className='pointer-events-none border-1 rounded-full border-ggwhite w-6.5' src='/other/gatorgaming-logo.png' alt='Gator Gaming logo'/>
         </div>
       </div>
       <div className='mx-[10px] w-[264px] h-[155px] border-1 border-[#9F9F9F]'>
@@ -26,7 +26,7 @@ const CardFront = ({ name, position, hp, picture, flipped, setFlipped, hovered }
         <img className='pointer-events-none min-w-22 object-contain h-fit self-center' src='/team/card-ability.png' alt='"Ability" icon'/>
         <p className='text-ggorange text-lg font-display text-nowrap'>{position}</p>
       </div>
-      <img className='pointer-events-none w-40 opacity-25 self-center -mt-0' src='gatorgaming-logo.png' alt='Gator Gaming logo'/>
+      <img className='pointer-events-none w-40 opacity-25 self-center -mt-0' src='/other/gatorgaming-logo.png' alt='Gator Gaming logo'/>
       <img 
         onClick={() => setFlipped(!flipped)}
         className={`${hovered ? 'visible' : 'hidden'} absolute cursor-pointer -right-[19px] -bottom-[16px]`}
