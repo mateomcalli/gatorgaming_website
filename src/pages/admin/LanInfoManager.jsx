@@ -6,7 +6,8 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
   const formRef = useRef(null)
   const [lanInfo, setLanInfo] = useState(null)
   const [lanInfoData, setLanInfoData] = useState({
-    edition: '',
+    semester: '',
+    year: '',
     dateRange: ''
   })
 
@@ -28,18 +29,27 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
   }, [refresh])
 
   const handleChange = (event) => {
-    event.preventDefault()
     setLanInfoData(prev => ({
       ...prev,
       [event.target.name]: event.target.value
     }))
   }
 
+  const handleSelectChange = (event) => {
+    setLanInfoData(prev => ({
+      ...prev,
+      semester: event.target.value
+    }))
+  }
+
   const handleSubmit = async (event) => {
+    const yearString = lanInfoData.year ? String(lanInfoData.year) : '' 
+    const fixedYear = String("'" + yearString[2] + yearString[3]) 
+    const updatedData = { ...lanInfoData, year: fixedYear }
     try {
       event.preventDefault()
-      await axios.post(`${BASE_URL}/api/laninfo`, lanInfoData, { withCredentials: true })
-      setLanInfoData({ edition: '', dateRange: '' })
+      await axios.post(`${BASE_URL}/api/laninfo`, updatedData, { withCredentials: true })
+      setLanInfoData({ semester: '', year: '', dateRange: ''})
       formRef.current.reset()
       toggleRefresh(true)
     } catch (error) {
@@ -53,8 +63,12 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
       <div>
         <p className='text-2xl font-display text-ggwhite pb-3'>GatorLAN Information:</p>
         <p className='text-md font-display text-ggwhite'>
-          Currently displayed edition:
-          <span className='text-ggorange font-mono pl-1'>{lanInfo?.edition}</span>
+          Currently displayed semester:
+          <span className='text-ggorange font-mono pl-1'>{lanInfo?.semester}</span>
+        </p>
+        <p className='text-md font-display text-ggwhite'>
+          Currently displayed year:
+          <span className='text-ggorange font-mono pl-1'>{lanInfo?.year}</span>
         </p>
         <p className='text-md font-display text-ggwhite'>
           Currently displayed date range:
@@ -68,7 +82,14 @@ const LanInfoManager = ({ refresh, toggleRefresh }) => {
           ref={formRef}
         >
           <p className='font-display text-ggorange pb-2 self-start pl-1 md:pl-0 md:self-center'>Change GatorLAN dates:</p>
-          <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='edition' placeholder='Edition' onChange={handleChange} required />
+          {/* <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='edition' placeholder='Edition' onChange={handleChange} required /> */}
+          <select value={lanInfoData.semester} onChange={handleSelectChange} className='text-[#999] font-display'>
+            <option className='text-black' value=''>Choose a semester: </option>
+            <option className='text-black' value='Fall'>Fall</option>
+            <option className='text-black' value='Spring'>Spring</option>
+            <option className='text-black' value='Summer'>Summer</option>
+          </select>
+          <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='year' placeholder="Year" maxLength='4' onChange={handleChange} required />
           <input className='ml-1 font-display placeholder-[#999] focus:outline-none' name='dateRange' placeholder="Dates (ex. 'May 1-4')" onChange={handleChange} required />
           <motion.button
             whileHover={{

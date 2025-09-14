@@ -18,11 +18,11 @@ app.use(express.json()) // necessary to parse json data (req.body)
 app.use(cookieParser())
 
 const limiter = rateLimit({
-	windowMs: 15 * 60 * 1000,
-	limit: 100,
+	windowMs: 5 * 60 * 1000,
+	limit: 500,
 	standardHeaders: 'draft-8',
 	legacyHeaders: false,
-	ipv6Subnet: 52,
+	ipv6Subnet: 56,
 })
 
 app.use(limiter)

@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
     const body = req.body
     await LanInfo.deleteMany({})
     const response = await LanInfo.create({
-      edition: body.edition,
+      semester: body.semester,
+      year: body.year,
       dateRange: body.dateRange
     })
     res.status(200).json(response)

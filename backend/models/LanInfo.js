@@ -1,7 +1,8 @@
 import { Schema, model } from 'mongoose'
 
 const lanInfoSchema = new Schema({
-  edition: String,
+  semester: String,
+  year: String,
   dateRange: String
 })
 
