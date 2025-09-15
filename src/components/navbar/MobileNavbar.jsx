@@ -19,7 +19,9 @@ const MobileNavbar = ({ setSelectedPage }) => {
             onClick={() => setSelectedPage('Home')}
             className='w-16'
             src='https://i.imgur.com/n2RSSOQ.png'
-          ></img>
+            // imgur is crazy work LOL
+            alt='Gator Gaming Logo'
+          />
         </div>
         <div 
           className='relative w-fit text-3xl flex justify-end gap-4'

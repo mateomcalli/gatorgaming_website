@@ -14,7 +14,7 @@ const AlbumThumbnail = ({ _id, title, coverImage, setAlbumOpen, setAlbumName }) 
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
       >
-        <img className='w-full h-full object-cover rounded-xl pointer-events-none' src={coverImage}/>
+        <img className='w-full h-full object-cover rounded-xl pointer-events-none' src={coverImage} alt='Gallery cover image'/>
       </motion.button>
       <p className='relative ml-4 sm:m-auto text-xl drop-shadow-2xl'>{title}</p>
     </div>

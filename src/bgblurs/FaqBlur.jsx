@@ -4,6 +4,7 @@ const FaqBlur = () => {
       <img 
         className='min-w-[1000px] w-full h-full scale-140 sm:scale-130 lg:scale-100 object-center object-cover'
         src='/home/faq-bg16.png'
+        alt='Blurry background asset'
       />
     </div>
   )

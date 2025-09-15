@@ -20,7 +20,7 @@ const Gallery = ({ albumsList, emptyBool }) => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <img src='/gallery-blur1.png'/>
+              <img src='/gallery-blur1.png' alt='Blurry background asset'/>
             </motion.div>
             <motion.div
               key='gallery-list'

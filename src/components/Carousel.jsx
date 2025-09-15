@@ -49,6 +49,7 @@ const Carousel = () => {
                 className='w-90 h-50 sm:w-110 sm:h-70 md:w-130 md:h-80 lg:w-107 lg:h-73 xl:w-120 xl:h-80 2xl:w-140 2xl:h-90 object-cover rounded-4xl pointer-events-none' 
                 src={image.url}
                 key={image.id}
+                alt='Club members'
               />
           ))}
           <motion.button

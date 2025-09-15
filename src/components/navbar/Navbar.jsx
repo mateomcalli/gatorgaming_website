@@ -9,8 +9,9 @@ const Navbar = () => {
         <div className='flex-shrink-0'>
           <img
             className='w-16 pointer-events-none select-none'
-            src='https://i.imgur.com/n2RSSOQ.png' // change to public file if necessary
-          ></img>
+            src='https://i.imgur.com/n2RSSOQ.png' // change to public file if necessary (lol)
+            alt='Gator Gaming logo'
+          />
         </div>
       </NavLink>
       <div className='flex justify-center text-nowrap gap-4 z-2 sm:gap-6 md:gap-8 lg:gap-10'>

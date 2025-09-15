@@ -39,16 +39,19 @@ const Coins = ({ minMd }) => {
               variants={itemVariants}
               className='mb-7'
               src='/about/coin.png'
+              alt='Coin icon'
             />
             <motion.img
               variants={itemVariants}
               className='mt-27'
               src='/about/coin2.png'
+              alt='Coin icon'
             />
             <motion.img
               variants={itemVariants}
               className='mb-17'
               src='/about/coin3.png'
+              alt='Coin icon'
             />
           </motion.div>
           <motion.div
@@ -61,11 +64,13 @@ const Coins = ({ minMd }) => {
               variants={itemVariants}
               className='mt-8 ml-30'
               src='/about/coin4.png'
+              alt='Coin icon'
             />
             <motion.img
               variants={itemVariants}
               className='mb-8 mr-20'
               src='/about/coin5.png'
+              alt='Coin icon'
             />
           </motion.div>
         </div>

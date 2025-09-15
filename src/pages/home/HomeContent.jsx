@@ -55,6 +55,7 @@ const HomeContent = ({ maxSm, minXl }) => {
             <img 
               className='aspect-auto z-2'
               src='home/home-players.webp'
+              alt='Members gaming'
             />
           </div>
           <div className='w-3/4 md:w-auto m-auto text-center md:text-left items-center md:items-start xl:pl-10 md:justify-center flex flex-col'>
@@ -169,6 +170,7 @@ const HomeContent = ({ maxSm, minXl }) => {
             <img 
               className='rounded-3xl aspect-auto z-2'
               src='home/faq-image.webp'
+              alt='Club members'
             />
           </div>
           }

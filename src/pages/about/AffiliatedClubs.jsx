@@ -48,7 +48,9 @@ const AffiliatedClubs = ({ minLg }) => {
                     <div className='w-65 h-65 xl:w-75 xl:h-75 rounded-3xl'>
                       <motion.img
                         animate={{ opacity: renderInfo ? 0 : 1 }}
-                        className={`absolute top-0 left-0 z-2 w-full h-full rounded-3xl ${renderInfo ? 'pointer-events-none' : 'pointer-events-auto'}`} src={club.image}
+                        className={`absolute top-0 left-0 z-2 w-full h-full rounded-3xl ${renderInfo ? 'pointer-events-none' : 'pointer-events-auto'}`}
+                        src={club.image}
+                        alt={club.name}
                       />
                       <div className='absolute top-0 left-0 w-65 h-65 xl:w-75 xl:h-75 rounded-3xl bg-ggbg z-1'>
                         <div className='p-4 flex flex-col justify-start xl:justify-center items-center rounded-3xl gap-y-5 h-full w-full'>

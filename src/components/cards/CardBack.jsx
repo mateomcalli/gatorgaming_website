@@ -9,7 +9,12 @@ const CardBack = ({ favoriteGames, aboutMe, flipped, setFlipped, hovered }) => {
         <p className='text-xl text-ggorange font-display'>About me:</p>
         <p className='text-lg text-ggwhite font-display'>{aboutMe}</p>
       </div>
-      <img onClick={() => setFlipped(!flipped)} className={`${hovered ? 'visible' : 'hidden'} absolute cursor-pointer -right-[19px] -bottom-[16px]`} src='/team/bent-corner3.png'/>
+      <img 
+        onClick={() => setFlipped(!flipped)}
+        className={`${hovered ? 'visible' : 'hidden'} absolute cursor-pointer -right-[19px] -bottom-[16px]`}
+        src='/team/bent-corner3.png'
+        alt='Bent corner asset'
+      />
     </div>
   )
 }
