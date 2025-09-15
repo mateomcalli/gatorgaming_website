@@ -90,8 +90,8 @@ const EventsManager = ({ refresh, toggleRefresh }) => {
         <form className='flex flex-col' ref={formRef} onSubmit={handleSubmitEvent}>
           <input className='font-display placeholder-[#999] focus:outline-none' name='title' placeholder='Title' maxLength='30' onChange={handleChange} required />
           <input className='font-display placeholder-[#999] focus:outline-none' name='location' placeholder='Location' onChange={handleChange} required />
-          <input className='font-display focus:outline-none' type='date' name='date' onChange={handleChange} required />
-          <input type='time' name='time' onChange={handleChange} required />
+          <input className='font-display focus:outline-none' type='date' name='date' placeholder='Date' onChange={handleChange} required />
+          <input type='time' name='time' placeholder='Time' onChange={handleChange} required />
           <input className='font-display placeholder-[#999] focus:outline-none' placeholder='Instagram link' name='link' onChange={handleChange} required />
           <motion.button
             whileHover={{
