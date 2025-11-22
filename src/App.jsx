@@ -28,7 +28,7 @@ const App = () => {
   const [albumsList, setAlbumsList] = useState([])
   const [emptyBool, setEmptyBool] = useState(false)
   const [lanInfo, setLanInfo] = useState(null)
-
+  
   useEffect(() => {
     const getMembers = async () => {
       try {

@@ -4,6 +4,8 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { rateLimit } from 'express-rate-limit'
+import "./cron.js"
+
 import Session from './models/Sessions.js'
 import loginRoutes from './routes/login.js'
 import eventsRoutes from './routes/events.js'
