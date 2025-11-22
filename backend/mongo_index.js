@@ -29,7 +29,9 @@ app.use(limiter)
 
 const url = process.env.MONGO_URI
 
-mongoose.connect(url)
+mongoose.connect(url, {
+  dbName: 'GGData'
+})
   .then(() => console.log('Connected to MongoDB!'))
   .catch(error => console.log('Error connecting to MongoDB:', error.message))
 
